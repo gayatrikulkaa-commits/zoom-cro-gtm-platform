@@ -128,7 +128,7 @@ function impactChip(a) {
 }
 function actionRow(a) {
   const st = aStatus(a.id), cro = S.role === 'cro';
-  return '<div class="act"><div class="ah"><div class="at"><b>' + esc(a.title) + '</b><div class="am">' + impactChip(a) + '<span class="cf ' + a.conf + '">Confidence ' + a.conf + '</span><span class="sub">' + esc(a.owner) + '</span><span class="sub num">Due ' + dateFmt(a.due) + '</span></div></div><div class="aa">' + (st === 'Approved' ? '<span class="appr ok">Authorized</span>' : st === 'Rejected' ? '<span class="appr bad">Rejected</span>' : cro ? '<button class="btn red sm" data-act="aset" data-id="' + a.id + '" data-v="Approved">Authorize</button><button class="btn sm" data-act="aset" data-id="' + a.id + '" data-v="Rejected">Reject</button>' : '<span class="appr">Awaiting leadership</span>') + '</div></div>' +
+  return '<div class="act"><div class="ah"><div class="at"><b>' + esc(a.title) + '</b><div class="am">' + impactChip(a) + '<span class="cf ' + a.conf + '">Confidence ' + a.conf + '</span><span class="sub">' + esc(a.owner) + '</span><span class="sub num">Due ' + dateFmt(a.due) + '</span></div></div><div class="aa">' + (st === 'Approved' ? '<span class="appr ok">Approved</span>' : st === 'Rejected' ? '<span class="appr bad">Deferred</span>' : cro ? '<button class="btn red sm" data-act="aset" data-id="' + a.id + '" data-v="Approved">Approve</button><button class="btn sm" data-act="aset" data-id="' + a.id + '" data-v="Rejected">Defer</button>' : '<span class="appr">Awaiting leadership</span>') + '</div></div>' +
     '<details class="ad"><summary>Details</summary><div class="adg"><div><span class="k">Problem</span>' + esc(a.problem) + '</div><div><span class="k">Proposed decision</span>' + esc(a.decision) + '</div><div><span class="k">Metric affected</span>' + esc(a.metric) + '</div><div><span class="k">How the impact is estimated</span>' + esc(a.basis) + (a.additive === false ? ' <b>Not additive.</b>' : '') + '</div>' + (a.observed ? '<div><span class="k">Observed</span>' + esc(a.observed) + '</div>' : '') + '<div><span class="k">Depends on</span>' + (a.deps.length ? esc(a.deps.join('; ')) : 'Nothing outside the team') + '</div><div><span class="k">Approval</span>' + st + '</div></div><div class="ad-links"><button class="linkbtn" data-act="hgo" data-go="' + a.go.join('|') + '">Open the evidence</button>' + (a.accountId ? '<button class="linkbtn" data-act="opencoach" data-id="' + a.accountId + '">Open the seller coach</button>' : '') + '</div></details></div>';
 }
 function actionsCard() {
@@ -142,19 +142,21 @@ function actionsCard() {
 const LOOP_SEED = { authorized: 14, started: 11, completed: 9, resolved: 7, reviewed: 6, accepted: 5, buyer: 4 };
 function loopCounts() {
   const ss = desk.coach.sessions || [], auth = Object.values(desk.actionStatus || {}).filter((v) => v === 'Approved').length;
-  return [['Intervention authorized', LOOP_SEED.authorized + auth], ['Coach started', LOOP_SEED.started + ss.length], ['Coach completed', LOOP_SEED.completed + ss.filter((x) => x.done).length], ['Missing information resolved', LOOP_SEED.resolved + ss.filter((x) => x.resolved).length], ['Asset reviewed', LOOP_SEED.reviewed + ss.filter((x) => x.reviewed).length], ['Action accepted', LOOP_SEED.accepted + ss.filter((x) => x.accepted).length], ['Buyer next step recorded', LOOP_SEED.buyer + ss.filter((x) => x.buyerNext).length]];
+  return [['Move approved', LOOP_SEED.authorized + auth], ['Seller started the coach', LOOP_SEED.started + ss.length], ['Seller finished the coach', LOOP_SEED.completed + ss.filter((x) => x.done).length], ['Missing information resolved', LOOP_SEED.resolved + ss.filter((x) => x.resolved).length], ['Seller reviewed the brief and deck', LOOP_SEED.reviewed + ss.filter((x) => x.reviewed).length], ['Seller accepted the action', LOOP_SEED.accepted + ss.filter((x) => x.accepted).length], ['Buyer next step recorded', LOOP_SEED.buyer + ss.filter((x) => x.buyerNext).length]];
 }
 function loopCard() {
-  const c = loopCounts(), mx_ = Math.max.apply(null, c.map((x) => x[1])), D_ = ['A leader approved an action', 'A seller opened the coach', 'The seller finished the coach', 'A gap was closed (a sponsor named, a baseline obtained)', 'The seller reviewed the brief and deck', 'The seller accepted the recommended action', 'The buyer agreed a dated next step'];
-  return '<div class="card" id="loop"><div class="hd"><div><span class="kicker">Is the plan turning into seller action?</span> ' + gMine() + '<h3>Execution loop</h3></div><span class="hd-r">' + infoBtn('loop') + '</span></div><p class="sub" style="color:var(--ink-2);margin:-4px 0 10px;font-size:13px">Each bar counts how many reached that step. Pilot sample plus what you do in this demo: <button class="linkbtn" data-act="opencoach" data-id="' + M.coachAccountId + '">run the coach</button> and watch the counts move.</p><div class="lgroup"><b>What we did</b><span>leading: visible within weeks</span></div>' +
+  const c = loopCounts(), mx_ = Math.max.apply(null, c.map((x) => x[1])), D_ = ['You approved a move', 'A seller opened the guided coach', 'The seller finished the coach', 'A gap was closed (a sponsor named, a baseline obtained)', 'The seller reviewed the brief and deck', 'The seller accepted the recommended action', 'The buyer agreed a dated next step'];
+  return '<div class="card" id="loop"><div class="hd"><div><span class="kicker">Is the plan turning into seller action?</span><h3>Execution loop</h3></div><span class="hd-r">' + infoBtn('loop') + '</span></div><p class="sub" style="color:var(--ink-2);margin:-4px 0 10px;font-size:13px">Each bar counts how many reached that step. Pilot sample plus what you do in this demo: <button class="linkbtn" data-act="opencoach" data-id="' + M.coachAccountId + '">run the coach</button> and watch the counts move.</p><div class="lgroup"><b>What we did</b><span>leading: visible within weeks</span></div>' +
     c.map((x, i) => '<div class="lrow"><span class="ln">' + (i + 1) + '</span><span class="lt2"><b>' + x[0] + '</b><small>' + D_[i] + '</small></span><div class="lb"><i style="width:' + Math.max(4, (x[1] / mx_) * 100) + '%"></i></div><span class="lv num">' + x[1] + '</span></div>').join('') +
     '<div class="lgroup lag"><b>What happened</b><span>lagging: takes about ' + nf(mean(M.lag.cycleByProduct.map((x) => x.v)), 0) + ' days</span></div><div class="lrow pend"><span class="ln">8</span><span class="lt2"><b>Revenue outcome</b><small>Expansion won, renewal saved. Not yet observed, so none is claimed</small></span><div class="lb"><i></i></div><span class="lv">-</span></div></div>';
 }
 
-// ---------- the Command page: the number, the route, the moves ----------
+// ---------- the CRO Hub: the 50,000-foot view. Four numbers, three regions, three moves, one proof. ----------
 const stDot = (st) => (['ok', 'warn', 'bad'].includes(st) ? st : 'none');
 const RWORD = { ok: 'On track', warn: 'Watch', bad: 'Act now', insufficient: 'Thin data', na: 'n/a', none: 'No data' };
 const SHORT = { perf: 'To date', fcst: 'Forecast', ret: 'Retention', grow: 'Pipeline', comp: 'Rivals' };
+const RANK = { bad: 3, warn: 2, ok: 1 };
+const worstOf = (...sts) => sts.reduce((w, x) => ((RANK[x] || 0) > (RANK[w] || 0) ? x : w), 'insufficient');
 function reasonPhrase(k, c) {
   if (k === 'perf') return 'Behind plan to date: ' + pc(c.value, 0);
   if (k === 'fcst') return 'Forecast is ' + pc(c.value, 0) + ' of the full-year plan';
@@ -163,49 +165,81 @@ function reasonPhrase(k, c) {
   return pc(c.value, 0) + ' of open pipeline names a rival';
 }
 function overallOf(row) {
-  const rank = { bad: 3, warn: 2, ok: 1 }; let best = null;
-  MCOLS.forEach((c) => { const x = row[c[0]], r = rank[x.status] || 0; if (r && (!best || r > best.r)) best = { r, st: x.status, k: c[0], x }; });
+  let best = null;
+  MCOLS.forEach((c) => { const x = row[c[0]], r = RANK[x.status] || 0; if (r && (!best || r > best.r)) best = { r, st: x.status, k: c[0], x }; });
   return best || { r: 0, st: 'insufficient', k: 'fcst', x: row.fcst };
 }
+// the four measures a region card shows, in plain words. "Forecast vs actuals" joins what has closed so far with where the year is forecast to land.
+const HM = [['fva', 'Forecast vs actuals'], ['ret', 'Retention'], ['grow', 'Pipeline'], ['comp', 'Competitive positioning']];
+function hMeasure(row, k) {
+  if (k === 'fva') {
+    const p = row.perf, f = row.fcst, st = worstOf(p.status, f.status);
+    return { st, k: 'fcst', text: p.status === 'insufficient' ? 'Too few closed deals yet' : fm(p.actual, 1) + ' closed against ' + fm(p.elapsed, 1) + ' planned so far' };
+  }
+  const c = row[k]; if (!c || c.status === 'insufficient' || c.status === 'na') return { st: 'insufficient', k, text: 'Not enough deals to judge' };
+  return { st: c.status, k, text: k === 'ret' ? fm(c.atRisk, 1) + ' of revenue at risk' : k === 'grow' ? pc(c.value, 0) + ' of open pipeline is healthy' : pc(c.value, 0) + ' of open pipeline names a rival' };
+}
+const hdrill = (row, k) => 'data-act="mdrill" data-lens="' + row.lens + '" data-g="' + esc(row.label) + '" data-k="' + k + '"';
+function hMeasureRows(row) {
+  return '<div class="hm" role="group" aria-label="Measures for ' + esc(row.label) + '">' + HM.map((m) => { const x = hMeasure(row, m[0]); return '<button class="hmr" ' + hdrill(row, x.k) + ' aria-label="' + esc(row.label + ', ' + m[1] + ', ' + RWORD[x.st] + ', ' + x.text) + '"><span class="hml">' + m[1] + '</span><span class="hmv">' + esc(x.text) + '</span><span class="hms ' + stDot(x.st) + '">' + (RANK[x.st] ? gdot(x.st) : dot('none')) + RWORD[x.st] + '</span></button>'; }).join('') + '</div>';
+}
+function hOverall(row) { const sts = HM.map((m) => hMeasure(row, m[0])), st = worstOf.apply(null, sts.map((x) => x.st)), w = sts.find((x) => x.st === st) || sts[0]; return { st, k: w.k }; }
 function regionCard(row) {
-  const b = M.bridge[row.label], o = overallOf(row), max = Math.max(b.plan, b.landing) * 1.08, drill = (k) => 'data-act="mdrill" data-lens="region" data-g="' + esc(row.label) + '" data-k="' + k + '"';
-  const dots = MCOLS.map((c) => { const x = row[c[0]], v = x.status === 'na' || x.status === 'insufficient' ? null : mval(c[0], x); return '<button class="rd ' + stDot(x.status) + '" ' + drill(c[0]) + ' title="' + esc(c[1] + ': ' + (v ? v[0] + ' · ' + v[1] + ' · ' : '') + (RWORD[x.status] || '')) + '" aria-label="' + esc(row.label + ', ' + c[1] + ', ' + (RWORD[x.status] || '')) + '"><i class="dot ' + stDot(x.status) + '"></i><span>' + SHORT[c[0]] + '</span></button>'; }).join('');
-  return '<div class="rc ' + stDot(o.st) + (S.region === row.label ? ' on' : '') + '"><button class="rc-main" ' + drill(o.k) + '><span class="rc-top"><b>' + esc(row.label) + '</b><span class="rs">' + dot(stDot(o.st)) + RWORD[o.st] + '</span></span><span class="rc-big"><b class="num">' + fm(b.landing, 1) + '</b><small>expected, of ' + fm(b.plan, 1) + ' plan</small></span><span class="rc-bar"><i style="width:' + (b.landing / max) * 100 + '%"></i><u style="left:' + (b.plan / max) * 100 + '%"></u></span><span class="rc-why">' + (o.st === 'ok' ? 'All five measures on track' : esc(reasonPhrase(o.k, o.x))) + '</span></button><div class="rc-dots" role="group" aria-label="The five measures for ' + esc(row.label) + '">' + dots + '</div></div>';
+  const b = M.bridge[row.label], o = hOverall(row), max = Math.max(b.plan, b.landing) * 1.08;
+  return '<div class="rc ' + stDot(o.st) + (S.region === row.label ? ' on' : '') + '"><button class="rc-main" ' + hdrill(row, o.k) + '><span class="rc-top"><b>' + esc(row.label) + '</b><span class="rs">' + dot(stDot(o.st)) + RWORD[o.st] + '</span></span><span class="rc-big"><b class="num">' + fm(b.landing, 1) + '</b><small>forecast · plan ' + fm(b.plan, 1) + '</small></span><span class="rc-bar"><i style="width:' + (b.landing / max) * 100 + '%"></i><u style="left:' + (b.plan / max) * 100 + '%"></u></span></button>' + hMeasureRows(row) + '</div>';
 }
-function motionRail(B, R, pending) {
-  const c = loopCounts(), review = R.reduce((t, r) => t + MCOLS.filter((m) => ['bad', 'warn'].includes(r[m[0]].status)).length, 0);
-  const step = (n, name, line, stat, attrs, next) => '<li><button class="ms' + (next ? ' next' : '') + '" ' + attrs + '><span class="mnum">' + n + '</span><span class="mtx"><b>' + name + '</b><span class="ml">' + line + '</span></span><span class="mv num">' + stat + '</span>' + (next ? '<span class="mtag">Your move</span>' : '') + '</button></li>';
-  return '<section class="rail"><div class="sec-h"><h3>The route</h3><span class="muted">From the number to the seller to proof. Each step opens its tab.</span></div><ol class="motion">' +
-    step(1, 'See', 'Where revenue is heading', gfm(GM.forecast) + ' forecast', 'data-act="tab" data-t="revenue"') +
-    step(2, 'Find', 'Where it can change', review + ' to review', 'data-act="tab" data-t="regprod"') +
-    step(3, 'Decide', 'Authorize the move', pending ? pending + ' waiting' : 'All authorized', 'data-act="scrollto" data-to="moves"', pending > 0) +
-    step(4, 'Guide', 'Equip the seller', c[2][1] + ' coached', 'data-act="tab" data-t="guided"', pending === 0) +
-    step(5, 'Prove', 'Did execution improve', c[5][1] + ' accepted', 'data-act="scrollto" data-to="prove"') + '</ol></section>';
+// the five steps from the deck, as a thin strip: each opens the place where that step is done
+function stepStrip(pending) {
+  const st = (n, name, line, attrs, now) => '<button class="stp' + (now ? ' now' : '') + '" ' + attrs + '><span class="stn">' + n + '</span><span class="stt"><b>' + name + '</b><small>' + line + '</small></span></button>';
+  return '<nav class="steps" aria-label="The five steps">' + st(1, 'See', 'Where revenue is heading', 'data-act="tab" data-t="revenue"') + st(2, 'Find', 'Where it can change', 'data-act="tab" data-t="regprod"') + st(3, 'Decide', 'Approve a move', 'data-act="scrollto" data-to="moves"', pending > 0) + st(4, 'Guide', 'Equip the seller', 'data-act="tab" data-t="guided"', pending === 0) + st(5, 'Prove', 'Did it lift revenue', 'data-act="scrollto" data-to="prove"') + '</nav>';
 }
+
+// the next three moves: plain titles, one line of impact, and the detail one click away
+const HUB_MOVE = {
+  sponsor: { title: (a) => 'Get a senior customer leader behind ' + (a.title.match(/\d+/) || ['these'])[0] + ' open deals', what: 'No senior person at the customer is backing these deals. Deals like this close less often and slip more often.', does: 'Each deal goes on its seller\'s task list with a guided coach. The seller asks for a meeting with a senior leader at the customer. Nothing is sent to a customer.', why: (a, L) => 'Based on this book\'s past deals: the win chance rises when a senior customer leader is involved. We assume ' + pc(L.sponsor_push_success_rate, 0) + ' of these deals respond. Medium because that rate is an assumption and the sample of comparable deals is modest.' },
+  rescue: { title: (a) => 'Rescue ' + (a.title.match(/\d+/) || ['these'])[0] + ' renewals that are slipping', what: 'These customers renew soon and their health score is low (falling usage, quiet calls, stalled delivery).', does: 'Customer success managers book an executive check-in and an adoption sprint with each customer before a renewal quote goes out.', why: (a, L) => 'Health combines usage, calls and delivery status from four feeds. We assume ' + pc(L.renewal_rescue_save_rate, 0) + ' of at-risk revenue is saved. Medium because the save rate is an assumption.' },
+  asks: { title: (a) => 'Open ' + (a.title.match(/\d+/) || ['these'])[0] + ' expansion deals customers asked for', what: 'Healthy customers asked about another Zoom product on calls, but nobody has opened a deal.', does: 'Sellers create the opportunities and run the expansion coach on each one.', why: (a, L) => 'These asks come from call transcripts, not from signed intent. We assume ' + pc(L.expansion_conversion_rate, 0) + ' convert and only ' + pc(L.expansion_in_year_share, 0) + ' of those close this year. Low because both rates are assumptions.' }
+};
+const hMove = (a) => HUB_MOVE[a.id] || { title: (x) => x.title, what: a.problem, does: a.decision, why: () => 'Confidence ' + a.conf + '.' };
 function moveRow(a, i) {
-  const st = aStatus(a.id), cro = S.role === 'cro', ev = '<button class="btn sm ghost" data-act="hgo" data-go="' + a.go.join('|') + '">Evidence</button>', guide = a.accountId ? '<button class="btn sm' + (st === 'Approved' ? ' red' : ' ghost') + '" data-act="opencoach" data-id="' + a.accountId + '">Guide the seller</button>' : '';
-  const act = st === 'Approved' ? '<span class="appr ok">Authorized</span>' + guide + ev : st === 'Rejected' ? '<span class="appr bad">Rejected</span>' + ev : (cro ? '<button class="btn red sm" data-act="aset" data-id="' + a.id + '" data-v="Approved">Authorize</button>' : '<span class="appr">Awaiting leadership</span>') + guide + ev;
-  return '<div class="move"><span class="mn">' + (i + 1) + '</span><div class="mb"><b>' + esc(a.title) + '</b><div class="mm">' + impactChip(a) + '<span class="cf ' + a.conf + '">Confidence ' + a.conf + '</span><span class="sub">' + M.horizons[a.h].range + '</span></div></div><div class="ma">' + act + '</div></div>';
+  const st = aStatus(a.id), hm = hMove(a), cro = S.role === 'cro';
+  const act = st === 'Approved' ? '<span class="appr ok">Approved</span>' + (a.accountId ? '<button class="btn sm red" data-act="opencoach" data-id="' + a.accountId + '">Guide the seller</button>' : '') : st === 'Rejected' ? '<span class="appr bad">Deferred</span>' : '';
+  return '<div class="move"><span class="mn">' + (i + 1) + '</span><div class="mb"><b>' + esc(hm.title(a)) + '</b><div class="mm">' + impactChip(a) + '<span class="cf ' + a.conf + '">Confidence: ' + a.conf + '</span></div></div><div class="ma">' + act + '<button class="btn sm' + (st === 'Pending' && cro ? ' red' : ' ghost') + '" data-act="mv-open" data-id="' + a.id + '">' + (st === 'Pending' ? (cro ? 'Review' : 'Details') : 'Details') + '</button></div></div>';
 }
+function moveDetail(id) {
+  const a = M.actions.find((x) => x.id === id); if (!a) return '';
+  const hm = hMove(a), st = aStatus(a.id), cro = S.role === 'cro', L = M.lv;
+  const unit = { bookings: 'bookings', retention: 'revenue protected', pipeline: 'pipeline to create' }[a.kind];
+  return '<div class="panel-hd"><div><span class="kicker">Next move · ' + M.horizons[a.h].range + '</span><h3>' + esc(hm.title(a)) + '</h3></div><button class="x" data-act="close" aria-label="Close">×</button></div><div class="panel-bd">' +
+    '<div class="mv-blk"><h4>What is going on</h4><p>' + esc(hm.what) + '</p><p class="mv-fact">' + esc(a.problem) + '.' + (a.who ? ' Largest: ' + esc(a.who) + '.' : '') + '</p></div>' +
+    '<div class="mv-blk"><h4>What approving does</h4><p>' + esc(hm.does) + '</p><p class="mv-fact">Owner: ' + esc(a.owner) + ' · due ' + dateFmt(a.due) + '</p></div>' +
+    '<div class="mv-blk"><h4>Expected impact</h4><p>' + (a.modeled == null ? 'Not estimated.' : '<b>' + (a.kind === 'pipeline' ? '' : '+') + fm(a.modeled, 1) + ' ' + unit + '</b> (an estimate, not a result)') + '</p><p class="mv-fact">' + esc(a.basis) + '</p></div>' +
+    '<div class="mv-blk"><h4>Confidence: ' + a.conf + '</h4><p>' + esc(hm.why(a, L)) + '</p>' + (a.observed ? '<p class="mv-fact">' + esc(a.observed) + '</p>' : '') + '</div>' +
+    '<div class="mv-act">' + (st === 'Approved' ? '<span class="appr ok">Approved</span>' + (a.accountId ? '<button class="btn red" data-act="opencoach" data-id="' + a.accountId + '">Guide the seller</button>' : '') : st === 'Rejected' ? '<span class="appr bad">Deferred</span><button class="btn" data-act="mv-set" data-id="' + a.id + '" data-v="Approved">Approve instead</button>' : cro ? '<button class="btn red" data-act="mv-set" data-id="' + a.id + '" data-v="Approved">Approve this move</button><button class="btn" data-act="mv-set" data-id="' + a.id + '" data-v="Rejected">Defer</button>' : '<span class="appr">Waiting for the CRO</span>') + '<button class="btn ghost" data-act="hgo" data-go="' + a.go.join('|') + '">See the deals</button></div></div>';
+}
+
+// proof: did the five steps lift revenue? Each box counts one step; revenue comes last because it lags.
 function proveCard() {
-  const c = loopCounts(), pick = [['Actions authorized', c[0][1]], ['Coaches started', c[1][1]], ['Actions accepted by sellers', c[5][1]], ['Buyer next steps agreed', c[6][1]]], mx = Math.max.apply(null, pick.map((x) => x[1]));
-  return '<div class="card" id="prove"><div class="hd"><div><h3>Is it working?</h3><span class="kicker">Does the plan turn into seller action?</span></div><span class="hd-r">' + infoBtn('loop') + '</span></div>' +
-    pick.map((x) => '<div class="prow"><span>' + x[0] + '</span><div class="lb"><i style="width:' + Math.max(4, (x[1] / mx) * 100) + '%"></i></div><b class="num">' + x[1] + '</b></div>').join('') +
-    '<div class="prow pend"><span>Revenue outcome</span><div class="lb"><i></i></div><b>-</b></div><p class="muted sm">Revenue lags by about ' + nf(mean(M.lag.cycleByProduct.map((x) => x.v)), 0) + ' days, so none is claimed yet. Pilot sample plus what you do in this demo.</p></div>';
+  const c = loopCounts(), co = M.cohort, lag = nf(mean(M.lag.cycleByProduct.map((x) => x.v)), 0);
+  const steps = [['Approved', c[0][1], 'moves you approved'], ['Started', c[1][1], 'sellers who opened the guided coach'], ['Completed', c[2][1], 'sellers who finished it'], ['Accepted', c[5][1], 'sellers who took the advice'], ['Buyer step', c[6][1], 'buyers who agreed a dated next step']];
+  return '<div class="card" id="prove"><div class="hd"><div><span class="kicker">Step 5 · Prove</span><h3>Did execution improve, and is it lifting revenue?</h3></div><span class="hd-r">' + infoBtn('loop') + '</span></div>' +
+    '<div class="pv">' + steps.map((x) => '<div class="pvs"><b class="num">' + x[1] + '</b><span>' + x[0] + '</span><small>' + x[2] + '</small></div>').join('') + '<div class="pvs pend"><b>Not yet</b><span>Revenue</span><small>lags about ' + lag + ' days</small></div></div>' +
+    '<p class="pv-read"><b>Early read:</b> pilot sellers have a senior customer leader on ' + pc(co.pilot.exec, 0) + ' of their deals, against ' + pc(co.control.exec, 0) + ' for other sellers. Revenue is not claimed until it shows up in closed deals.</p>' +
+    '<p class="pv-key"><b>Seller</b> = the Zoom account executive who owns the deal. <b>Coach</b> = the guided assistant that walks a seller through one account.</p>' +
+    '<div class="pv-act"><button class="btn sm" data-act="opencoach" data-id="' + M.coachAccountId + '">Try the coach as a seller</button></div></div>';
 }
 const wk = (key, title, html) => '<div id="' + key + '"><details class="more" data-k="' + key + '"' + (S.open[key] ? ' open' : '') + '><summary>' + title + '</summary><div class="more-b">' + html + '</div></details></div>';
 function viewCommand() {
   const R = M.matrix.region, A = M.matrix.all, row = S.region === 'All' ? A : (R.find((r) => r.label === S.region) || A), B = M.bridge[row === A ? 'All' : row.label] || M.bridge.All;
-  const reds = R.flatMap((r) => MCOLS.filter((c) => r[c[0]].status === 'bad').map((c) => r.label + ' ' + c[1].toLowerCase()));
   const picks = ['sponsor', 'rescue', 'asks'].map((id) => M.actions.find((a) => a.id === id)).filter(Boolean), pending = picks.filter((a) => aStatus(a.id) === 'Pending').length;
-  const gR = S.region === 'All' ? { fc: GM.forecast, up: GM.uplift } : gRegion(S.region);
-  const q = (w, big, d, st, go) => '<button class="q2 ' + stDot(st) + '" data-act="hgo" data-go="' + go + '"><span class="qk">' + dot(stDot(st)) + w + '</span><b class="qv num">' + big + '</b><span class="qd">' + d + '</span></button>';
-  const head = '<section class="answer" id="ans"><span class="kicker">' + M.curQ + ' · ' + M.cur.daysLeft + ' days left' + (S.region !== 'All' ? ' · ' + esc(S.region) : '') + '</span><h2>Baseline forecast ' + gfm(gR.fc, S.region === 'All' ? 0 : 1) + ', ' + gfm(gR.fc + gR.up, S.region === 'All' ? 0 : 1) + ' with Databook. <span class="h2s">Net-new bookings land at ' + fm(B.landing) + ' against a ' + fm(B.plan) + ' plan' + (B.gap > 0 ? ', ' + fm(B.gap, 1) + ' short' : '') + '.' + (B.incr > 0 ? ' ' + fm(B.incr, 1) + ' more is within reach.' : '') + '</span></h2>' +
-    '<div class="qrow2">' + q('Track', pc(row.perf.value, 0), 'of the plan due by today', row.perf.status, 'tab|forecast') + q('Grow', '+' + fm(B.incr, 1), 'upside if two actions land', 'ok', 'accfocus|priority') + q('Recover', fm(row.ret.atRisk || 0, 1), 'of revenue at risk', row.ret.status, 'accfocus|priority') + q('Compete', pc(row.comp.value, 0), 'of open pipeline names a rival', row.comp.status, 'gosub-compete|map') + '</div>' +
-    '<details class="why"><summary>Why this matters</summary><p>Closed so far plus the risk-weighted forecast gives the landing. Upside is only what a named action could add beyond the forecast, at assumed success rates, and is not in the forecast today. Red now: ' + (reds.join('; ') || 'none') + '.' + whatifNote() + '</p></details></section>';
-  const regions = '<section id="regions"><div class="sec-h"><h3>Where it stands</h3><button class="linkbtn" data-act="scrollto" data-to="measures">All measures</button></div><div class="rgrid">' + R.map(regionCard).join('') + '</div></section>';
-  const moves = '<section id="moves"><div class="sec-h"><h3>Your next three moves</h3><span class="muted">Authorize, then guide the seller</span></div><div class="card flush">' + picks.map(moveRow).join('') + '</div></section>';
-  const working = '<section class="working"><div class="sec-h"><h3>The working</h3><span class="muted">Everything above is built from these</span></div>' +
-    wk('measures', 'All measures, by region, industry, size and product', matrixCard() + treesCard()) + wk('bridge', 'Where the year lands, by region', bridgeCard()) + wk('horizons', 'Every action, by 0-30, 31-90 and 91-180 days', actionsCard()) + wk('loopd', 'The execution loop, step by step', loopCard()) + '</section>';
-  return filterBar() + head + motionRail(B, R, pending) + gApproachTeaser() + gLeversTeaser() + regions + moves + '<div class="grid g2">' + mapCard({ compact: true }) + proveCard() + '</div>' + gPlatformMap() + working + provStrip(['m_fcst', 'bridge', 'm_comp']);
+  const gR = S.region === 'All' ? { fc: GM.forecast, up: GM.uplift } : gRegion(S.region), d0 = S.region === 'All' ? 0 : 1;
+  const nRisk = M.accounts.filter((a) => inReg(a.region) && a.arrAtRisk > 0.005).length;
+  const t = (label, big, sub, st, go) => '<button class="q2 ' + stDot(st) + '" ' + (go.indexOf('|') > 0 ? 'data-act="hgo" data-go="' + go + '"' : 'data-act="scrollto" data-to="' + go + '"') + '><span class="qk">' + (st ? dot(stDot(st)) : '') + label + '</span><b class="qv num">' + big + '</b><span class="qd">' + sub + '</span></button>';
+  const head = '<section class="answer" id="ans"><span class="kicker">' + M.curQ + ' · ' + M.cur.daysLeft + ' days left' + (S.region !== 'All' ? ' · ' + esc(S.region) : '') + '</span><h2>Forecast ' + gfm(gR.fc, d0) + '. <span class="h2s">' + gfm(gR.fc + gR.up, d0) + ' with Databook.</span></h2>' +
+    '<div class="qrow2">' + t('New bookings', fm(B.landing, 1), 'forecast · plan ' + fm(B.plan, 1), worstOf(row.perf.status, row.fcst.status), 'tab|forecast') + t('Upside', '+' + fm(B.incr, 1), 'if the moves below land', '', 'moves') + t('Revenue at risk', fm(row.ret.atRisk || 0, 1), 'across ' + nRisk + ' renewing accounts', row.ret.status, 'accfocus|priority') + t('Competitive deals', pc(row.comp.value || 0, 0), 'of open pipeline names a rival', row.comp.status, 'gosub-compete|map') + '</div></section>';
+  const ga = GA.filter((a) => S.region === 'All' || a.region === S.region), aiOwn = ga.filter((a) => a.owns.contactCenter || a.owns.ai).length, untapped = sum(M.accounts.filter((a) => inReg(a.region)), (a) => a.whitespace);
+  const play = '<section class="aiplay"><div class="ap-l"><span class="kicker">Zoom\'s AI play</span><h3>Every seller carries the AI-first vision into each account</h3></div><div class="ap-m"><div><b class="num">' + fm(untapped, 0) + '</b><span>Revenue growth</span><small>untapped in accounts Zoom already owns</small></div><div><b class="num">' + aiOwn + ' of ' + ga.length + '</b><span>Product perception</span><small>accounts own Contact Center or AI</small></div><div><b class="num">' + pc(M.comp.winRateNamed, 0) + '</b><span>Market share</span><small>win rate when a rival is named, against ' + pc(M.comp.winRateClear, 0) + ' without</small></div></div><button class="btn red" data-act="journey-start">Walk through an account</button></section>';
+  const regions = '<section id="regions"><div class="sec-h"><h3>Where it stands</h3><span class="muted"><span class="lgd">' + gdot('ok') + 'On track</span><span class="lgd">' + gdot('warn') + 'Watch</span><span class="lgd">' + gdot('bad') + 'Act now</span></span></div><div class="rgrid">' + R.map(regionCard).join('') + '</div></section>';
+  const moves = '<section id="moves"><div class="sec-h"><h3>Your next three moves</h3><span class="muted">' + (pending ? pending + ' waiting for you' : 'All decided') + '</span></div><div class="card flush">' + picks.map(moveRow).join('') + '</div></section>';
+  return filterBar() + head + play + stepStrip(pending) + regions + moves + proveCard() + '<p class="foot-note">Prototype. Synthetic data. Not connected to Zoom or to Databook systems. Zoom\'s reported revenue and guidance are the only real figures.</p>' + provStrip(['m_fcst', 'bridge', 'm_comp']);
 }

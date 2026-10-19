@@ -8,8 +8,8 @@ A single-page prototype of how a CRO at Zoom could run an AI-assisted go-to-mark
 
 | Path | What it is |
 | --- | --- |
-| `/` | The platform (CRO Hub, My approach, Levers, Guided selling, Accounts, Sellers, Pricing, Compete, Coach, Decide, Studio, Lab, Sources) |
-| `/walkthrough/` | The same platform with a narrated tour (about 98 seconds of voiceover) that switches tabs in time with the audio |
+| `/` | The platform, in three layers. Execution: CRO Hub, Account journey (a seven-step walk through one practice account, Acme Corp), Guided selling, Seller coach. Intelligence: Revenue and uplift, Region and product, Forecast, Accounts, Sellers, Pricing, Compete, Account engine (with the customer context graph), Decide, Sales Ops Studio, Workspace, How it reasons. Data: Ingress and resolution, Data and trust |
+| `/walkthrough/` | A frozen copy of the earlier version of the platform with a narrated tour (about 98 seconds of voiceover). It predates the three-layer restructure and is not rebuilt with the platform |
 
 `dist/` holds the built, self-contained pages, so hosting needs no build step. The pages load Inter from Google Fonts, `xlsx` from cdnjs and `pptxgenjs` from jsdelivr, so they need an internet connection.
 
@@ -29,7 +29,7 @@ node build-walkthrough.js          # optional: rebuild the narrated walkthrough
 node checks.js && node roundtrip.js && node coachtest.js && node gtmtest.js
 ```
 
-`zoom/` is the source of truth. `zoom/gen.js` is seeded, so the data is reproducible. `gtm/gen.js` generates the 40-account portfolio whose totals reconcile exactly ($480M in flight, $185M commit, $210M forecast, $24M scenario uplift).
+`zoom/` is the source of truth. `deliverables/Presenter_Notes.md` holds the pitch-to-platform map, the demo script, the talk track, the approach and the with-and-without-Databook comparison, which are no longer part of the platform. `zoom/gen.js` is seeded, so the data is reproducible. `gtm/gen.js` generates the 40-account portfolio whose totals reconcile exactly ($480M in flight, $185M commit, $210M forecast, $24M scenario uplift).
 
 ## Deploy on Replit
 

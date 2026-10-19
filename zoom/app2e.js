@@ -1,10 +1,15 @@
 // ---------- pricing, promotions and marketing conversion; grouped navigation ----------
 // ---------- navigation: sidebar on desktop, bottom bar and a sheet on phones ----------
-const GROUPS = [{ label: 'CRO Hub', tabs: ['command', 'levers', 'approach'] }, { label: 'The platform', tabs: ['ingress', 'revenue', 'regprod', 'guided', 'engine'] }, { label: 'The four questions', tabs: ['forecast', 'sellers', 'accounts', 'pricing', 'decide', 'compete'] }, { label: 'Seller', tabs: ['coach'] }, { label: 'Analyst', tabs: ['studio', 'lab'] }, { label: 'About', tabs: ['deploy', 'why', 'sources'] }];
-const NAV_LABEL = { command: 'CRO Hub', levers: 'Without vs with Databook', approach: 'My approach', ingress: 'Ingress and resolution', revenue: 'Revenue and uplift', regprod: 'Region and product', guided: 'Guided selling', engine: 'Account engine', studio: 'Sales Ops Studio', deploy: 'Deployment plan', forecast: 'Forecast', sellers: 'Sellers', accounts: 'Accounts', pricing: 'Pricing and promotions', compete: 'Compete', coach: 'Seller coach', decide: 'Decide', lab: 'Workspace', why: 'Why Databook', sources: 'Data and trust' };
-const NAV_TAG = { forecast: 'Track', sellers: 'Track', accounts: 'Grow', pricing: 'Grow', decide: 'Recover', compete: 'Compete' };
+const GROUPS = [
+  { label: 'Execution layer', note: 'Guidance and analytics', tabs: ['command', 'journey', 'guided', 'coach'] },
+  { label: 'Intelligence layer', note: 'The routing engine', tabs: ['revenue', 'regprod', 'forecast', 'accounts', 'sellers', 'pricing', 'compete', 'engine', 'decide', 'studio', 'lab', 'why'] },
+  { label: 'Data layer', note: 'The map', tabs: ['ingress', 'sources'] }
+];
+const LAYER_OF = {}; GROUPS.forEach((g) => g.tabs.forEach((t) => (LAYER_OF[t] = g.label)));
+const NAV_LABEL = { command: 'CRO Hub', journey: 'Account journey', ingress: 'Ingress and resolution', revenue: 'Revenue and uplift', regprod: 'Region and product', guided: 'Guided selling', engine: 'Account engine', studio: 'Sales Ops Studio', forecast: 'Forecast', sellers: 'Sellers', accounts: 'Accounts', pricing: 'Pricing and promotions', compete: 'Compete', coach: 'Seller coach', decide: 'Decide', lab: 'Workspace', why: 'How it reasons', sources: 'Data and trust' };
+const NAV_TAG = {};
 const ICONS = {
-  command: '<path d="M4 11l8-7 8 7v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"/>', forecast: '<path d="M4 19V5M4 19h16M8 15l4-5 3 3 5-7"/>',
+  journey: '<circle cx="6" cy="6" r="2"/><circle cx="18" cy="12" r="2"/><circle cx="8" cy="19" r="2"/><path d="M7.5 7.5l9 3.2M16.5 13.3l-7 4.4"/>', command: '<path d="M4 11l8-7 8 7v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"/>', forecast: '<path d="M4 19V5M4 19h16M8 15l4-5 3 3 5-7"/>',
   accounts: '<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 5.5a3 3 0 0 1 0 5.5M18 14.5c1.8.8 3 2.6 3 5.5"/>', sellers: '<circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7"/>',
   pricing: '<path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.2"/>', compete: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".8"/>',
   coach: '<path d="M12 3l7 17-7-4-7 4z"/>', decide: '<circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/>', lab: '<path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/>',
@@ -19,14 +24,14 @@ function settingsHTML() {
   return '<label class="fld"><span>Viewing as</span><select class="sel" data-act="role" title="A demo switch that changes what this prototype shows. It is not access control.">' + Object.keys(ROLES).map((k) => '<option value="' + k + '"' + (S.role === k ? ' selected' : '') + '>' + ROLES[k] + '</option>').join('') + '</select></label><label class="sw"><input type="checkbox" data-act="detail"' + (S.detail ? ' checked' : '') + '><span>Show explanations</span></label><button class="linkbtn" data-act="demo">Guided tour</button>';
 }
 function sideHTML() {
-  return '<aside class="side"><nav aria-label="Sections">' + GROUPS.map((g) => '<div class="ng"><span class="nl">' + g.label + '</span>' + g.tabs.map(navItem).join('') + '</div>').join('') + '</nav><div class="side-ft">' + settingsHTML() + '</div></aside>';
+  return '<aside class="side"><nav aria-label="Sections">' + GROUPS.map((g) => '<div class="ng"><span class="nl">' + g.label + '<em>' + g.note + '</em></span>' + g.tabs.map(navItem).join('') + '</div>').join('') + '</nav><div class="side-ft">' + settingsHTML() + '</div></aside>';
 }
 function bottomNav() {
-  const b = (id, label) => '<button data-act="tab" data-t="' + id + '" aria-current="' + (S.tab === id ? 'page' : 'false') + '">' + ico(id) + '<span>' + label + '</span></button>', main = ['command', 'levers', 'guided', 'engine'];
-  return '<nav class="bnav" aria-label="Main">' + b('command', 'CRO Hub') + b('levers', 'Levers') + b('guided', 'Guided') + b('engine', 'Accounts') + '<button data-act="sheet" data-s="more" aria-current="' + (main.includes(S.tab) ? 'false' : 'page') + '">' + ico('more') + '<span>More</span></button></nav>';
+  const b = (id, label) => '<button data-act="tab" data-t="' + id + '" aria-current="' + (S.tab === id ? 'page' : 'false') + '">' + ico(id) + '<span>' + label + '</span></button>', main = ['command', 'journey', 'guided', 'ingress'];
+  return '<nav class="bnav" aria-label="Main">' + b('command', 'CRO Hub') + b('journey', 'Journey') + b('guided', 'Guided') + b('ingress', 'Data') + '<button data-act="sheet" data-s="more" aria-current="' + (main.includes(S.tab) ? 'false' : 'page') + '">' + ico('more') + '<span>More</span></button></nav>';
 }
 function sheetHTML() {
-  return '<div class="sheet" role="dialog" aria-modal="true" aria-label="More"><div class="grab"></div><div class="sh-hd"><b>All screens</b><button class="x" data-act="close" aria-label="Close">×</button></div>' + GROUPS.map((g) => '<div class="ng"><span class="nl">' + g.label + '</span>' + g.tabs.map(navItem).join('') + '</div>').join('') + '<div class="sh-set">' + settingsHTML() + '</div></div>';
+  return '<div class="sheet" role="dialog" aria-modal="true" aria-label="More"><div class="grab"></div><div class="sh-hd"><b>All screens</b><button class="x" data-act="close" aria-label="Close">×</button></div>' + GROUPS.map((g) => '<div class="ng"><span class="nl">' + g.label + '<em>' + g.note + '</em></span>' + g.tabs.map(navItem).join('') + '</div>').join('') + '<div class="sh-set">' + settingsHTML() + '</div></div>';
 }
 
 MENU.pricing = [['pricing', 'Pricing', 'Do discounts buy wins?'], ['promotions', 'Promotions', 'Which offers pay back?'], ['marketing', 'Marketing', 'Which channels convert, and at what cost?']];

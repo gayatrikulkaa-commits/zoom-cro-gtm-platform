@@ -130,9 +130,9 @@ function viewWhy() {
 // ---------- data and trust ----------
 function viewTrust() {
   const ck = checks(), pass = ck.filter((c) => !c.bad).length, stale = ck.find((c) => c.warn && c.bad), h = viewSources(), m = '<div class="card"><div class="hd"><h3>Integrity checks</h3>', i = h.indexOf(m), pe = h.indexOf('<div class="prov">');
-  const head = answerCard({ kicker: 'Data and trust ' + gMine(), headline: 'Every figure traces to a source, an owner and an update time; ' + pass + ' of ' + ck.length + ' checks pass' + (stale ? ' and one source is out of date.' : '.'), sowhat: 'If a number looks wrong, the where to fix it says where to fix it, and loading a corrected workbook redraws every tab. ' + (stale ? stale.note + ' is older than its refresh schedule, so insights that use it may lag.' : ''), foot: 'Real: Zoom\'s reported revenue and expansion figures. Synthetic: every account, deal, call, project and signal.' });
+  const head = answerCard({ kicker: 'Data and trust', headline: 'Every figure traces to a source, an owner and an update time; ' + pass + ' of ' + ck.length + ' checks pass' + (stale ? ' and one source is out of date.' : '.'), sowhat: 'If a number looks wrong, the where to fix it says where to fix it, and loading a corrected workbook redraws every tab. ' + (stale ? stale.note + ' is older than its refresh schedule, so insights that use it may lag.' : ''), foot: 'Real: Zoom\'s reported revenue and expansion figures. Synthetic: every account, deal, call, project and signal.' });
   const body = stripTitle(h);
   const j = body.indexOf(m), pe2 = body.indexOf('<div class="prov">');
-  if (j < 0) return head + body;
-  return head + more('What is real, what is simulated, and what production would need', readinessMatrix(), true) + body.slice(0, j) + more('Show the data: integrity checks, where fields come from and what is real', body.slice(j, pe2)) + body.slice(pe2);
+  if (j < 0) return head + gPlatformMap() + body;
+  return head + gPlatformMap() + more('What is real, what is simulated, and what production would need', readinessMatrix(), true) + body.slice(0, j) + more('Show the data: integrity checks, where fields come from and what is real', body.slice(j, pe2)) + body.slice(pe2);
 }
