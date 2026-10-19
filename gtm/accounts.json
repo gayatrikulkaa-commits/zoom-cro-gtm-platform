@@ -1,0 +1,3197 @@
+{
+ "meta": {
+  "asOf": "2026-10-17",
+  "accounts": 40,
+  "inFlight": 480,
+  "commit": 185,
+  "forecast": 210,
+  "uplift": 24,
+  "links": 120,
+  "legacyResolved": 47,
+  "databookResolved": 119,
+  "legacyRate": 0.39166666666666666,
+  "databookRate": 0.9916666666666667,
+  "upliftByQuarter": [
+   [
+    "Q4 FY26",
+    3.2
+   ],
+   [
+    "Q1 FY27",
+    8.9
+   ],
+   [
+    "Q2 FY27",
+    16.1
+   ],
+   [
+    "Q3 FY27",
+    24
+   ]
+  ]
+ },
+ "accounts": [
+  {
+   "id": "A001",
+   "name": "Nike",
+   "parent": "Nike Group Holdings",
+   "duns": "66-295-0552",
+   "region": "Americas",
+   "industry": "Retail and consumer",
+   "rep": "Marcus Reyes",
+   "repId": "u05",
+   "sfdcOppId": "006U7F89S59DD4GsAZ",
+   "leadSource": "Sales-sourced",
+   "stage": "Proposal",
+   "product": "AI",
+   "owns": {
+    "workplace": true,
+    "phone": true,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Strategic",
+   "rival": "Microsoft Teams",
+   "inFlight": 2.7,
+   "commit": 1.3,
+   "forecast": 1.4,
+   "uplift": 0,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 0,
+    "Contact Center": 0.973,
+    "AI": 0.027
+   },
+   "gong": {
+    "calls": 8,
+    "flags": [],
+    "lastCallDays": 15,
+    "sentiment": 0.62
+   },
+   "monday": {
+    "state": "At risk",
+    "phase": "Go-live",
+    "product": "Phone migration",
+    "blocker": "Single sign-on configuration pending"
+   },
+   "usage": {
+    "deltaPct": 2,
+    "activePct": 79
+   },
+   "renewalDays": 365,
+   "legacyExpiryDays": null,
+   "thread": null,
+   "sources": {
+    "salesforce": {
+     "name": "Nike"
+    },
+    "gong": {
+     "name": "NIKE",
+     "legacy": true,
+     "databook": true
+    },
+    "monday": {
+     "name": "PRJ-N-372",
+     "legacy": false,
+     "databook": true
+    },
+    "grafana": {
+     "name": "nike-tenant-50",
+     "legacy": false,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A002",
+   "name": "Humana",
+   "parent": "Humana Group Holdings",
+   "duns": "10-599-3650",
+   "region": "Americas",
+   "industry": "Healthcare and life sciences",
+   "rep": "Priya Anand",
+   "repId": "u06",
+   "sfdcOppId": "0066sPZPdFMQQkkxLz",
+   "leadSource": "Marketing",
+   "stage": "Proposal",
+   "product": "Workplace",
+   "owns": {
+    "workplace": true,
+    "phone": true,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Strategic",
+   "rival": null,
+   "inFlight": 4.2,
+   "commit": 1.1,
+   "forecast": 1.3,
+   "uplift": 0,
+   "mix": {
+    "Workplace": 0.62,
+    "Phone": 0,
+    "Contact Center": 0.38,
+    "AI": 0
+   },
+   "gong": {
+    "calls": 7,
+    "flags": [
+     {
+      "k": "comp",
+      "label": "Competitor named"
+     }
+    ],
+    "lastCallDays": 1,
+    "sentiment": 0.32
+   },
+   "monday": {
+    "state": "On track",
+    "phase": "Build",
+    "product": "Phone migration",
+    "blocker": ""
+   },
+   "usage": {
+    "deltaPct": 2,
+    "activePct": 82
+   },
+   "renewalDays": 474,
+   "legacyExpiryDays": null,
+   "thread": null,
+   "sources": {
+    "salesforce": {
+     "name": "Humana"
+    },
+    "gong": {
+     "name": "H Intl",
+     "legacy": false,
+     "databook": true
+    },
+    "monday": {
+     "name": "Humana - Phone migration",
+     "legacy": true,
+     "databook": true
+    },
+    "grafana": {
+     "name": "humana-prod",
+     "legacy": true,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A003",
+   "name": "Contoso Ltd",
+   "parent": "Contoso Ltd Group Holdings",
+   "duns": "10-513-4339",
+   "region": "Americas",
+   "industry": "Travel and services",
+   "rep": "Jordan Whitfield",
+   "repId": "u07",
+   "sfdcOppId": "006hhqFtLZtX0iC3GI",
+   "leadSource": "Expansion",
+   "stage": "Negotiation",
+   "product": "Contact Center",
+   "owns": {
+    "workplace": true,
+    "phone": true,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Strategic",
+   "rival": null,
+   "inFlight": 3.4,
+   "commit": 1,
+   "forecast": 1.3,
+   "uplift": 0,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 0,
+    "Contact Center": 0.321,
+    "AI": 0.679
+   },
+   "gong": {
+    "calls": 7,
+    "flags": [
+     {
+      "k": "comp",
+      "label": "Competitor named"
+     },
+     {
+      "k": "gap",
+      "label": "No executive meeting in 14 days"
+     }
+    ],
+    "lastCallDays": 20,
+    "sentiment": 0.43
+   },
+   "monday": {
+    "state": "At risk",
+    "phase": "Pilot",
+    "product": "Phone migration",
+    "blocker": "Admin training not scheduled"
+   },
+   "usage": {
+    "deltaPct": 6,
+    "activePct": 80
+   },
+   "renewalDays": 158,
+   "legacyExpiryDays": 36,
+   "thread": "stalled",
+   "sources": {
+    "salesforce": {
+     "name": "Contoso Ltd"
+    },
+    "gong": {
+     "name": "CONTOSO LTD",
+     "legacy": true,
+     "databook": true
+    },
+    "monday": {
+     "name": "Contoso Ltd - Phone migration",
+     "legacy": true,
+     "databook": true
+    },
+    "grafana": {
+     "name": "contos-tenant-67",
+     "legacy": false,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A004",
+   "name": "Acme Corp",
+   "parent": "Acme Corp Group Holdings",
+   "duns": "73-471-3627",
+   "region": "Americas",
+   "industry": "Travel and services",
+   "rep": "Elena Castillo",
+   "repId": "u08",
+   "sfdcOppId": "006bDuN2NSBgug1ZPy",
+   "leadSource": "Partner",
+   "stage": "Negotiation",
+   "product": "Contact Center",
+   "owns": {
+    "workplace": true,
+    "phone": true,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Global",
+   "rival": "Google Meet",
+   "inFlight": 16.5,
+   "commit": 7.6,
+   "forecast": 8.5,
+   "uplift": 1.1,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 0,
+    "Contact Center": 1,
+    "AI": 0
+   },
+   "gong": {
+    "calls": 5,
+    "flags": [
+     {
+      "k": "noexec",
+      "label": "No executive on last 3 calls"
+     },
+     {
+      "k": "comp",
+      "label": "Competitor named"
+     }
+    ],
+    "lastCallDays": 16,
+    "sentiment": 0.21
+   },
+   "monday": {
+    "state": "No project",
+    "phase": "",
+    "product": "",
+    "blocker": ""
+   },
+   "usage": {
+    "deltaPct": 1,
+    "activePct": 72
+   },
+   "renewalDays": 148,
+   "legacyExpiryDays": null,
+   "thread": "single",
+   "sources": {
+    "salesforce": {
+     "name": "Acme Corp"
+    },
+    "gong": {
+     "name": "AC Intl",
+     "legacy": false,
+     "databook": true
+    },
+    "monday": {
+     "name": "Acme Corp - Rollout",
+     "legacy": true,
+     "databook": true
+    },
+    "grafana": {
+     "name": "acme-c-tenant-57",
+     "legacy": false,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A005",
+   "name": "Target",
+   "parent": "Target Group Holdings",
+   "duns": "71-442-7764",
+   "region": "Americas",
+   "industry": "Retail and consumer",
+   "rep": "Daniel Okafor",
+   "repId": "u09",
+   "sfdcOppId": "006wsos10Mbo5HXd2X",
+   "leadSource": "Partner",
+   "stage": "Discovery",
+   "product": "AI",
+   "owns": {
+    "workplace": true,
+    "phone": true,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Strategic",
+   "rival": null,
+   "inFlight": 4.3,
+   "commit": 2.3,
+   "forecast": 2.4,
+   "uplift": 0,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 0,
+    "Contact Center": 0,
+    "AI": 1
+   },
+   "gong": {
+    "calls": 8,
+    "flags": [
+     {
+      "k": "nonext",
+      "label": "No next step agreed"
+     },
+     {
+      "k": "gap",
+      "label": "No call in 30 days"
+     }
+    ],
+    "lastCallDays": 30,
+    "sentiment": 0.47
+   },
+   "monday": {
+    "state": "On track",
+    "phase": "Pilot",
+    "product": "Rooms deployment",
+    "blocker": ""
+   },
+   "usage": {
+    "deltaPct": 6,
+    "activePct": 81
+   },
+   "renewalDays": 165,
+   "legacyExpiryDays": null,
+   "thread": null,
+   "sources": {
+    "salesforce": {
+     "name": "Target"
+    },
+    "gong": {
+     "name": "Target Subsidiary LLC",
+     "legacy": false,
+     "databook": true
+    },
+    "monday": {
+     "name": "PRJ-T-494",
+     "legacy": false,
+     "databook": true
+    },
+    "grafana": {
+     "name": "target-tenant-62",
+     "legacy": false,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A006",
+   "name": "Delta Air Lines",
+   "parent": "Delta Air Lines Group Holdings",
+   "duns": "54-298-4155",
+   "region": "Americas",
+   "industry": "Travel and services",
+   "rep": "Sarah Lindqvist",
+   "repId": "u10",
+   "sfdcOppId": "006L5UcGE0Q8Jjty5u",
+   "leadSource": "Sales-sourced",
+   "stage": "Validate",
+   "product": "Contact Center",
+   "owns": {
+    "workplace": true,
+    "phone": true,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Strategic",
+   "rival": "Genesys",
+   "inFlight": 6.4,
+   "commit": 2.2,
+   "forecast": 2.4,
+   "uplift": 0,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 0,
+    "Contact Center": 1,
+    "AI": 0
+   },
+   "gong": {
+    "calls": 6,
+    "flags": [],
+    "lastCallDays": 3,
+    "sentiment": 0.24
+   },
+   "monday": {
+    "state": "On track",
+    "phase": "Pilot",
+    "product": "Workplace rollout",
+    "blocker": ""
+   },
+   "usage": {
+    "deltaPct": -2,
+    "activePct": 70
+   },
+   "renewalDays": 388,
+   "legacyExpiryDays": null,
+   "thread": null,
+   "sources": {
+    "salesforce": {
+     "name": "Delta Air Lines"
+    },
+    "gong": {
+     "name": "Delta Corp. (EMEA)",
+     "legacy": false,
+     "databook": true
+    },
+    "monday": {
+     "name": "PRJ-DAL-546",
+     "legacy": false,
+     "databook": true
+    },
+    "grafana": {
+     "name": "delta--tenant-36",
+     "legacy": false,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A007",
+   "name": "Kroger",
+   "parent": "Kroger Group Holdings",
+   "duns": "37-838-8702",
+   "region": "Americas",
+   "industry": "Retail and consumer",
+   "rep": "Tyler Brooks",
+   "repId": "u11",
+   "sfdcOppId": "006LraL2Hg15v6krcI",
+   "leadSource": "Marketing",
+   "stage": "Contracting",
+   "product": "Workplace",
+   "owns": {
+    "workplace": true,
+    "phone": false,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Strategic",
+   "rival": "RingCentral",
+   "inFlight": 3.2,
+   "commit": 1.6,
+   "forecast": 1.6,
+   "uplift": 0,
+   "mix": {
+    "Workplace": 1,
+    "Phone": 0,
+    "Contact Center": 0,
+    "AI": 0
+   },
+   "gong": {
+    "calls": 5,
+    "flags": [
+     {
+      "k": "comp",
+      "label": "Competitor named"
+     },
+     {
+      "k": "neg",
+      "label": "Cooling sentiment"
+     }
+    ],
+    "lastCallDays": 7,
+    "sentiment": -0.2
+   },
+   "monday": {
+    "state": "Blocked",
+    "phase": "Build",
+    "product": "AI enablement",
+    "blocker": "Admin training not scheduled"
+   },
+   "usage": {
+    "deltaPct": -10,
+    "activePct": 51
+   },
+   "renewalDays": 55,
+   "legacyExpiryDays": null,
+   "thread": "business",
+   "sources": {
+    "salesforce": {
+     "name": "Kroger"
+    },
+    "gong": {
+     "name": "K Intl",
+     "legacy": false,
+     "databook": true
+    },
+    "monday": {
+     "name": "Kroger - AI enablement",
+     "legacy": true,
+     "databook": true
+    },
+    "grafana": {
+     "name": "kroger-tenant-80",
+     "legacy": false,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A008",
+   "name": "Marriott International",
+   "parent": "Marriott International Group Holdings",
+   "duns": "22-574-1956",
+   "region": "Americas",
+   "industry": "Travel and services",
+   "rep": "Monica Alvarez",
+   "repId": "u12",
+   "sfdcOppId": "006AcS1jrjmkmhHbSm",
+   "leadSource": "Marketing",
+   "stage": "Contracting",
+   "product": "Phone",
+   "owns": {
+    "workplace": true,
+    "phone": true,
+    "contactCenter": true,
+    "ai": false
+   },
+   "segment": "Strategic",
+   "rival": "Genesys",
+   "inFlight": 9.7,
+   "commit": 5.5,
+   "forecast": 6.1,
+   "uplift": 1.9,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 0.142,
+    "Contact Center": 0,
+    "AI": 0.858
+   },
+   "gong": {
+    "calls": 7,
+    "flags": [],
+    "lastCallDays": 14,
+    "sentiment": 0.53
+   },
+   "monday": {
+    "state": "Done",
+    "phase": "Hypercare",
+    "product": "Rooms deployment",
+    "blocker": ""
+   },
+   "usage": {
+    "deltaPct": 5,
+    "activePct": 82
+   },
+   "renewalDays": 438,
+   "legacyExpiryDays": 225,
+   "thread": null,
+   "sources": {
+    "salesforce": {
+     "name": "Marriott International"
+    },
+    "gong": {
+     "name": "MARRIOTT INTERNATIONAL",
+     "legacy": true,
+     "databook": true
+    },
+    "monday": {
+     "name": "PRJ-MI-143",
+     "legacy": false,
+     "databook": true
+    },
+    "grafana": {
+     "name": "marrio-tenant-79",
+     "legacy": false,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A009",
+   "name": "Procter & Gamble",
+   "parent": "Procter & Gamble Group Holdings",
+   "duns": "10-207-0034",
+   "region": "Americas",
+   "industry": "Retail and consumer",
+   "rep": "Marcus Reyes",
+   "repId": "u05",
+   "sfdcOppId": "006xbVmHOm5ob61A1U",
+   "leadSource": "Sales-sourced",
+   "stage": "Contracting",
+   "product": "Contact Center",
+   "owns": {
+    "workplace": true,
+    "phone": false,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Strategic",
+   "rival": null,
+   "inFlight": 2.8,
+   "commit": 0.9,
+   "forecast": 1.1,
+   "uplift": 0,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 0,
+    "Contact Center": 1,
+    "AI": 0
+   },
+   "gong": {
+    "calls": 7,
+    "flags": [
+     {
+      "k": "comp",
+      "label": "Competitor named"
+     },
+     {
+      "k": "nonext",
+      "label": "No next step agreed"
+     }
+    ],
+    "lastCallDays": 11,
+    "sentiment": 0.59
+   },
+   "monday": {
+    "state": "Done",
+    "phase": "Hypercare",
+    "product": "Phone migration",
+    "blocker": ""
+   },
+   "usage": {
+    "deltaPct": 5,
+    "activePct": 79
+   },
+   "renewalDays": 442,
+   "legacyExpiryDays": null,
+   "thread": null,
+   "sources": {
+    "salesforce": {
+     "name": "Procter & Gamble"
+    },
+    "gong": {
+     "name": "PG Intl",
+     "legacy": false,
+     "databook": true
+    },
+    "monday": {
+     "name": "PRJ-PG-728",
+     "legacy": false,
+     "databook": true
+    },
+    "grafana": {
+     "name": "procter-gamble-prod",
+     "legacy": true,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A010",
+   "name": "Ford Motor Company",
+   "parent": "Ford Motor Company Group Holdings",
+   "duns": "55-044-7374",
+   "region": "Americas",
+   "industry": "Industrial and energy",
+   "rep": "Priya Anand",
+   "repId": "u06",
+   "sfdcOppId": "006p3JIp8awLb9HEXd",
+   "leadSource": "Partner",
+   "stage": "Contracting",
+   "product": "Contact Center",
+   "owns": {
+    "workplace": true,
+    "phone": true,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Strategic",
+   "rival": null,
+   "inFlight": 4.8,
+   "commit": 1.5,
+   "forecast": 1.9,
+   "uplift": 0,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 0,
+    "Contact Center": 1,
+    "AI": 0
+   },
+   "gong": {
+    "calls": 6,
+    "flags": [
+     {
+      "k": "noexec",
+      "label": "No executive on last 3 calls"
+     },
+     {
+      "k": "gap",
+      "label": "No call in 40 days"
+     }
+    ],
+    "lastCallDays": 40,
+    "sentiment": 0.45
+   },
+   "monday": {
+    "state": "At risk",
+    "phase": "Design",
+    "product": "Rooms deployment",
+    "blocker": "Integration with Salesforce not yet scoped"
+   },
+   "usage": {
+    "deltaPct": -1,
+    "activePct": 68
+   },
+   "renewalDays": 132,
+   "legacyExpiryDays": null,
+   "thread": null,
+   "sources": {
+    "salesforce": {
+     "name": "Ford Motor Company"
+    },
+    "gong": {
+     "name": "Ford Motor Company Subsidiary LLC",
+     "legacy": false,
+     "databook": true
+    },
+    "monday": {
+     "name": "PRJ-FMC-204",
+     "legacy": false,
+     "databook": true
+    },
+    "grafana": {
+     "name": "ford-motor-company-prod",
+     "legacy": true,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A011",
+   "name": "Chevron",
+   "parent": "Chevron Group Holdings",
+   "duns": "86-288-1871",
+   "region": "Americas",
+   "industry": "Industrial and energy",
+   "rep": "Jordan Whitfield",
+   "repId": "u07",
+   "sfdcOppId": "006BP38mV7PPxCkjIC",
+   "leadSource": "Marketing",
+   "stage": "Validate",
+   "product": "Phone",
+   "owns": {
+    "workplace": true,
+    "phone": false,
+    "contactCenter": true,
+    "ai": false
+   },
+   "segment": "Strategic",
+   "rival": null,
+   "inFlight": 9.3,
+   "commit": 3.2,
+   "forecast": 3.5,
+   "uplift": 0,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 1,
+    "Contact Center": 0,
+    "AI": 0
+   },
+   "gong": {
+    "calls": 5,
+    "flags": [
+     {
+      "k": "noexec",
+      "label": "No executive on last 3 calls"
+     },
+     {
+      "k": "comp",
+      "label": "Competitor named"
+     },
+     {
+      "k": "neg",
+      "label": "Cooling sentiment"
+     },
+     {
+      "k": "gap",
+      "label": "No call in 28 days"
+     }
+    ],
+    "lastCallDays": 28,
+    "sentiment": -0.35
+   },
+   "monday": {
+    "state": "At risk",
+    "phase": "Pilot",
+    "product": "Rooms deployment",
+    "blocker": "Admin training not scheduled"
+   },
+   "usage": {
+    "deltaPct": -10,
+    "activePct": 50
+   },
+   "renewalDays": 110,
+   "legacyExpiryDays": null,
+   "thread": "stalled",
+   "sources": {
+    "salesforce": {
+     "name": "Chevron"
+    },
+    "gong": {
+     "name": "CHEVRON",
+     "legacy": true,
+     "databook": true
+    },
+    "monday": {
+     "name": "Chevron - Rooms deployment",
+     "legacy": true,
+     "databook": true
+    },
+    "grafana": {
+     "name": "chevron-prod",
+     "legacy": true,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A012",
+   "name": "Pfizer",
+   "parent": "Pfizer Group Holdings",
+   "duns": "77-271-3155",
+   "region": "Americas",
+   "industry": "Healthcare and life sciences",
+   "rep": "Elena Castillo",
+   "repId": "u08",
+   "sfdcOppId": "006x3VMdoC7RTfm5xE",
+   "leadSource": "Expansion",
+   "stage": "Negotiation",
+   "product": "Contact Center",
+   "owns": {
+    "workplace": true,
+    "phone": false,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Global",
+   "rival": "Genesys",
+   "inFlight": 30,
+   "commit": 13.6,
+   "forecast": 14.3,
+   "uplift": 1.2,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 0,
+    "Contact Center": 1,
+    "AI": 0
+   },
+   "gong": {
+    "calls": 6,
+    "flags": [
+     {
+      "k": "comp",
+      "label": "Competitor named"
+     },
+     {
+      "k": "nonext",
+      "label": "No next step agreed"
+     }
+    ],
+    "lastCallDays": 2,
+    "sentiment": 0.15
+   },
+   "monday": {
+    "state": "On track",
+    "phase": "Design",
+    "product": "Phone migration",
+    "blocker": ""
+   },
+   "usage": {
+    "deltaPct": -2,
+    "activePct": 66
+   },
+   "renewalDays": 268,
+   "legacyExpiryDays": 92,
+   "thread": null,
+   "sources": {
+    "salesforce": {
+     "name": "Pfizer"
+    },
+    "gong": {
+     "name": "Pfizer Subsidiary LLC",
+     "legacy": false,
+     "databook": true
+    },
+    "monday": {
+     "name": "PRJ-P-683",
+     "legacy": false,
+     "databook": true
+    },
+    "grafana": {
+     "name": "pfizer-tenant-47",
+     "legacy": false,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A013",
+   "name": "Citigroup",
+   "parent": "Citigroup Group Holdings",
+   "duns": "80-857-6940",
+   "region": "Americas",
+   "industry": "Financial services",
+   "rep": "Daniel Okafor",
+   "repId": "u09",
+   "sfdcOppId": "006RUaesIUfMsUMTWu",
+   "leadSource": "Expansion",
+   "stage": "Contracting",
+   "product": "Contact Center",
+   "owns": {
+    "workplace": true,
+    "phone": true,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Global",
+   "rival": "Google Meet",
+   "inFlight": 11.5,
+   "commit": 2.5,
+   "forecast": 3.2,
+   "uplift": 0,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 0,
+    "Contact Center": 0.374,
+    "AI": 0.626
+   },
+   "gong": {
+    "calls": 5,
+    "flags": [
+     {
+      "k": "gap",
+      "label": "No call in 38 days"
+     }
+    ],
+    "lastCallDays": 38,
+    "sentiment": 0.47
+   },
+   "monday": {
+    "state": "On track",
+    "phase": "Pilot",
+    "product": "Rooms deployment",
+    "blocker": ""
+   },
+   "usage": {
+    "deltaPct": 1,
+    "activePct": 73
+   },
+   "renewalDays": 310,
+   "legacyExpiryDays": 122,
+   "thread": null,
+   "sources": {
+    "salesforce": {
+     "name": "Citigroup"
+    },
+    "gong": {
+     "name": "CITIGROUP",
+     "legacy": true,
+     "databook": true
+    },
+    "monday": {
+     "name": "PRJ-C-703",
+     "legacy": false,
+     "databook": true
+    },
+    "grafana": {
+     "name": "citigr-tenant-17",
+     "legacy": false,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A014",
+   "name": "State Farm",
+   "parent": "State Farm Group Holdings",
+   "duns": "37-316-6532",
+   "region": "Americas",
+   "industry": "Financial services",
+   "rep": "Sarah Lindqvist",
+   "repId": "u10",
+   "sfdcOppId": "006fiYivMv3KzcLeAj",
+   "leadSource": "Marketing",
+   "stage": "Validate",
+   "product": "Contact Center",
+   "owns": {
+    "workplace": true,
+    "phone": true,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Global",
+   "rival": "Genesys",
+   "inFlight": 29.3,
+   "commit": 15.5,
+   "forecast": 16.4,
+   "uplift": 1.2,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 0,
+    "Contact Center": 1,
+    "AI": 0
+   },
+   "gong": {
+    "calls": 6,
+    "flags": [
+     {
+      "k": "nonext",
+      "label": "No next step agreed"
+     },
+     {
+      "k": "gap",
+      "label": "No call in 45 days"
+     }
+    ],
+    "lastCallDays": 45,
+    "sentiment": 0.17
+   },
+   "monday": {
+    "state": "No project",
+    "phase": "",
+    "product": "",
+    "blocker": ""
+   },
+   "usage": {
+    "deltaPct": 0,
+    "activePct": 73
+   },
+   "renewalDays": 247,
+   "legacyExpiryDays": 46,
+   "thread": null,
+   "sources": {
+    "salesforce": {
+     "name": "State Farm"
+    },
+    "gong": {
+     "name": "STATE FARM",
+     "legacy": true,
+     "databook": true
+    },
+    "monday": {
+     "name": "State Farm - Rollout",
+     "legacy": true,
+     "databook": true
+    },
+    "grafana": {
+     "name": "state--tenant-56",
+     "legacy": false,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A015",
+   "name": "Comcast",
+   "parent": "Comcast Group Holdings",
+   "duns": "94-973-5283",
+   "region": "Americas",
+   "industry": "Technology and telecom",
+   "rep": "Tyler Brooks",
+   "repId": "u11",
+   "sfdcOppId": "006bywAg0G8QEJd74U",
+   "leadSource": "Expansion",
+   "stage": "Proposal",
+   "product": "Contact Center",
+   "owns": {
+    "workplace": true,
+    "phone": true,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Strategic",
+   "rival": null,
+   "inFlight": 9.3,
+   "commit": 4.3,
+   "forecast": 4.6,
+   "uplift": 0,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 0,
+    "Contact Center": 1,
+    "AI": 0
+   },
+   "gong": {
+    "calls": 5,
+    "flags": [
+     {
+      "k": "comp",
+      "label": "Competitor named"
+     },
+     {
+      "k": "nonext",
+      "label": "No next step agreed"
+     }
+    ],
+    "lastCallDays": 4,
+    "sentiment": 0.49
+   },
+   "monday": {
+    "state": "No project",
+    "phase": "",
+    "product": "",
+    "blocker": ""
+   },
+   "usage": {
+    "deltaPct": 1,
+    "activePct": 72
+   },
+   "renewalDays": 267,
+   "legacyExpiryDays": null,
+   "thread": null,
+   "sources": {
+    "salesforce": {
+     "name": "Comcast"
+    },
+    "gong": {
+     "name": "COMCAST",
+     "legacy": true,
+     "databook": true
+    },
+    "monday": {
+     "name": "PRJ-C-751",
+     "legacy": false,
+     "databook": true
+    },
+    "grafana": {
+     "name": "comcas-tenant-62",
+     "legacy": false,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A016",
+   "name": "Starbucks",
+   "parent": "Starbucks Group Holdings",
+   "duns": "53-670-6593",
+   "region": "Americas",
+   "industry": "Retail and consumer",
+   "rep": "Monica Alvarez",
+   "repId": "u12",
+   "sfdcOppId": "006NXYb1UlyMzirH2a",
+   "leadSource": "Marketing",
+   "stage": "Discovery",
+   "product": "Phone",
+   "owns": {
+    "workplace": true,
+    "phone": true,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Strategic",
+   "rival": null,
+   "inFlight": 3,
+   "commit": 0.8,
+   "forecast": 1.1,
+   "uplift": 0,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 1,
+    "Contact Center": 0,
+    "AI": 0
+   },
+   "gong": {
+    "calls": 6,
+    "flags": [
+     {
+      "k": "nonext",
+      "label": "No next step agreed"
+     }
+    ],
+    "lastCallDays": 17,
+    "sentiment": 0.41
+   },
+   "monday": {
+    "state": "On track",
+    "phase": "Go-live",
+    "product": "Workplace rollout",
+    "blocker": ""
+   },
+   "usage": {
+    "deltaPct": 0,
+    "activePct": 70
+   },
+   "renewalDays": 438,
+   "legacyExpiryDays": 169,
+   "thread": null,
+   "sources": {
+    "salesforce": {
+     "name": "Starbucks"
+    },
+    "gong": {
+     "name": "S Intl",
+     "legacy": false,
+     "databook": true
+    },
+    "monday": {
+     "name": "Starbucks - Workplace rollout",
+     "legacy": true,
+     "databook": true
+    },
+    "grafana": {
+     "name": "starbu-tenant-27",
+     "legacy": false,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A017",
+   "name": "Lockheed Martin",
+   "parent": "Lockheed Martin Group Holdings",
+   "duns": "40-684-4584",
+   "region": "Americas",
+   "industry": "Industrial and energy",
+   "rep": "Marcus Reyes",
+   "repId": "u05",
+   "sfdcOppId": "006lSxgiintNs17v7T",
+   "leadSource": "Sales-sourced",
+   "stage": "Discovery",
+   "product": "Phone",
+   "owns": {
+    "workplace": true,
+    "phone": false,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Strategic",
+   "rival": "Genesys",
+   "inFlight": 6.1,
+   "commit": 3.5,
+   "forecast": 3.7,
+   "uplift": 0,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 1,
+    "Contact Center": 0,
+    "AI": 0
+   },
+   "gong": {
+    "calls": 5,
+    "flags": [
+     {
+      "k": "noexec",
+      "label": "No executive on last 3 calls"
+     },
+     {
+      "k": "comp",
+      "label": "Competitor named"
+     },
+     {
+      "k": "nonext",
+      "label": "No next step agreed"
+     },
+     {
+      "k": "neg",
+      "label": "Cooling sentiment"
+     }
+    ],
+    "lastCallDays": 1,
+    "sentiment": -0.28
+   },
+   "monday": {
+    "state": "At risk",
+    "phase": "Pilot",
+    "product": "Phone migration",
+    "blocker": "Site readiness for room systems"
+   },
+   "usage": {
+    "deltaPct": -10,
+    "activePct": 49
+   },
+   "renewalDays": 130,
+   "legacyExpiryDays": null,
+   "thread": "single",
+   "sources": {
+    "salesforce": {
+     "name": "Lockheed Martin"
+    },
+    "gong": {
+     "name": "LM Intl",
+     "legacy": false,
+     "databook": true
+    },
+    "monday": {
+     "name": "Lockheed Martin - Phone migration",
+     "legacy": true,
+     "databook": true
+    },
+    "grafana": {
+     "name": "lockhe-tenant-82",
+     "legacy": false,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A018",
+   "name": "Royal Bank of Canada",
+   "parent": "Royal Bank of Canada Group Holdings",
+   "duns": "96-081-0230",
+   "region": "Americas",
+   "industry": "Financial services",
+   "rep": "Priya Anand",
+   "repId": "u06",
+   "sfdcOppId": "006D2JHNq1VoJoaoFO",
+   "leadSource": "Partner",
+   "stage": "Contracting",
+   "product": "AI",
+   "owns": {
+    "workplace": true,
+    "phone": true,
+    "contactCenter": true,
+    "ai": false
+   },
+   "segment": "Global",
+   "rival": null,
+   "inFlight": 11,
+   "commit": 2.8,
+   "forecast": 3.3,
+   "uplift": 0,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 0.921,
+    "Contact Center": 0,
+    "AI": 0.079
+   },
+   "gong": {
+    "calls": 5,
+    "flags": [],
+    "lastCallDays": 19,
+    "sentiment": 0.26
+   },
+   "monday": {
+    "state": "No project",
+    "phase": "",
+    "product": "",
+    "blocker": ""
+   },
+   "usage": {
+    "deltaPct": -2,
+    "activePct": 70
+   },
+   "renewalDays": 306,
+   "legacyExpiryDays": null,
+   "thread": null,
+   "sources": {
+    "salesforce": {
+     "name": "Royal Bank of Canada"
+    },
+    "gong": {
+     "name": "Royal Bank of Canada Subsidiary LLC",
+     "legacy": false,
+     "databook": true
+    },
+    "monday": {
+     "name": "PRJ-RBOC-791",
+     "legacy": false,
+     "databook": true
+    },
+    "grafana": {
+     "name": "royal--tenant-70",
+     "legacy": false,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A019",
+   "name": "Shopify",
+   "parent": "Shopify Group Holdings",
+   "duns": "74-151-2695",
+   "region": "Americas",
+   "industry": "Technology and telecom",
+   "rep": "Jordan Whitfield",
+   "repId": "u07",
+   "sfdcOppId": "006cXcCTGGHezMnTov",
+   "leadSource": "Expansion",
+   "stage": "Discovery",
+   "product": "Phone",
+   "owns": {
+    "workplace": true,
+    "phone": false,
+    "contactCenter": false,
+    "ai": true
+   },
+   "segment": "Global",
+   "rival": null,
+   "inFlight": 20.1,
+   "commit": 12.1,
+   "forecast": 12.8,
+   "uplift": 1.3,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 1,
+    "Contact Center": 0,
+    "AI": 0
+   },
+   "gong": {
+    "calls": 6,
+    "flags": [
+     {
+      "k": "noexec",
+      "label": "No executive on last 3 calls"
+     }
+    ],
+    "lastCallDays": 12,
+    "sentiment": 0.26
+   },
+   "monday": {
+    "state": "Done",
+    "phase": "Hypercare",
+    "product": "Workplace rollout",
+    "blocker": ""
+   },
+   "usage": {
+    "deltaPct": -4,
+    "activePct": 70
+   },
+   "renewalDays": 426,
+   "legacyExpiryDays": null,
+   "thread": null,
+   "sources": {
+    "salesforce": {
+     "name": "Shopify"
+    },
+    "gong": {
+     "name": "Shopify Subsidiary LLC",
+     "legacy": false,
+     "databook": true
+    },
+    "monday": {
+     "name": "Shopify - Workplace rollout",
+     "legacy": true,
+     "databook": true
+    },
+    "grafana": {
+     "name": "shopify-prod",
+     "legacy": true,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A020",
+   "name": "Mercado Libre",
+   "parent": "Mercado Libre Group Holdings",
+   "duns": "99-107-2794",
+   "region": "Americas",
+   "industry": "Retail and consumer",
+   "rep": "Elena Castillo",
+   "repId": "u08",
+   "sfdcOppId": "006iRQbLCHT5nbCDqv",
+   "leadSource": "Marketing",
+   "stage": "Contracting",
+   "product": "Workplace",
+   "owns": {
+    "workplace": true,
+    "phone": false,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Strategic",
+   "rival": null,
+   "inFlight": 18,
+   "commit": 7.9,
+   "forecast": 8.2,
+   "uplift": 2.6,
+   "mix": {
+    "Workplace": 0.054,
+    "Phone": 0.946,
+    "Contact Center": 0,
+    "AI": 0
+   },
+   "gong": {
+    "calls": 6,
+    "flags": [
+     {
+      "k": "noexec",
+      "label": "No executive on last 3 calls"
+     },
+     {
+      "k": "comp",
+      "label": "Competitor named"
+     },
+     {
+      "k": "nonext",
+      "label": "No next step agreed"
+     },
+     {
+      "k": "neg",
+      "label": "Cooling sentiment"
+     }
+    ],
+    "lastCallDays": 2,
+    "sentiment": -0.16
+   },
+   "monday": {
+    "state": "On track",
+    "phase": "Design",
+    "product": "AI enablement",
+    "blocker": ""
+   },
+   "usage": {
+    "deltaPct": -5,
+    "activePct": 52
+   },
+   "renewalDays": 127,
+   "legacyExpiryDays": 49,
+   "thread": "single",
+   "sources": {
+    "salesforce": {
+     "name": "Mercado Libre"
+    },
+    "gong": {
+     "name": "ML Intl",
+     "legacy": false,
+     "databook": true
+    },
+    "monday": {
+     "name": "Mercado Libre - AI enablement",
+     "legacy": true,
+     "databook": true
+    },
+    "grafana": {
+     "name": "mercado-libre-prod",
+     "legacy": true,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A021",
+   "name": "Northwind Traders",
+   "parent": "Northwind Traders Group Holdings",
+   "duns": "70-929-3618",
+   "region": "EMEA",
+   "industry": "Retail and consumer",
+   "rep": "Lukas Hartmann",
+   "repId": "u13",
+   "sfdcOppId": "006BQQXEuaMXVJsZy3",
+   "leadSource": "Expansion",
+   "stage": "Contracting",
+   "product": "Contact Center",
+   "owns": {
+    "workplace": true,
+    "phone": false,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Global",
+   "rival": "RingCentral",
+   "inFlight": 35.8,
+   "commit": 8.6,
+   "forecast": 12.1,
+   "uplift": 2,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 0,
+    "Contact Center": 1,
+    "AI": 0
+   },
+   "gong": {
+    "calls": 6,
+    "flags": [
+     {
+      "k": "noexec",
+      "label": "No executive on last 3 calls"
+     },
+     {
+      "k": "comp",
+      "label": "Competitor named"
+     }
+    ],
+    "lastCallDays": 3,
+    "sentiment": 0.12
+   },
+   "monday": {
+    "state": "On track",
+    "phase": "Design",
+    "product": "Rooms deployment",
+    "blocker": ""
+   },
+   "usage": {
+    "deltaPct": 1,
+    "activePct": 69
+   },
+   "renewalDays": 325,
+   "legacyExpiryDays": null,
+   "thread": "business",
+   "sources": {
+    "salesforce": {
+     "name": "Northwind Traders"
+    },
+    "gong": {
+     "name": "NT Intl",
+     "legacy": false,
+     "databook": true
+    },
+    "monday": {
+     "name": "PRJ-NT-428",
+     "legacy": false,
+     "databook": true
+    },
+    "grafana": {
+     "name": "northw-tenant-64",
+     "legacy": false,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A022",
+   "name": "Diageo",
+   "parent": "Diageo Group Holdings",
+   "duns": "06-222-9465",
+   "region": "EMEA",
+   "industry": "Retail and consumer",
+   "rep": "Charlotte Dubois",
+   "repId": "u14",
+   "sfdcOppId": "006dthT1YldIxmWDhd",
+   "leadSource": "Sales-sourced",
+   "stage": "Proposal",
+   "product": "Contact Center",
+   "owns": {
+    "workplace": true,
+    "phone": true,
+    "contactCenter": false,
+    "ai": true
+   },
+   "segment": "Global",
+   "rival": null,
+   "inFlight": 23.1,
+   "commit": 5.3,
+   "forecast": 7.5,
+   "uplift": 2,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 0,
+    "Contact Center": 0.609,
+    "AI": 0.391
+   },
+   "gong": {
+    "calls": 7,
+    "flags": [
+     {
+      "k": "comp",
+      "label": "Competitor named"
+     }
+    ],
+    "lastCallDays": 7,
+    "sentiment": 0.66
+   },
+   "monday": {
+    "state": "On track",
+    "phase": "Go-live",
+    "product": "Workplace rollout",
+    "blocker": ""
+   },
+   "usage": {
+    "deltaPct": 5,
+    "activePct": 81
+   },
+   "renewalDays": 513,
+   "legacyExpiryDays": 46,
+   "thread": null,
+   "sources": {
+    "salesforce": {
+     "name": "Diageo"
+    },
+    "gong": {
+     "name": "Diageo Subsidiary LLC",
+     "legacy": false,
+     "databook": true
+    },
+    "monday": {
+     "name": "Diageo - Workplace rollout",
+     "legacy": true,
+     "databook": true
+    },
+    "grafana": {
+     "name": "diageo-tenant-64",
+     "legacy": false,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A023",
+   "name": "Unilever",
+   "parent": "Unilever Group Holdings",
+   "duns": "26-437-9283",
+   "region": "EMEA",
+   "industry": "Retail and consumer",
+   "rep": "Oliver Grant",
+   "repId": "u15",
+   "sfdcOppId": "00676MJSgNpRQYmJA5",
+   "leadSource": "Sales-sourced",
+   "stage": "Validate",
+   "product": "AI",
+   "owns": {
+    "workplace": true,
+    "phone": true,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Strategic",
+   "rival": null,
+   "inFlight": 12.9,
+   "commit": 5.6,
+   "forecast": 6.2,
+   "uplift": 1.2,
+   "mix": {
+    "Workplace": 0.849,
+    "Phone": 0,
+    "Contact Center": 0,
+    "AI": 0.151
+   },
+   "gong": {
+    "calls": 8,
+    "flags": [],
+    "lastCallDays": 15,
+    "sentiment": 0.51
+   },
+   "monday": {
+    "state": "On track",
+    "phase": "Build",
+    "product": "AI enablement",
+    "blocker": ""
+   },
+   "usage": {
+    "deltaPct": 6,
+    "activePct": 80
+   },
+   "renewalDays": 288,
+   "legacyExpiryDays": null,
+   "thread": null,
+   "sources": {
+    "salesforce": {
+     "name": "Unilever"
+    },
+    "gong": {
+     "name": "UNILEVER",
+     "legacy": true,
+     "databook": true
+    },
+    "monday": {
+     "name": "Unilever - AI enablement",
+     "legacy": true,
+     "databook": true
+    },
+    "grafana": {
+     "name": "unilever-prod",
+     "legacy": true,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A024",
+   "name": "Siemens",
+   "parent": "Siemens Group Holdings",
+   "duns": "05-697-6207",
+   "region": "EMEA",
+   "industry": "Industrial and energy",
+   "rep": "Sofia Marini",
+   "repId": "u16",
+   "sfdcOppId": "006K1Hevum2HcrIp9I",
+   "leadSource": "Marketing",
+   "stage": "Contracting",
+   "product": "AI",
+   "owns": {
+    "workplace": true,
+    "phone": false,
+    "contactCenter": false,
+    "ai": true
+   },
+   "segment": "Strategic",
+   "rival": null,
+   "inFlight": 6.5,
+   "commit": 1.7,
+   "forecast": 1.9,
+   "uplift": 0,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 0,
+    "Contact Center": 0.91,
+    "AI": 0.09
+   },
+   "gong": {
+    "calls": 7,
+    "flags": [
+     {
+      "k": "nonext",
+      "label": "No next step agreed"
+     }
+    ],
+    "lastCallDays": 20,
+    "sentiment": 0.47
+   },
+   "monday": {
+    "state": "On track",
+    "phase": "Design",
+    "product": "Contact Center implementation",
+    "blocker": ""
+   },
+   "usage": {
+    "deltaPct": 6,
+    "activePct": 80
+   },
+   "renewalDays": 168,
+   "legacyExpiryDays": null,
+   "thread": null,
+   "sources": {
+    "salesforce": {
+     "name": "Siemens"
+    },
+    "gong": {
+     "name": "Siemens Subsidiary LLC",
+     "legacy": false,
+     "databook": true
+    },
+    "monday": {
+     "name": "Siemens - Contact Center implementation",
+     "legacy": true,
+     "databook": true
+    },
+    "grafana": {
+     "name": "siemen-tenant-29",
+     "legacy": false,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A025",
+   "name": "Allianz",
+   "parent": "Allianz Group Holdings",
+   "duns": "40-460-2547",
+   "region": "EMEA",
+   "industry": "Financial services",
+   "rep": "Henrik Nilsson",
+   "repId": "u17",
+   "sfdcOppId": "006xJoAiVxmXFN8lHP",
+   "leadSource": "Marketing",
+   "stage": "Proposal",
+   "product": "AI",
+   "owns": {
+    "workplace": true,
+    "phone": false,
+    "contactCenter": true,
+    "ai": false
+   },
+   "segment": "Strategic",
+   "rival": null,
+   "inFlight": 8.8,
+   "commit": 4.6,
+   "forecast": 5.1,
+   "uplift": 0,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 0,
+    "Contact Center": 0,
+    "AI": 1
+   },
+   "gong": {
+    "calls": 5,
+    "flags": [
+     {
+      "k": "comp",
+      "label": "Competitor named"
+     }
+    ],
+    "lastCallDays": 13,
+    "sentiment": 0.37
+   },
+   "monday": {
+    "state": "No project",
+    "phase": "",
+    "product": "",
+    "blocker": ""
+   },
+   "usage": {
+    "deltaPct": 0,
+    "activePct": 71
+   },
+   "renewalDays": 217,
+   "legacyExpiryDays": 78,
+   "thread": null,
+   "sources": {
+    "salesforce": {
+     "name": "Allianz"
+    },
+    "gong": {
+     "name": "A Intl",
+     "legacy": false,
+     "databook": true
+    },
+    "monday": {
+     "name": "PRJ-A-661",
+     "legacy": false,
+     "databook": true
+    },
+    "grafana": {
+     "name": "allianz-prod",
+     "legacy": true,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A026",
+   "name": "BMW Group",
+   "parent": "BMW Group Group Holdings",
+   "duns": "19-157-2961",
+   "region": "EMEA",
+   "industry": "Industrial and energy",
+   "rep": "Lukas Hartmann",
+   "repId": "u13",
+   "sfdcOppId": "0066oJcBT5qy5XaqUJ",
+   "leadSource": "Partner",
+   "stage": "Contracting",
+   "product": "Contact Center",
+   "owns": {
+    "workplace": true,
+    "phone": true,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Global",
+   "rival": null,
+   "inFlight": 18.9,
+   "commit": 10.8,
+   "forecast": 11,
+   "uplift": 0.9,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 0,
+    "Contact Center": 1,
+    "AI": 0
+   },
+   "gong": {
+    "calls": 6,
+    "flags": [
+     {
+      "k": "nonext",
+      "label": "No next step agreed"
+     }
+    ],
+    "lastCallDays": 6,
+    "sentiment": 0.29
+   },
+   "monday": {
+    "state": "At risk",
+    "phase": "Pilot",
+    "product": "AI enablement",
+    "blocker": "Waiting on customer security review"
+   },
+   "usage": {
+    "deltaPct": 0,
+    "activePct": 66
+   },
+   "renewalDays": 312,
+   "legacyExpiryDays": null,
+   "thread": null,
+   "sources": {
+    "salesforce": {
+     "name": "BMW Group"
+    },
+    "gong": {
+     "name": "BMW GROUP",
+     "legacy": true,
+     "databook": true
+    },
+    "monday": {
+     "name": "PRJ-BG-574",
+     "legacy": false,
+     "databook": true
+    },
+    "grafana": {
+     "name": "bmw-gr-tenant-63",
+     "legacy": false,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A027",
+   "name": "Nestlé",
+   "parent": "Nestlé Group Holdings",
+   "duns": "58-280-6548",
+   "region": "EMEA",
+   "industry": "Retail and consumer",
+   "rep": "Charlotte Dubois",
+   "repId": "u14",
+   "sfdcOppId": "006Ivjq6xJJMOQeHer",
+   "leadSource": "Sales-sourced",
+   "stage": "Contracting",
+   "product": "Contact Center",
+   "owns": {
+    "workplace": true,
+    "phone": true,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Strategic",
+   "rival": null,
+   "inFlight": 4,
+   "commit": 1.7,
+   "forecast": 1.9,
+   "uplift": 0,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 0,
+    "Contact Center": 1,
+    "AI": 0
+   },
+   "gong": {
+    "calls": 6,
+    "flags": [
+     {
+      "k": "noexec",
+      "label": "No executive on last 3 calls"
+     },
+     {
+      "k": "nonext",
+      "label": "No next step agreed"
+     }
+    ],
+    "lastCallDays": 16,
+    "sentiment": 0.16
+   },
+   "monday": {
+    "state": "At risk",
+    "phase": "Design",
+    "product": "Workplace rollout",
+    "blocker": "Site readiness for room systems"
+   },
+   "usage": {
+    "deltaPct": 3,
+    "activePct": 69
+   },
+   "renewalDays": 156,
+   "legacyExpiryDays": 78,
+   "thread": null,
+   "sources": {
+    "salesforce": {
+     "name": "Nestlé"
+    },
+    "gong": {
+     "name": "NESTLÉ",
+     "legacy": true,
+     "databook": true
+    },
+    "monday": {
+     "name": "PRJ-N-279",
+     "legacy": false,
+     "databook": true
+    },
+    "grafana": {
+     "name": "nestl-prod",
+     "legacy": true,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A028",
+   "name": "Novartis",
+   "parent": "Novartis Group Holdings",
+   "duns": "70-762-0298",
+   "region": "EMEA",
+   "industry": "Healthcare and life sciences",
+   "rep": "Oliver Grant",
+   "repId": "u15",
+   "sfdcOppId": "006a2wAyiqbiV9maEw",
+   "leadSource": "Marketing",
+   "stage": "Negotiation",
+   "product": "Contact Center",
+   "owns": {
+    "workplace": true,
+    "phone": false,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Global",
+   "rival": null,
+   "inFlight": 27.3,
+   "commit": 9.9,
+   "forecast": 11.7,
+   "uplift": 1.4,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 0,
+    "Contact Center": 1,
+    "AI": 0
+   },
+   "gong": {
+    "calls": 6,
+    "flags": [
+     {
+      "k": "comp",
+      "label": "Competitor named"
+     },
+     {
+      "k": "gap",
+      "label": "No call in 26 days"
+     }
+    ],
+    "lastCallDays": 26,
+    "sentiment": 0.14
+   },
+   "monday": {
+    "state": "No project",
+    "phase": "",
+    "product": "",
+    "blocker": ""
+   },
+   "usage": {
+    "deltaPct": -2,
+    "activePct": 69
+   },
+   "renewalDays": 457,
+   "legacyExpiryDays": null,
+   "thread": null,
+   "sources": {
+    "salesforce": {
+     "name": "Novartis"
+    },
+    "gong": {
+     "name": "N Intl",
+     "legacy": false,
+     "databook": true
+    },
+    "monday": {
+     "name": "PRJ-N-716",
+     "legacy": false,
+     "databook": true
+    },
+    "grafana": {
+     "name": "novartis-prod",
+     "legacy": true,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A029",
+   "name": "Shell",
+   "parent": "Shell Group Holdings",
+   "duns": "34-114-2898",
+   "region": "EMEA",
+   "industry": "Industrial and energy",
+   "rep": "Sofia Marini",
+   "repId": "u16",
+   "sfdcOppId": "006r2FPNdykLyaChh6",
+   "leadSource": "Expansion",
+   "stage": "Negotiation",
+   "product": "Contact Center",
+   "owns": {
+    "workplace": true,
+    "phone": false,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Strategic",
+   "rival": null,
+   "inFlight": 5.8,
+   "commit": 1.6,
+   "forecast": 1.7,
+   "uplift": 0,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 0,
+    "Contact Center": 1,
+    "AI": 0
+   },
+   "gong": {
+    "calls": 5,
+    "flags": [
+     {
+      "k": "noexec",
+      "label": "No executive on last 3 calls"
+     },
+     {
+      "k": "comp",
+      "label": "Competitor named"
+     },
+     {
+      "k": "nonext",
+      "label": "No next step agreed"
+     }
+    ],
+    "lastCallDays": 13,
+    "sentiment": 0.41
+   },
+   "monday": {
+    "state": "Blocked",
+    "phase": "Go-live",
+    "product": "Rooms deployment",
+    "blocker": "Site readiness for room systems"
+   },
+   "usage": {
+    "deltaPct": 5,
+    "activePct": 76
+   },
+   "renewalDays": 339,
+   "legacyExpiryDays": 37,
+   "thread": "single",
+   "sources": {
+    "salesforce": {
+     "name": "Shell"
+    },
+    "gong": {
+     "name": "SHELL",
+     "legacy": true,
+     "databook": true
+    },
+    "monday": {
+     "name": "Shell - Rooms deployment",
+     "legacy": true,
+     "databook": true
+    },
+    "grafana": {
+     "name": "shell-tenant-90",
+     "legacy": false,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A030",
+   "name": "Carrefour",
+   "parent": "Carrefour Group Holdings",
+   "duns": "92-264-2928",
+   "region": "EMEA",
+   "industry": "Retail and consumer",
+   "rep": "Henrik Nilsson",
+   "repId": "u17",
+   "sfdcOppId": "0061k3SMJqsDFFlPsE",
+   "leadSource": "Expansion",
+   "stage": "Negotiation",
+   "product": "Phone",
+   "owns": {
+    "workplace": true,
+    "phone": true,
+    "contactCenter": true,
+    "ai": false
+   },
+   "segment": "Global",
+   "rival": null,
+   "inFlight": 15.8,
+   "commit": 3.8,
+   "forecast": 5.2,
+   "uplift": 2.6,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 1,
+    "Contact Center": 0,
+    "AI": 0
+   },
+   "gong": {
+    "calls": 4,
+    "flags": [
+     {
+      "k": "noexec",
+      "label": "No executive on last 3 calls"
+     },
+     {
+      "k": "comp",
+      "label": "Competitor named"
+     },
+     {
+      "k": "neg",
+      "label": "Cooling sentiment"
+     },
+     {
+      "k": "gap",
+      "label": "No call in 48 days"
+     }
+    ],
+    "lastCallDays": 48,
+    "sentiment": -0.27
+   },
+   "monday": {
+    "state": "Blocked",
+    "phase": "Design",
+    "product": "Phone migration",
+    "blocker": "Integration with Salesforce not yet scoped"
+   },
+   "usage": {
+    "deltaPct": -6,
+    "activePct": 52
+   },
+   "renewalDays": 137,
+   "legacyExpiryDays": null,
+   "thread": "business",
+   "sources": {
+    "salesforce": {
+     "name": "Carrefour"
+    },
+    "gong": {
+     "name": "CARREFOUR",
+     "legacy": true,
+     "databook": true
+    },
+    "monday": {
+     "name": "Carrefour - Phone migration",
+     "legacy": true,
+     "databook": true
+    },
+    "grafana": {
+     "name": "carrefour-prod",
+     "legacy": true,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A031",
+   "name": "Banco Santander",
+   "parent": "Banco Santander Group Holdings",
+   "duns": "33-771-8489",
+   "region": "EMEA",
+   "industry": "Financial services",
+   "rep": "Lukas Hartmann",
+   "repId": "u13",
+   "sfdcOppId": "006Tc8XHR9iTMZu8TE",
+   "leadSource": "Marketing",
+   "stage": "Contracting",
+   "product": "Contact Center",
+   "owns": {
+    "workplace": true,
+    "phone": false,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Global",
+   "rival": null,
+   "inFlight": 14.5,
+   "commit": 5.3,
+   "forecast": 5.7,
+   "uplift": 1.7,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 0,
+    "Contact Center": 1,
+    "AI": 0
+   },
+   "gong": {
+    "calls": 5,
+    "flags": [
+     {
+      "k": "comp",
+      "label": "Competitor named"
+     }
+    ],
+    "lastCallDays": 17,
+    "sentiment": 0.18
+   },
+   "monday": {
+    "state": "No project",
+    "phase": "",
+    "product": "",
+    "blocker": ""
+   },
+   "usage": {
+    "deltaPct": 2,
+    "activePct": 72
+   },
+   "renewalDays": 429,
+   "legacyExpiryDays": null,
+   "thread": null,
+   "sources": {
+    "salesforce": {
+     "name": "Banco Santander"
+    },
+    "gong": {
+     "name": "Banco Santander Subsidiary LLC",
+     "legacy": false,
+     "databook": true
+    },
+    "monday": {
+     "name": "PRJ-BS-752",
+     "legacy": false,
+     "databook": true
+    },
+    "grafana": {
+     "name": "banco--tenant-51",
+     "legacy": false,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A032",
+   "name": "Philips",
+   "parent": "Philips Group Holdings",
+   "duns": "89-351-4345",
+   "region": "EMEA",
+   "industry": "Healthcare and life sciences",
+   "rep": "Charlotte Dubois",
+   "repId": "u14",
+   "sfdcOppId": "006hRnCBvFViMvfp3U",
+   "leadSource": "Expansion",
+   "stage": "Contracting",
+   "product": "Workplace",
+   "owns": {
+    "workplace": true,
+    "phone": false,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Strategic",
+   "rival": "Webex by Cisco",
+   "inFlight": 2.5,
+   "commit": 1.1,
+   "forecast": 1.1,
+   "uplift": 0,
+   "mix": {
+    "Workplace": 1,
+    "Phone": 0,
+    "Contact Center": 0,
+    "AI": 0
+   },
+   "gong": {
+    "calls": 5,
+    "flags": [
+     {
+      "k": "noexec",
+      "label": "No executive on last 3 calls"
+     },
+     {
+      "k": "comp",
+      "label": "Competitor named"
+     },
+     {
+      "k": "nonext",
+      "label": "No next step agreed"
+     },
+     {
+      "k": "neg",
+      "label": "Cooling sentiment"
+     },
+     {
+      "k": "gap",
+      "label": "No call in 36 days"
+     }
+    ],
+    "lastCallDays": 36,
+    "sentiment": -0.02
+   },
+   "monday": {
+    "state": "At risk",
+    "phase": "Design",
+    "product": "Workplace rollout",
+    "blocker": "Number porting delayed with the carrier"
+   },
+   "usage": {
+    "deltaPct": -11,
+    "activePct": 50
+   },
+   "renewalDays": 146,
+   "legacyExpiryDays": 160,
+   "thread": "single",
+   "sources": {
+    "salesforce": {
+     "name": "Philips"
+    },
+    "gong": {
+     "name": "P Intl",
+     "legacy": false,
+     "databook": true
+    },
+    "monday": {
+     "name": "PRJ-P-375",
+     "legacy": false,
+     "databook": true
+    },
+    "grafana": {
+     "name": "philip-tenant-44",
+     "legacy": false,
+     "databook": false
+    }
+   }
+  },
+  {
+   "id": "A033",
+   "name": "Toyota Motor",
+   "parent": "Toyota Motor Group Holdings",
+   "duns": "40-897-4624",
+   "region": "APAC",
+   "industry": "Industrial and energy",
+   "rep": "Kenji Watanabe",
+   "repId": "u18",
+   "sfdcOppId": "0064EPWTj7oBokqhyW",
+   "leadSource": "Sales-sourced",
+   "stage": "Validate",
+   "product": "Phone",
+   "owns": {
+    "workplace": true,
+    "phone": true,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Strategic",
+   "rival": "Webex by Cisco",
+   "inFlight": 3.5,
+   "commit": 1.6,
+   "forecast": 1.8,
+   "uplift": 0,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 0.432,
+    "Contact Center": 0,
+    "AI": 0.568
+   },
+   "gong": {
+    "calls": 5,
+    "flags": [
+     {
+      "k": "comp",
+      "label": "Competitor named"
+     }
+    ],
+    "lastCallDays": 2,
+    "sentiment": 0.22
+   },
+   "monday": {
+    "state": "Done",
+    "phase": "Hypercare",
+    "product": "AI enablement",
+    "blocker": ""
+   },
+   "usage": {
+    "deltaPct": -3,
+    "activePct": 71
+   },
+   "renewalDays": 476,
+   "legacyExpiryDays": 32,
+   "thread": null,
+   "sources": {
+    "salesforce": {
+     "name": "Toyota Motor"
+    },
+    "gong": {
+     "name": "TM Intl",
+     "legacy": false,
+     "databook": true
+    },
+    "monday": {
+     "name": "Toyota Motor - AI enablement",
+     "legacy": true,
+     "databook": true
+    },
+    "grafana": {
+     "name": "toyota-tenant-94",
+     "legacy": false,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A034",
+   "name": "Samsung Electronics",
+   "parent": "Samsung Electronics Group Holdings",
+   "duns": "02-534-6336",
+   "region": "APAC",
+   "industry": "Technology and telecom",
+   "rep": "Aarav Mehta",
+   "repId": "u19",
+   "sfdcOppId": "006Hh44LRYmiOyx5qx",
+   "leadSource": "Sales-sourced",
+   "stage": "Validate",
+   "product": "Contact Center",
+   "owns": {
+    "workplace": true,
+    "phone": false,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Global",
+   "rival": "RingCentral",
+   "inFlight": 24.7,
+   "commit": 6.7,
+   "forecast": 8.5,
+   "uplift": 0.9,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 0,
+    "Contact Center": 1,
+    "AI": 0
+   },
+   "gong": {
+    "calls": 6,
+    "flags": [
+     {
+      "k": "comp",
+      "label": "Competitor named"
+     }
+    ],
+    "lastCallDays": 4,
+    "sentiment": 0.15
+   },
+   "monday": {
+    "state": "At risk",
+    "phase": "Design",
+    "product": "AI enablement",
+    "blocker": "Admin training not scheduled"
+   },
+   "usage": {
+    "deltaPct": -1,
+    "activePct": 67
+   },
+   "renewalDays": 270,
+   "legacyExpiryDays": null,
+   "thread": null,
+   "sources": {
+    "salesforce": {
+     "name": "Samsung Electronics"
+    },
+    "gong": {
+     "name": "Samsung Electronics Subsidiary LLC",
+     "legacy": false,
+     "databook": true
+    },
+    "monday": {
+     "name": "PRJ-SE-798",
+     "legacy": false,
+     "databook": true
+    },
+    "grafana": {
+     "name": "samsun-tenant-96",
+     "legacy": false,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A035",
+   "name": "Infosys",
+   "parent": "Infosys Group Holdings",
+   "duns": "42-777-4582",
+   "region": "APAC",
+   "industry": "Technology and telecom",
+   "rep": "Mei Tan",
+   "repId": "u20",
+   "sfdcOppId": "006TJ8APgv5w1bxGGB",
+   "leadSource": "Sales-sourced",
+   "stage": "Negotiation",
+   "product": "Contact Center",
+   "owns": {
+    "workplace": true,
+    "phone": true,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Global",
+   "rival": null,
+   "inFlight": 11.4,
+   "commit": 3.5,
+   "forecast": 4.4,
+   "uplift": 0,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 0,
+    "Contact Center": 0.487,
+    "AI": 0.513
+   },
+   "gong": {
+    "calls": 8,
+    "flags": [
+     {
+      "k": "comp",
+      "label": "Competitor named"
+     },
+     {
+      "k": "gap",
+      "label": "No call in 26 days"
+     }
+    ],
+    "lastCallDays": 26,
+    "sentiment": 0.65
+   },
+   "monday": {
+    "state": "Done",
+    "phase": "Hypercare",
+    "product": "Workplace rollout",
+    "blocker": ""
+   },
+   "usage": {
+    "deltaPct": 5,
+    "activePct": 81
+   },
+   "renewalDays": 211,
+   "legacyExpiryDays": 34,
+   "thread": null,
+   "sources": {
+    "salesforce": {
+     "name": "Infosys"
+    },
+    "gong": {
+     "name": "Infosys Corp. (EMEA)",
+     "legacy": false,
+     "databook": true
+    },
+    "monday": {
+     "name": "Infosys - Workplace rollout",
+     "legacy": true,
+     "databook": true
+    },
+    "grafana": {
+     "name": "infosy-tenant-68",
+     "legacy": false,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A036",
+   "name": "Tata Consultancy Services",
+   "parent": "Tata Consultancy Services Group Holdings",
+   "duns": "48-902-2254",
+   "region": "APAC",
+   "industry": "Technology and telecom",
+   "rep": "Kenji Watanabe",
+   "repId": "u18",
+   "sfdcOppId": "006OcPmfXLfwY41jJD",
+   "leadSource": "Marketing",
+   "stage": "Contracting",
+   "product": "Contact Center",
+   "owns": {
+    "workplace": true,
+    "phone": true,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Strategic",
+   "rival": null,
+   "inFlight": 8.5,
+   "commit": 2,
+   "forecast": 2.6,
+   "uplift": 0,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 0,
+    "Contact Center": 1,
+    "AI": 0
+   },
+   "gong": {
+    "calls": 6,
+    "flags": [
+     {
+      "k": "comp",
+      "label": "Competitor named"
+     }
+    ],
+    "lastCallDays": 17,
+    "sentiment": 0.21
+   },
+   "monday": {
+    "state": "Blocked",
+    "phase": "Build",
+    "product": "Phone migration",
+    "blocker": "Customer IT change freeze through quarter end"
+   },
+   "usage": {
+    "deltaPct": 1,
+    "activePct": 72
+   },
+   "renewalDays": 201,
+   "legacyExpiryDays": 166,
+   "thread": "business",
+   "sources": {
+    "salesforce": {
+     "name": "Tata Consultancy Services"
+    },
+    "gong": {
+     "name": "TATA CONSULTANCY SERVICES",
+     "legacy": true,
+     "databook": true
+    },
+    "monday": {
+     "name": "Tata Consultancy Services - Phone migration",
+     "legacy": true,
+     "databook": true
+    },
+    "grafana": {
+     "name": "tata-c-tenant-75",
+     "legacy": false,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A037",
+   "name": "Commonwealth Bank of Australia",
+   "parent": "Commonwealth Bank of Australia Group Holdings",
+   "duns": "66-470-0795",
+   "region": "APAC",
+   "industry": "Financial services",
+   "rep": "Aarav Mehta",
+   "repId": "u19",
+   "sfdcOppId": "006FvpRgcLlJFU1HnY",
+   "leadSource": "Expansion",
+   "stage": "Proposal",
+   "product": "Phone",
+   "owns": {
+    "workplace": true,
+    "phone": false,
+    "contactCenter": true,
+    "ai": false
+   },
+   "segment": "Strategic",
+   "rival": "Google Meet",
+   "inFlight": 6.3,
+   "commit": 1.9,
+   "forecast": 2,
+   "uplift": 0,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 0.674,
+    "Contact Center": 0,
+    "AI": 0.326
+   },
+   "gong": {
+    "calls": 7,
+    "flags": [
+     {
+      "k": "nonext",
+      "label": "No next step agreed"
+     },
+     {
+      "k": "gap",
+      "label": "No call in 23 days"
+     }
+    ],
+    "lastCallDays": 23,
+    "sentiment": 0.38
+   },
+   "monday": {
+    "state": "Done",
+    "phase": "Hypercare",
+    "product": "Phone migration",
+    "blocker": ""
+   },
+   "usage": {
+    "deltaPct": 5,
+    "activePct": 79
+   },
+   "renewalDays": 245,
+   "legacyExpiryDays": 121,
+   "thread": null,
+   "sources": {
+    "salesforce": {
+     "name": "Commonwealth Bank of Australia"
+    },
+    "gong": {
+     "name": "CBOA Intl",
+     "legacy": false,
+     "databook": true
+    },
+    "monday": {
+     "name": "PRJ-CBOA-154",
+     "legacy": false,
+     "databook": true
+    },
+    "grafana": {
+     "name": "common-tenant-16",
+     "legacy": false,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A038",
+   "name": "Telstra",
+   "parent": "Telstra Group Holdings",
+   "duns": "61-009-6853",
+   "region": "APAC",
+   "industry": "Technology and telecom",
+   "rep": "Mei Tan",
+   "repId": "u20",
+   "sfdcOppId": "0062D4MNdolf0VqUjL",
+   "leadSource": "Partner",
+   "stage": "Contracting",
+   "product": "Phone",
+   "owns": {
+    "workplace": true,
+    "phone": true,
+    "contactCenter": true,
+    "ai": false
+   },
+   "segment": "Strategic",
+   "rival": "Webex by Cisco",
+   "inFlight": 7.7,
+   "commit": 2.3,
+   "forecast": 2.6,
+   "uplift": 0,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 1,
+    "Contact Center": 0,
+    "AI": 0
+   },
+   "gong": {
+    "calls": 5,
+    "flags": [
+     {
+      "k": "noexec",
+      "label": "No executive on last 3 calls"
+     },
+     {
+      "k": "comp",
+      "label": "Competitor named"
+     },
+     {
+      "k": "nonext",
+      "label": "No next step agreed"
+     },
+     {
+      "k": "neg",
+      "label": "Cooling sentiment"
+     }
+    ],
+    "lastCallDays": 14,
+    "sentiment": -0.01
+   },
+   "monday": {
+    "state": "Blocked",
+    "phase": "Design",
+    "product": "Phone migration",
+    "blocker": "Number porting delayed with the carrier"
+   },
+   "usage": {
+    "deltaPct": -16,
+    "activePct": 48
+   },
+   "renewalDays": 105,
+   "legacyExpiryDays": 47,
+   "thread": "single",
+   "sources": {
+    "salesforce": {
+     "name": "Telstra"
+    },
+    "gong": {
+     "name": "TELSTRA",
+     "legacy": true,
+     "databook": true
+    },
+    "monday": {
+     "name": "PRJ-T-338",
+     "legacy": false,
+     "databook": true
+    },
+    "grafana": {
+     "name": "telstra-prod",
+     "legacy": true,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A039",
+   "name": "DBS Bank",
+   "parent": "DBS Bank Group Holdings",
+   "duns": "91-945-1117",
+   "region": "APAC",
+   "industry": "Financial services",
+   "rep": "Kenji Watanabe",
+   "repId": "u18",
+   "sfdcOppId": "006R2uk4w8tivuoAxY",
+   "leadSource": "Marketing",
+   "stage": "Contracting",
+   "product": "AI",
+   "owns": {
+    "workplace": true,
+    "phone": true,
+    "contactCenter": true,
+    "ai": false
+   },
+   "segment": "Global",
+   "rival": null,
+   "inFlight": 28.3,
+   "commit": 14.1,
+   "forecast": 15.4,
+   "uplift": 2,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 0,
+    "Contact Center": 0,
+    "AI": 1
+   },
+   "gong": {
+    "calls": 8,
+    "flags": [],
+    "lastCallDays": 8,
+    "sentiment": 0.36
+   },
+   "monday": {
+    "state": "At risk",
+    "phase": "Design",
+    "product": "Workplace rollout",
+    "blocker": "Admin training not scheduled"
+   },
+   "usage": {
+    "deltaPct": 0,
+    "activePct": 78
+   },
+   "renewalDays": 501,
+   "legacyExpiryDays": 197,
+   "thread": null,
+   "sources": {
+    "salesforce": {
+     "name": "DBS Bank"
+    },
+    "gong": {
+     "name": "DBS BANK",
+     "legacy": true,
+     "databook": true
+    },
+    "monday": {
+     "name": "DBS Bank - Workplace rollout",
+     "legacy": true,
+     "databook": true
+    },
+    "grafana": {
+     "name": "dbs-ba-tenant-49",
+     "legacy": false,
+     "databook": true
+    }
+   }
+  },
+  {
+   "id": "A040",
+   "name": "Rakuten Group",
+   "parent": "Rakuten Group Group Holdings",
+   "duns": "77-017-4730",
+   "region": "APAC",
+   "industry": "Retail and consumer",
+   "rep": "Aarav Mehta",
+   "repId": "u19",
+   "sfdcOppId": "0067VLwedzwGVPToJx",
+   "leadSource": "Sales-sourced",
+   "stage": "Validate",
+   "product": "Phone",
+   "owns": {
+    "workplace": true,
+    "phone": true,
+    "contactCenter": false,
+    "ai": false
+   },
+   "segment": "Strategic",
+   "rival": null,
+   "inFlight": 8.1,
+   "commit": 1.7,
+   "forecast": 2.5,
+   "uplift": 0,
+   "mix": {
+    "Workplace": 0,
+    "Phone": 1,
+    "Contact Center": 0,
+    "AI": 0
+   },
+   "gong": {
+    "calls": 4,
+    "flags": [
+     {
+      "k": "noexec",
+      "label": "No executive on last 3 calls"
+     },
+     {
+      "k": "comp",
+      "label": "Competitor named"
+     },
+     {
+      "k": "nonext",
+      "label": "No next step agreed"
+     },
+     {
+      "k": "neg",
+      "label": "Cooling sentiment"
+     }
+    ],
+    "lastCallDays": 2,
+    "sentiment": 0.09
+   },
+   "monday": {
+    "state": "On track",
+    "phase": "Design",
+    "product": "Workplace rollout",
+    "blocker": ""
+   },
+   "usage": {
+    "deltaPct": -11,
+    "activePct": 50
+   },
+   "renewalDays": 117,
+   "legacyExpiryDays": null,
+   "thread": "single",
+   "sources": {
+    "salesforce": {
+     "name": "Rakuten Group"
+    },
+    "gong": {
+     "name": "RAKUTEN GROUP",
+     "legacy": true,
+     "databook": true
+    },
+    "monday": {
+     "name": "PRJ-RG-689",
+     "legacy": false,
+     "databook": true
+    },
+    "grafana": {
+     "name": "rakute-tenant-34",
+     "legacy": false,
+     "databook": true
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,507 @@
+{
+ "baseline": {
+  "landing": 58.11726,
+  "plan": 60.019999999999996,
+  "incr": 4.6117300000000006,
+  "scenario": 62.72899,
+  "lost": 81.02,
+  "atRisk": 38.89726714441052,
+  "nrr": 1.020873607159148,
+  "rows": [
+   {
+    "group": "Americas",
+    "cells": [
+     {
+      "k": "perf",
+      "st": "warn",
+      "v": 0.9140029114821273,
+      "conf": "High"
+     },
+     {
+      "k": "fcst",
+      "st": "warn",
+      "v": 0.9660163529774761,
+      "conf": "Medium"
+     },
+     {
+      "k": "ret",
+      "st": "warn",
+      "v": 1.0108732751474963,
+      "conf": "High"
+     },
+     {
+      "k": "grow",
+      "st": "warn",
+      "v": 0.44752534287418,
+      "conf": "High"
+     },
+     {
+      "k": "comp",
+      "st": "warn",
+      "v": 0.35092426952892064,
+      "conf": "High"
+     }
+    ]
+   },
+   {
+    "group": "EMEA",
+    "cells": [
+     {
+      "k": "perf",
+      "st": "warn",
+      "v": 0.926738541912077,
+      "conf": "High"
+     },
+     {
+      "k": "fcst",
+      "st": "ok",
+      "v": 1.0762854681217693,
+      "conf": "Medium"
+     },
+     {
+      "k": "ret",
+      "st": "bad",
+      "v": 1.014583208305827,
+      "conf": "High"
+     },
+     {
+      "k": "grow",
+      "st": "ok",
+      "v": 0.6580645161290323,
+      "conf": "High"
+     },
+     {
+      "k": "comp",
+      "st": "ok",
+      "v": 0.10909090909090911,
+      "conf": "High"
+     }
+    ]
+   },
+   {
+    "group": "APAC",
+    "cells": [
+     {
+      "k": "perf",
+      "st": "bad",
+      "v": 0.8150428046571889,
+      "conf": "Medium"
+     },
+     {
+      "k": "fcst",
+      "st": "bad",
+      "v": 0.7912294117647058,
+      "conf": "Low"
+     },
+     {
+      "k": "ret",
+      "st": "warn",
+      "v": 1.0558249689861285,
+      "conf": "High"
+     },
+     {
+      "k": "grow",
+      "st": "bad",
+      "v": 0.3723404255319148,
+      "conf": "High"
+     },
+     {
+      "k": "comp",
+      "st": "warn",
+      "v": 0.22872340425531912,
+      "conf": "High"
+     }
+    ]
+   },
+   {
+    "group": "All accounts",
+    "cells": [
+     {
+      "k": "perf",
+      "st": "warn",
+      "v": 0.9008812253349463,
+      "conf": "High"
+     },
+     {
+      "k": "fcst",
+      "st": "warn",
+      "v": 0.9682982339220262,
+      "conf": "Medium"
+     },
+     {
+      "k": "ret",
+      "st": "warn",
+      "v": 1.020873607159148,
+      "conf": "High"
+     },
+     {
+      "k": "grow",
+      "st": "warn",
+      "v": 0.4995697814489759,
+      "conf": "High"
+     },
+     {
+      "k": "comp",
+      "st": "warn",
+      "v": 0.26415419032868687,
+      "conf": "High"
+     }
+    ]
+   }
+  ],
+  "tasks": 56
+ },
+ "cases": [
+  {
+   "id": 1,
+   "title": "Make the APAC plan more realistic",
+   "why": "Performance and Forecast compare delivery with the plan. A smaller plan should relieve APAC.",
+   "look": "Command: APAC Performance and Forecast; the bridge",
+   "edits": [
+    {
+     "sheet": "lever_groups",
+     "match": {
+      "group_type": "Region",
+      "group": "APAC"
+     },
+     "col": "plan_scale",
+     "to": 0.85,
+     "label": "APAC plan_scale",
+     "from": 1
+    }
+   ],
+   "effects": [
+    "Region APAC · Performance: Red to Amber",
+    "Expected landing $58.1M to $58.0M (97% to 99% of plan)"
+   ],
+   "snapshot": {
+    "landing": 58.02526
+   }
+  },
+  {
+   "id": 2,
+   "title": "Leak retention in Americas",
+   "why": "A retention problem should turn Retention risk red even though bookings have not changed.",
+   "look": "Command: Americas Retention risk; Accounts",
+   "edits": [
+    {
+     "sheet": "lever_groups",
+     "match": {
+      "group_type": "Region",
+      "group": "Americas"
+     },
+     "col": "retention_shock_pct",
+     "to": 0.06,
+     "label": "Americas retention_shock_pct",
+     "from": 0
+    }
+   ],
+   "effects": [
+    "All accounts · Retention risk: Amber to Red",
+    "Region Americas · Retention risk: Amber to Red",
+    "Industry Financial services · Retention risk: Green to Amber",
+    "Industry Healthcare and life sciences · Retention risk: Amber to Red",
+    "Industry Technology and telecom · Retention risk: Green to Amber",
+    "Industry Travel and services · Retention risk: Green to Amber",
+    "Size Large · Retention risk: Green to Amber",
+    "Expected landing $58.1M to $57.8M (97% to 96% of plan)",
+    "Incremental upside $4.6M to $4.6M",
+    "Revenue at risk $38.9M to $40.0M",
+    "Book retention 102.1% to 99.4%",
+    "Ranked tasks 56 to 54"
+   ],
+   "snapshot": {
+    "landing": 57.79036
+   }
+  },
+  {
+   "id": 3,
+   "title": "Lower the retention EMEA is expected to deliver",
+   "why": "Retention risk compares actual retention with its forecast. Lower the forecast and the red can ease.",
+   "look": "Command: EMEA Retention risk",
+   "edits": [
+    {
+     "sheet": "lever_groups",
+     "match": {
+      "group_type": "Region",
+      "group": "EMEA"
+     },
+     "col": "nrr_forecast",
+     "to": 1.01,
+     "label": "EMEA nrr_forecast",
+     "from": 1.06
+    }
+   ],
+   "effects": [
+    "Region EMEA · Retention risk: Red to Amber"
+   ],
+   "snapshot": {
+    "landing": 58.11726
+   }
+  },
+  {
+   "id": 4,
+   "title": "Make one industry leak",
+   "why": "Retention problems often sit in an industry, not a region. Switch the matrix to Industry.",
+   "look": "Command: switch to Industry",
+   "edits": [
+    {
+     "sheet": "lever_groups",
+     "match": {
+      "group_type": "Industry",
+      "group": "Financial services"
+     },
+     "col": "retention_shock_pct",
+     "to": 0.1,
+     "label": "Financial services retention_shock_pct",
+     "from": 0
+    }
+   ],
+   "effects": [
+    "All accounts · Retention risk: Amber to Red",
+    "Region Americas · Retention risk: Amber to Red",
+    "Industry Financial services · Retention risk: Green to Red",
+    "Size Large · Retention risk: Green to Amber",
+    "Expected landing $58.1M to $57.9M (97% to 97% of plan)",
+    "Book retention 102.1% to 99.8%",
+    "Ranked tasks 56 to 54"
+   ],
+   "snapshot": {
+    "landing": 57.930440000000004
+   }
+  },
+  {
+   "id": 5,
+   "title": "Close the largest APAC deal",
+   "why": "One closed deal should move a small region: actuals up, statuses move.",
+   "look": "Command: APAC row and the bridge",
+   "edits": [
+    {
+     "sheet": "whatif_deals",
+     "match": {
+      "opp_id": "O1057"
+     },
+     "col": "new_stage",
+     "to": "Closed Won",
+     "label": "Rakuten Group (O1057) new_stage",
+     "from": ""
+    }
+   ],
+   "effects": [
+    "Region APAC · Performance: Red to Green",
+    "Region APAC · Growth execution: Red to Amber",
+    "Expected landing $58.1M to $59.2M (97% to 99% of plan)",
+    "Incremental upside $4.6M to $4.5M",
+    "Pipeline-cover heat map: red cells 2 to 3, amber 4 to 3"
+   ],
+   "snapshot": {
+    "landing": 59.20206
+   }
+  },
+  {
+   "id": 6,
+   "title": "Secure a sponsor on the deal it helps most",
+   "why": "The risk-adjusted forecast weighs sponsorship, so a sponsor on a deal that can still be saved raises the forecast.",
+   "look": "Forecast: Pipeline; Command: Forecast and Growth execution",
+   "edits": [
+    {
+     "sheet": "whatif_deals",
+     "match": {
+      "opp_id": "O1056"
+     },
+     "col": "new_exec_sponsor",
+     "to": 1,
+     "label": "Samsung Electronics (O1056) new_exec_sponsor",
+     "from": ""
+    }
+   ],
+   "effects": [
+    "Expected landing $58.1M to $58.3M (97% to 97% of plan)",
+    "Incremental upside $4.6M to $4.5M"
+   ],
+   "snapshot": {
+    "landing": 58.34481
+   }
+  },
+  {
+   "id": 7,
+   "title": "Lose a big EMEA deal to Microsoft Teams",
+   "why": "A recorded loss to a named rival should show on the map and in competitive exposure.",
+   "look": "Command: map and EMEA; Compete",
+   "edits": [
+    {
+     "sheet": "whatif_deals",
+     "match": {
+      "opp_id": "O1042"
+     },
+     "col": "new_stage",
+     "to": "Closed Lost",
+     "label": "Unilever (O1042) new_stage",
+     "from": ""
+    },
+    {
+     "sheet": "whatif_deals",
+     "match": {
+      "opp_id": "O1042"
+     },
+     "col": "new_competitor",
+     "to": "Microsoft Teams",
+     "label": "Unilever (O1042) new_competitor",
+     "from": ""
+    }
+   ],
+   "effects": [
+    "All accounts · Forecast: Amber to Red",
+    "Region EMEA · Forecast: Green to Amber",
+    "Region EMEA · Growth execution: Green to Amber",
+    "Product Workplace · Growth execution: Green to Red",
+    "Product Workplace · Competitive exposure: Amber to Red",
+    "Industry Retail and consumer · Growth execution: Amber to Red",
+    "Expected landing $58.1M to $56.6M (97% to 94% of plan)",
+    "Lost to a named rival (four quarters) $81.0M to $85.0M",
+    "Pipeline-cover heat map: red cells 2 to 3, amber 4 to 4"
+   ],
+   "snapshot": {
+    "landing": 56.57726
+   }
+  },
+  {
+   "id": 8,
+   "title": "Treat a named rival as a bigger threat in the forecast",
+   "why": "Raise the win-chance penalty for a named rival and every such deal is worth less.",
+   "look": "Command: Forecast column and bridge",
+   "edits": [
+    {
+     "sheet": "levers",
+     "match": {
+      "key": "competitor_penalty"
+     },
+     "col": "value",
+     "to": 0.2,
+     "label": "competitor_penalty",
+     "from": 0.05
+    }
+   ],
+   "effects": [
+    "Region Americas · Forecast: Amber to Red",
+    "Expected landing $58.1M to $57.1M (97% to 95% of plan)",
+    "Incremental upside $4.6M to $4.3M"
+   ],
+   "snapshot": {
+    "landing": 57.12843
+   }
+  },
+  {
+   "id": 9,
+   "title": "Ask for more pipeline cover",
+   "why": "A stricter cover norm should turn more region and product cells amber or red.",
+   "look": "Forecast: Pipeline (cover heat map)",
+   "edits": [
+    {
+     "sheet": "levers",
+     "match": {
+      "key": "coverage_norm"
+     },
+     "col": "value",
+     "to": 4,
+     "label": "coverage_norm",
+     "from": 3
+    }
+   ],
+   "effects": [
+    "Pipeline-cover heat map: red cells 2 to 6, amber 4 to 5"
+   ],
+   "snapshot": {
+    "landing": 58.11726
+   }
+  },
+  {
+   "id": 10,
+   "title": "Pull a weak renewal forward",
+   "why": "A slipping account that renews sooner should raise revenue at risk.",
+   "look": "Accounts: where to act; Command: Retention risk",
+   "edits": [
+    {
+     "sheet": "whatif_accounts",
+     "match": {
+      "account_id": "A026"
+     },
+     "col": "new_renewal_date",
+     "to": "2026-12-16",
+     "label": "BMW Group (A026) new_renewal_date",
+     "from": ""
+    }
+   ],
+   "effects": [
+    "Revenue at risk $38.9M to $43.3M"
+   ],
+   "snapshot": {
+    "landing": 58.11726
+   }
+  },
+  {
+   "id": 11,
+   "title": "Re-draw what counts as a Large account",
+   "why": "Size tiers come from yearly revenue cut-offs. Move the cut-off and the Size rows regroup.",
+   "look": "Command: switch to Size",
+   "edits": [
+    {
+     "sheet": "levers",
+     "match": {
+      "key": "size_large_min_arr"
+     },
+     "col": "value",
+     "to": 12,
+     "label": "size_large_min_arr",
+     "from": 17
+    }
+   ],
+   "effects": [
+    "Size Large · Retention risk: Green to Amber",
+    "Size Large · Growth execution: Red to Amber",
+    "Size Large · Competitive exposure: Red to Amber",
+    "Size Medium · Growth execution: Green to Amber",
+    "Accounts by size: Large 10, Medium 14, Small 16 to Large 17, Medium 7, Small 16"
+   ],
+   "snapshot": {
+    "landing": 58.11726
+   }
+  },
+  {
+   "id": 12,
+   "title": "Tighten the Performance status",
+   "why": "The green line is a choice. Move it and see how many statuses are judged differently.",
+   "look": "Command: Performance column",
+   "edits": [
+    {
+     "sheet": "levers",
+     "match": {
+      "key": "perf_green_min"
+     },
+     "col": "value",
+     "to": 1,
+     "label": "perf_green_min",
+     "from": 0.97
+    },
+    {
+     "sheet": "levers",
+     "match": {
+      "key": "perf_amber_min"
+     },
+     "col": "value",
+     "to": 0.95,
+     "label": "perf_amber_min",
+     "from": 0.88
+    }
+   ],
+   "effects": [
+    "All accounts · Performance: Amber to Red",
+    "Region Americas · Performance: Amber to Red",
+    "Region EMEA · Performance: Amber to Red"
+   ],
+   "snapshot": {
+    "landing": 58.11726
+   }
+  }
+ ]
+}

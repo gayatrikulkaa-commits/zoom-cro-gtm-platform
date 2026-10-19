@@ -1,0 +1,9 @@
+This platform works in three layers: data, intelligence, and execution.
+
+First, the data layer. Ingress and Resolution pulls in deals from Salesforce, calls from Gong, project status from monday.com, and product usage from Grafana, then matches them to one customer, ninety-nine percent of the time instead of thirty-nine. The process changes from four competing versions of the truth to a single customer record, and teams stop arguing about whose number is right. Account Engine then holds each account's full story in one place.
+
+Next, the intelligence layer. Revenue and Uplift shows four hundred eighty million dollars in play, one hundred eighty-five committed, two hundred ten forecast, and a twenty-four million dollar uplift. Uplift means extra revenue above plan that traces back to a specific action, so leaders start judging actions by dollars. Region and Product shows what sells where, and where rivals show up. The forecast, sellers, accounts, pricing, and compete tabs explain why numbers move. Without versus With compares hiring against coaching the reps you already have.
+
+Finally, the execution layer. Guided Selling gives every deal a next best move, and flags risks like relying on a single contact. Reps follow a route instead of improvising. Seller Coach prepares a meeting, step by step. And Sales Ops Studio turns plain English into scoring rules, so changes ship without an engineering queue.
+
+All numbers are simulated, to show the idea.

@@ -1,0 +1,12 @@
+run = "node tools/serve.js"
+
+[nix]
+channel = "stable-24_05"
+
+[deployment]
+deploymentTarget = "static"
+publicDir = "dist"
+
+[[ports]]
+localPort = 8765
+externalPort = 80

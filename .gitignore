@@ -1,0 +1,17 @@
+node_modules/
+.DS_Store
+.claude/
+
+# Third-party and personal files, not part of the build
+Databook Introduction for Ramboll vApr26.pdf
+Gayathri_Zoom_Command_Center_DataBook_Feedback.docx
+Databook_Briefing_for_Dad.docx
+Zoom CRO Command Center.html
+
+# Build intermediates (the publishable pages are dist/index.html and dist/walkthrough/index.html)
+dist/preview.html
+dist/gtm-artifact.html
+dist/walkthrough/artifact.html
+dist/round1/
+dist/gtm/
+dist/zoom/
