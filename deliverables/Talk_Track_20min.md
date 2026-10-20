@@ -13,7 +13,7 @@ You are playing a deployment manager who is also selling. Anton (AI strategy and
 | **Can you sell it to Zoom?** | Their words, their numbers, a quantified and honest case, objection handling. | Slides 1 to 3 in Zoom's terms. "Beyond target". The Northwind chain. One pricing line that follows the CFO's target. |
 | **Do you have executive presence?** | Answer first. Calm pace. Owning caveats before being challenged. Redirecting an interruption without losing the thread. | Short sentences, numbers you can say from memory, the return lines in section 5. |
 
-**Your positioning, in one sentence:** "I am the person who makes Databook work inside Zoom: I turn Zoom's AI-first strategy into account-level behavior, get it live in weeks, and prove it against the CFO's target."
+**Your positioning, in one sentence:** "I am the person who makes Databook work inside Zoom: I lead its AI sales transformation, turning its AI-first strategy into account-level behavior, get it live in weeks, and prove it against the CFO's target."
 
 **Keep Zoom's objectives in view.** Name them early and tie each demo moment back to one:
 - Be seen as an AI-first work platform, not a meeting tool: AI Companion, Zoom CX and Contact Center. Product perception, measured by attach and by executives on calls.
@@ -45,7 +45,7 @@ To save three minutes: skip the Coach studio, give boxes 2 to 5 one sentence eac
 
 ## 3. Deck, slide by slide
 
-**Slide 1, Zoom's need (1:15).** "Zoom has moved from video meetings to an AI-first work platform. AI Companion active users are up more than three times, and paid AI was in each of the top ten Zoom CX deals last quarter. But a platform only sells if every seller carries that story into every account. That is the gap I am here to close."
+**Slide 1, Zoom's need (1:15).** Open with the phrase: "This is about AI sales transformation: changing how Zoom sells, not only what it reports." Then: "Zoom has moved from video meetings to an AI-first work platform. AI Companion active users are up more than three times, and paid AI was in each of the top ten Zoom CX deals last quarter. But a platform only sells if every seller carries that story into every account. That is the gap I am here to close."
 
 **Slide 2, the gap (1:00).** Rivals already sell the platform story. "Zoom's FY26 revenue is about 4% of the market figure Zoom cited. That is a scale comparison, not market share, and the definitions differ. The point is that the room is large and it is won account by account." Volunteer the caveat before they ask.
 

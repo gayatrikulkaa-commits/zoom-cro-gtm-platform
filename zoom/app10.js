@@ -175,7 +175,7 @@ function viewCommand() {
   const t4 = tileHTML('upside', 'Beyond target', (past >= 0 ? '+' : '-') + fm(Math.abs(past), 1), fm(B.landing + book, 1) + ' with 2 decisions', past >= 0 ? 'ok' : 'warn', plural(P0.asksN, 'customer') + ' asked for a product, no deal yet', srcs('sf', 'gong', 'out'));
   const box = (n, title, html) => '<div class="hb-box c' + n + '" id="box' + n + '"><div class="hb-bh"><span class="hb-bn">' + n + '</span>' + title + '</div>' + html + '</div>';
   return filterBar() + stepStrip10() +
-    box(1, 'Top line and the decisions behind it', '<section class="answer" id="ans"><span class="kicker">' + M.curQ + ' · ' + M.cur.daysLeft + ' days left' + (all ? '' : ' · ' + esc(S.region)) + '</span><h2>' + sentence + '</h2><div class="hb-tiles">' + t1 + t2 + t3 + t4 + '</div><p class="hb-hint">Tap a number to see why.</p></section>' + decisionsHTML(F) + bridgeHTML(F) + (PREFS.regions ? regionsHTML(F) : '')) +
+    box(1, 'Top line and the decisions behind it', '<section class="answer" id="ans"><span class="kicker">AI sales transformation · ' + M.curQ + ' · ' + M.cur.daysLeft + ' days left' + (all ? '' : ' · ' + esc(S.region)) + '</span><h2>' + sentence + '</h2><div class="hb-tiles">' + t1 + t2 + t3 + t4 + '</div><p class="hb-hint">Tap a number to see why.</p></section>' + decisionsHTML(F) + bridgeHTML(F) + (PREFS.regions ? regionsHTML(F) : '')) +
     box(2, 'Key accounts to pay attention to', focusHTML(F)) +
     (PREFS.money ? box(3, 'Return on spend', roiHTML()) : '') +
     box(4, 'Zoom product and brand positioning', brandHTML(F)) +

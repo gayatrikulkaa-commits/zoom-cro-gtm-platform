@@ -40,7 +40,7 @@ A short cover note you can paste:
 
 ## The three things to memorise
 
-1. **Your sentence:** "I make Databook work inside Zoom: I turn its AI-first strategy into account-level behavior, get it live in weeks, and prove it against the CFO's target."
+1. **Your sentence:** "I make Databook work inside Zoom and lead its AI sales transformation: I turn its AI-first strategy into account-level behavior, get it live in weeks, and prove it against the CFO's target."
 2. **The arc:** Zoom's need, the gap, how Databook helps, the loop on one account (Northwind), proof and adoption, hire or equip.
 3. **The five numbers:** forecast $58.1M against a $60.0M target; two decisions take it to $60.9M; $38.9M of renewals at risk; win rate 12% against a named rival, 37% without; $4.3 made for every $1 spent.
 
