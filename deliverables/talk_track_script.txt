@@ -36,7 +36,7 @@ Now the part I care about most. Uplift and adoption. Open deals, fifty-eight mil
 
 In Performance, the first tab is the seven KPIs a CRO is judged on, and what the data covers. Everything I have shown you is modeled from stated assumptions, and labelled that way.
 
-One last thing. Databook is headless. It sends plays, decks and insights into the tools Zoom already uses, Slack, Salesforce, Google Drive, Granola and Zoom's own surfaces. Everything on that page says what is simulated. And there is an idea I would test: using Zoom's own meeting recordings as a signal source, instead of Gong. It is attractive, and it needs consent, customer contracts and privacy to be settled with counsel first.
+One last thing. Databook is headless. It sends plays, decks and insights into the tools Zoom already uses, Slack, Salesforce, Google Drive, Granola and Zoom's own surfaces. Everything on that page says what is simulated. And there is an idea I would test: using Zoom's own conversation intelligence, Zoom Revenue Accelerator, and meeting recordings as a signal source, instead of Gong. It is attractive, and it needs consent, customer contracts and privacy to be settled with counsel first.
 
 Slide six. Without Databook, the lever is hiring: ten to twenty reps, about three to five million dollars, and six months of ramp, as Databook states. With Databook, you equip the sellers already in seat. And behaviors and systems have to move together. Align Zoom's champions on the case for change. Have the CRO lead by example. Enable sellers one to one. Align KPIs and incentives. Without behavior change, there is no uplift. That is the part I would own.
 
