@@ -26,7 +26,7 @@ Below is the context graph. Facts from three sources, joined on one company, and
 
 I approve the play.
 
-Now the seller. In Guided selling the play is four steps, in Slack and Salesforce. I can message the account team, edit it, and send. And in the Coach studio I change the sales motion once. Databook found that the pitch is a feature swap and the customer cares about cost. So I ask the coach to confirm the buyer's cost baseline before any business case. I see exactly what changed and how the advice differs. I approve it, and Lukas, the seller, runs it.
+Now the seller. In Guided selling the play is four steps, in Slack and Salesforce. I can message the account team, edit it, and send. And in the Coach studio, which is where the CRO designs the coach while the seller runs it in the Seller coach, I change the sales motion once. Databook found that the pitch is a feature swap and the customer cares about cost. So I ask the coach to confirm the buyer's cost baseline before any business case. I see exactly what changed and how the advice differs. I approve it, and Lukas, the seller, runs it.
 
 Back on the Hub, the same decision shows as approved everywhere. And on Prove, the order is honest. Authorized, started, completed, accepted, buyer step. Revenue is not claimed until it shows up, about a hundred and ten days later, against the CFO's target.
 

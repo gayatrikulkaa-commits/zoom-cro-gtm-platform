@@ -7,7 +7,7 @@ Send only these. They are the work product; the prep notes are for you.
 | Item | Where |
 | --- | --- |
 | The platform (live link) | https://zoom-cro-gtm-platform.replit.app |
-| The deck | `Zoom CRO Pitch (6 slides) v2.pptx` (repo root) |
+| The deck | `Zoom CRO Pitch (6 slides) v2.pptx` (repo root; a title slide plus six numbered slides) |
 | The mock data, 40 accounts (CSV) | `data/accounts_40.csv`, also at https://zoom-cro-gtm-platform.replit.app/data/accounts_40.csv |
 | The full mock workbook (Excel) | `data/Zoom_CRO_Foundation.xlsx` |
 | How the mock data connects to the Hub | `data/README.md` |

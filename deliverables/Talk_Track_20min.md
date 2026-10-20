@@ -1,6 +1,6 @@
 # Talk track: deck and platform in 20 minutes
 
-Open `Zoom CRO Pitch (6 slides) v2.pptx` and the platform side by side. Order: slides 1 to 4, slide 5, the live platform, then slide 6 to close.
+Open `Zoom CRO Pitch (6 slides) v2.pptx` and the platform side by side. Order: the title slide, slides 1 to 4, slide 5, the live platform, then slide 6 to close. The title slide is not numbered; the numbered slides stay 1 to 6.
 
 ## 1. What Databook is testing, and how to position yourself
 
@@ -27,7 +27,8 @@ Say the real figures only as "Zoom reports". Everything else on the platform is 
 
 | Time | What | Slide or screen |
 | --- | --- | --- |
-| 0:00 | Thesis in one sentence | Slide 1 |
+| 0:00 | Title slide (10 seconds): "AI Sales Transformation for Zoom" | Title |
+| 0:10 | Thesis in one sentence | Slide 1 |
 | 1:15 | The gap | Slide 2 |
 | 2:15 | How Databook helps, one example | Slide 3 |
 | 3:45 | The system, fast | Slide 4 |
@@ -70,7 +71,8 @@ The Hub is five colour-coded boxes. The chips under the headline jump between th
 
 **Guide (12:00 to 14:15)**
 - Guided selling: four steps in Slack and Salesforce. **Message the account team**, edit, send (simulated).
-- Coach studio: Databook found the pitch is a feature swap and the customer cares about cost. Change the motion once in a sentence, see exactly what changed, approve it for Lukas, run it as Lukas (optional).
+- Coach studio (for the CRO): say the difference first. "The Coach studio is where I, as CRO, design how a seller is guided. The Seller coach is where the seller runs it." Databook found the pitch is a feature swap and the customer cares about cost. Change the motion once in a sentence, see exactly what changed, approve it for Lukas.
+- Seller coach (for the seller), optional: run it as Lukas. The page says at the top that it is for the seller.
 
 **Boxes 2 to 5, quickly (14:15 to 15:15)**
 - Box 2, key accounts (blue): "Ranked by money at stake and how soon it is decided." Northwind now reads Approved: same decision, every screen.
@@ -80,7 +82,11 @@ The Hub is five colour-coded boxes. The chips under the headline jump between th
 
 **Between runs.** Every Approve has an Undo (on the Hub card, the account page and the play). Prove has a Start over button that clears everything. The Hub has a Customize this view button: switch sections off and on and the Hub changes at once (Connections has the same controls). Client materials, under Guided selling, generates an executive briefing for any account.
 
-**Performance, only if asked.** The first tab is the seven KPIs a CRO is judged on and what the data covers. In Forecast, the deals table gives the next best action for each deal, when it closes and the money at risk: what the sales team counts on that Databook does not.
+**Performance, only if asked.**
+- CRO KPIs: seven boxes, one per KPI a CRO is judged on, and each box says Measured or Partly assumed. Strong on growth and innovation, weakest on forecast discipline and pricing.
+- Sellers: ranked by selling skill, top down; click any column to rank by it. **On pace** is closed so far this year divided by the quota due by today, so 100% or more is on pace. **Using Databook** or **Not yet** says who has started the guided plays. It is not about renewals or expansion.
+- Forecast: the landing is built once; to test what moves it, go to the Workspace scenarios. The deals table gives each deal's next best action, when it closes and the money at risk: what the sales team counts on that Databook does not.
+
 
 **Prove, then uplift and adoption (15:15 to 16:45)**
 - Prove: the execution loop step by step (authorized, started, completed, accepted, buyer step), then a list of what was approved and which sellers have worked on it and finished the coach. Revenue is not claimed until it shows, about 110 days later, against the CFO's target.
@@ -103,6 +109,8 @@ Answer in twenty seconds, then return: "Let me finish this step and I will come 
 | How is this different from Clay, Gong or Clari? | As I understand them, each is strong at one job: Clay finding and enriching data, Gong analysing conversations, Clari forecasting. Databook starts from the customer's strategy, joins it with Zoom's own systems, tells a seller what to do on one account, and proves the result. I would compare on trust, guidance and proof. | Slide 4 |
 | Why does pipeline need to be 3x the target? | About 1 in 3 deals close; our win rate is 29%. It does not mean the target is wrong. It is a threshold you can change. | Forecast |
 | What does "money at risk" mean? | What the sales team counts on for a deal that Databook does not, because of signals like no senior leader or a quiet account. | Forecast |
+| What is the difference between the Coach studio and the Seller coach? | The Coach studio is for the CRO and sales leaders: they design and approve how a seller is guided on an account. The Seller coach is for the seller: they run the approved coach step by step on that account. Both pages say who they are for at the top. | Guided selling |
+| What does "on pace" mean for a seller? | Closed so far this year divided by the quota due by today. 100% or more is on pace. | Sellers |
 | Zoom's sellers meet customers on Zoom. Why is Gong your call source? | In the mock data the call records are labelled Gong because that is a documented Databook source. In Zoom's real deployment the source would be Zoom's own meetings and Zoom Revenue Accelerator, which is what the Connections screen recommends. The reasoning layer does not change; only the connector does. Consent, customer terms and privacy come first, and whether Databook supports it is something to confirm. | Connections |
 | What about Zoom's own recordings or Zoom Revenue Accelerator? | Consent, customer contracts, residency, retention, access. Start with internal calls from sellers who opt in, keep Gong where deployed, take it to counsel first. Whether Databook supports it is something to confirm, not claimed. | Connections |
 | How do you get sellers to use it? | Behaviors and systems together, slide 6. The CRO approves first, because sellers ignore nudges that do not come from a manager. Adoption is measured before revenue. | Uplift and adoption |
