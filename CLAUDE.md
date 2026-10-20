@@ -4,7 +4,7 @@ A prototype for a Databook Labs panel interview: a Zoom CRO platform in three la
 
 ## Where things live
 - `zoom/` is the source of truth (`app1.js` to `app9.js`, `styles.css`, model files). `dist/index.html` is the built site that gets published.
-- GitHub: `gayatrikulkaa-commits/zoom-cro-gtm-platform`, branch `main` (private).
+- GitHub: `gayatrikulkaa-commits/zoom-cro-gtm-platform`, branch `main` (public: do not commit anything private).
 - Replit: the Repl `zoom-cro-gtm-platform`, replId `1b876892-d851-49a9-b3d5-81d0f3ad7283`, published at https://zoom-cro-gtm-platform.replit.app (static deployment serving `dist/`).
 
 ## Making a change
