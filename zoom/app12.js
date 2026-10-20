@@ -102,9 +102,9 @@ const CN_PUSH = [
   ['SharePoint and OneDrive', 'Decks and briefs for Microsoft-heavy customers\' account teams', 'cfg', '']
 ];
 const CN_SIG = [
+  ['Zoom Revenue Accelerator and Zoom meetings', 'Zoom\'s own conversation intelligence: topics, rivals, who attended, talk time, sentiment, next steps', 'Proposed, not validated', 'The natural source for Zoom\'s own sellers. Needs Zoom privacy and legal sign-off, and Databook to confirm support'],
+  ['Gong (the call records in this mock data)', 'Call transcripts, who attended, rivals named', 'Simulated here', 'Used in the prototype because it is a documented Databook source; Zoom may not use it'],
   ['Salesforce', 'Deals, contacts, stages, competitors', 'Simulated here', 'In use at Zoom'],
-  ['Gong', 'Call transcripts, who attended, rivals named', 'Simulated here', 'Zoom may not use it; it is the source in this prototype'],
-  ['Zoom Revenue Accelerator, meeting recordings and AI Companion summaries', 'The same signals, from Zoom\'s own conversation intelligence and meetings: topics, rivals, who attended, talk time, sentiment, next steps', 'Proposed, not validated', 'Needs Zoom privacy and legal sign-off before any pilot'],
   ['Grafana and monday.com', 'Product usage and delivery status', 'Simulated here', 'Zoom first-party'],
   ['Licensed outside data', 'Filings, earnings calls, news, executive moves, technographics', 'Illustrative here', 'Licensed through Databook in a deployment']
 ];
