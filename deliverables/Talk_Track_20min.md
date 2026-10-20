@@ -110,6 +110,8 @@ Answer in twenty seconds, then return: "Let me finish this step and I will come 
 
 Forecast $58.1M, closed so far $35.3M, target $60.0M. With the decisions: $60.9M, $0.9M past target. Customers asked for, no deal yet: 8 customers, about $11.9M. Renewals at risk: $38.9M across nine. Win rate with a rival named 12%, with none named 37%. Contact Center wins 28%. Reframe +$2.0M, leader +$0.8M, renewals kept $14.6M (40% assumed save). Uplift +$4.6M at full adoption, +$2.3M at 50%. Northwind: $28.0M account, $5.6M lost in four quarters, a $1.0M deal closes November 5. Spend returns $4.3 per $1. Hires: six months to a first win. 39% to 99% and about 3% above target are Databook's figures. Zoom reports: FY26 revenue $4.87B, enterprise about 60%, net dollar expansion 98%, FY27 guidance $5.065B to $5.075B.
 
+**Why "FY26" when it is already 2026?** Zoom's fiscal year ends January 31. FY26 is February 2025 to January 2026, reported on February 25, 2026. Today is Q3 of FY27, so FY26 is the latest full year Zoom has reported: revenue $4,868.8M, Enterprise $2,934.1M (about 60%). "Q4 FY26" is November 2025 to January 2026.
+
 ## 7. Caveats to volunteer (first, not when challenged)
 
 All account data is synthetic and labelled Mock data. Only Zoom's reported revenue and guidance are real. Outside data is illustrative. Dollar impacts are estimates from stated assumptions, not results. The pilot comparison is observational, with 25 and 31 deals. The Studio and the Composer are simulations. Nothing is connected to a real system.
