@@ -5,11 +5,18 @@ function shell() {
   const t = TABS.find((x) => x[0] === S.tab) || TABS[0];
   const regions = '<div class="seg light-seg" role="group" aria-label="Region">' + ['All'].concat(M.regions).map((r) => '<button data-act="region" data-r="' + r + '" aria-pressed="' + (S.region === r) + '">' + (r === 'All' ? 'All regions' : r) + '</button>').join('') + '</div>';
   return '<header class="gxh"><div class="gxh-t"><span class="gxh-mark" aria-hidden="true"></span><div><h1><span class="dim">Databook Labs, Inc. //</span> Zoom Enterprise GTM Operating System</h1><p>Live Deployment Environment // Review Panel: Anton &amp; Hriday</p></div></div><span class="gxh-sim" title="Every account, deal and figure on this page is generated mock data, except Zoom\'s reported revenue and guidance">Mock data · illustrative</span></header>' +
-    '<div class="app' + (S.detail ? ' show-detail' : '') + '">' + sideHTML() + '<div class="content"><header class="topbar"><div class="tb-l"><span class="tb-layer">' + (LAYER_OF[t[0]] || '') + '</span><h1>' + (NAV_LABEL[t[0]] || t[1]) + '</h1><span class="tb-sub">Zoom · ' + M.curQ + ' · ' + M.cur.daysLeft + ' days left · as of ' + dateFmt(M.asOf) + '</span></div><div class="tb-r">' + regions + '<button class="btn red" data-act="copilot"><span class="diamond"></span>Ask</button></div></header>' +
-    whatifBar() + '<main id="view"></main></div></div>' + bottomNav() + '<div id="overlay"></div><div id="gx-ov"></div><div id="tip"></div><div id="toast" class="toast" hidden></div><input type="file" id="file-in" hidden accept=".xlsx,.xls,.csv">';
+    '<div class="app' + (S.detail ? ' show-detail' : '') + '">' + sideHTML() + '<div class="content"><header class="topbar"><div class="tb-l"><span class="tb-layer">' + ((groupOf(t[0]) || {}).label || '') + '</span><h1>' + (NAV_LABEL[t[0]] || t[1]) + '</h1><span class="tb-sub">Zoom · ' + M.curQ + ' · ' + M.cur.daysLeft + ' days left · as of ' + dateFmt(M.asOf) + '</span></div><div class="tb-r">' + regions + '<button class="btn red" data-act="copilot"><span class="diamond"></span>Ask</button></div></header>' +
+    whatifBar() + groupBar() + '<main id="view"></main></div></div>' + bottomNav() + '<div id="overlay"></div><div id="gx-ov"></div><div id="tip"></div><div id="toast" class="toast" hidden></div><input type="file" id="file-in" hidden accept=".xlsx,.xls,.csv">';
 }
-const VIEWS = { command: viewCommand, journey: viewJourney, ingress: gxIngress, revenue: gxRevenue, regprod: gxRegProd, guided: gxGuided, engine: gxEngine, studio: gxStudio, pricing: () => tierBar(2) + viewPricing(), forecast: () => tierBar(2) + viewForecast(), accounts: () => tierBar(2) + viewAccountsHub(), sellers: () => tierBar(2) + viewSellersHub(), compete: () => tierBar(2) + viewCompete(), coach: viewCoach, decide: () => tierBar(3) + viewDecide(), lab: () => tierBar(3) + viewLab(), why: viewWhy, sources: viewTrust };
-function renderView() { $('#view').innerHTML = VIEWS[S.tab](); mountCharts(); drawLinks(); }
+const VIEWS = { command: viewCommand, ingress: gxIngress, revenue: viewUplift, uplift: viewUplift, kpis: viewKpis10, prove: viewProve, regprod: gxRegProd, guided: viewGuided10, engine: viewAccounts10, studio: viewStudio10, connect: viewConnect, costudio: viewCoachStudio10, pricing: () => tierBar(2) + viewPricing(), forecast: () => tierBar(2) + viewForecast(), accounts: viewAccounts10, sellers: () => tierBar(2) + viewSellersHub(), compete: () => tierBar(2) + viewCompete(), coach: viewCoach, decide: () => tierBar(3) + viewDecide(), lab: () => tierBar(3) + viewLab(), why: viewWhy, sources: viewTrust };
+const FOLD = { ingress: [3, 'More on handoffs, data sets and the context layers'], why: [2, 'More: the reasoning engine, commercial models and who owns what'], sources: [3, 'Every source, owner and freshness'], compete: [4, 'More: the signals, the response and presence by region'] };
+function foldExtras() {
+  const cfg = FOLD[S.tab]; if (!cfg) return; const v = $('#view'), kids = [...v.children].filter((c) => !/prov/.test(c.className) && c.tagName !== 'P');
+  const rest = kids.slice(cfg[0]).filter((c) => !c.querySelector('[data-chart]')); if (rest.length < 2) return;
+  const det = document.createElement('details'); det.className = 'more'; det.innerHTML = '<summary>' + cfg[1] + '</summary><div class="more-b"></div>'; const body = det.querySelector('.more-b');
+  kids[cfg[0] - 1].after(det); rest.forEach((c) => body.appendChild(c));
+}
+function renderView() { $('#view').innerHTML = VIEWS[S.tab](); foldExtras(); mountCharts(); drawLinks(); }
 function renderOverlay() {
   const o = $('#overlay');
   if (S.sheet) { o.innerHTML = '<div class="scrim" data-act="close"></div>' + sheetHTML(); }
@@ -18,11 +25,12 @@ function renderOverlay() {
   else if (S.demo) { o.innerHTML = '<div class="scrim" data-act="close"></div><aside class="panel" role="dialog" aria-modal="true">' + demoPanel() + '</aside>'; }
   else if (S.move) { o.innerHTML = '<div class="scrim" data-act="close"></div><aside class="panel" role="dialog" aria-modal="true">' + moveDetail(S.move) + '</aside>'; }
   else if (S.prov) { o.innerHTML = '<div class="scrim" data-act="close"></div><aside class="panel" role="dialog" aria-modal="true">' + provHTML(S.prov) + '</aside>'; }
+  else if (HB.ev) { o.innerHTML = '<div class="scrim" data-act="close"></div><aside class="panel" role="dialog" aria-modal="true">' + hbEvidence(HB.ev) + '</aside>'; }
   else if (S.copilot) { o.innerHTML = '<div class="scrim" data-act="close"></div><aside class="panel" role="dialog" aria-modal="true">' + copilotPanel() + '</aside>'; const b = $('#msgs-box'); if (b) b.scrollTop = b.scrollHeight; const i = $('#ask-in'); if (i) i.focus(); }
   else o.innerHTML = '';
 }
 function renderAll() { root.innerHTML = shell(); renderView(); gxOv(); renderOverlay(); }
-function setTab(t) { route(t); S.move = null; S.prov = null; S.copilot = false; S.modal = null; S.sheet = null; pushHash(); renderAll(); window.scrollTo(0, 0); }
+function setTab(t) { route(t); HB.ev = null; S.move = null; S.prov = null; S.copilot = false; S.modal = null; S.sheet = null; pushHash(); renderAll(); window.scrollTo(0, 0); }
 function toast(t) { const el = $('#toast'); if (!el) return; el.textContent = t; el.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => (el.hidden = true), 2600); }
 
 // ---------- workbook io ----------
@@ -86,7 +94,6 @@ document.addEventListener('click', (e) => {
   else if (act === 'focus') { S.focus = S.focus && S.focus.lens === d.l && S.focus.label === d.g ? null : { lens: d.l, label: d.g }; S.allTrees = false; renderView(); const el = $('#trees'); if (el && S.focus) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   else if (act === 'focusclear') { S.focus = null; renderView(); }
   else if (act === 'mdrill') { const k = d.k, lens = d.lens, g = d.g, TGT = { perf: ['forecast', 'regions'], fcst: ['forecast', 'summary'], ret: ['accounts', 'priority'], grow: ['forecast', 'pipeline'], comp: ['compete', 'map'] }[k]; S.country = null; if (lens === 'region') { S.region = g; S.accGroup = null; } else if (lens === 'all') { S.region = 'All'; S.accGroup = null; } else { S.region = 'All'; S.accGroup = { lens, label: g }; } let sub = TGT[1]; if (S.accGroup && k === 'ret') sub = 'all'; S.tab = TGT[0]; S.sub[S.tab] = sub; pushHash(); renderAll(); window.scrollTo(0, 0); }
-  else if (act === 'journey-start') { J.step = 0; setTab('journey'); }
   else if (act === 'mv-open') { S.move = d.id; renderOverlay(); }
   else if (act === 'mv-set') { desk.actionStatus[d.id] = d.v; saveDesk(); const a = M.actions.find((x) => x.id === d.id); audit(d.v + ' move: ' + (a ? a.title : d.id)); toast(d.v === 'Approved' ? 'Approved. It now counts in the proof.' : 'Deferred'); renderView(); renderOverlay(); }
   else if (act === 'aset') { desk.actionStatus[d.id] = d.v; saveDesk(); const a = M.actions.find((x) => x.id === d.id); audit(d.v + ' action: ' + (a ? a.title : d.id)); toast(d.v === 'Approved' ? 'Approved. It now counts in the execution loop.' : 'Rejected'); renderView(); }
@@ -95,7 +102,7 @@ document.addEventListener('click', (e) => {
   else if (act === 'opencoach') openCoach(d.id || M.coachAccountId);
   else if (act === 'demo') { S.demo = true; S.prov = null; S.copilot = false; renderOverlay(); }
   else if (act === 'resetdemo') { try { localStorage.removeItem('zcro:desk'); } catch (er) {} location.reload(); }
-  else if (act === 'demogo') { const st = DEMO[+d.i][2]; S.demo = false; if (st[0] === 'tab') { S.focus = null; setTab('command'); } else if (st[0] === 'region') { S.accGroup = null; S.region = st[1]; S.tab = 'forecast'; S.sub.forecast = 'summary'; renderAll(); window.scrollTo(0, 0); } else if (st[0] === 'pipeline') { S.accGroup = null; S.region = st[1]; S.tab = 'forecast'; S.sub.forecast = 'pipeline'; renderAll(); window.scrollTo(0, 0); } else if (st[0] === 'scroll') { S.region = 'All'; S.accGroup = null; setTab('command'); const el = document.getElementById(st[1]) || document.querySelector('.dgrid3'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); } else if (st[0] === 'coach') openCoach(M.coachAccountId); else if (st[0] === 'coachstep') { if (!S.run) { S.run = newRun(M.coachAccountId); sessionOf(S.run); } S.run.answers = Object.assign({ sponsor: 'yes', baseline: 'confirmed', contacts: 40000, cost: 6.5, deflect: 10 }, S.run.answers); S.run.step = 5; S.tab = 'coach'; renderAll(); window.scrollTo(0, 0); } }
+  else if (act === 'demogo') { const st = DEMO[+d.i][2]; S.demo = false; S.region = 'All'; S.accGroup = null; S.focus = null; if (st[0] === 'tab') setTab(st[1]); else if (st[0] === 'hub') { setTab('command'); const el = document.getElementById(st[1]); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); } else if (st[0] === 'ev') { setTab('command'); HB.ev = st[1]; renderOverlay(); } else if (st[0] === 'acct') openAccount(anchorId()); else if (st[0] === 'play') { const p = playOf(anchorAcc()); if (p) gGotoPlay(p.id); else setTab('guided'); } else if (st[0] === 'coach') openCoach(anchorId()); }
   else if (act === 'cstep') { if (!S.run) return; S.run.step = +d.s; if (+d.s >= 4) syncSession(S.run); renderView(); window.scrollTo(0, 0); }
   else if (act === 'cans') { const r = S.run; r.answers[d.q] = d.v; r.approved = false; r.reviewed = { brief: false, deck: false }; r.submitted = false; syncSession(r); renderView(); }
   else if (act === 'cauth') { desk.coach.auth[S.run.account] = true; saveDesk(); audit('Approved the coach for ' + M.acc[S.run.account].account_name); renderView(); }
@@ -139,7 +146,7 @@ document.addEventListener('click', (e) => {
   else if (act === 'region') { S.region = d.r; renderAll(); }
   else if (act === 'sort') { const c = S.sort[d.t]; S.sort[d.t] = [d.k, c[0] === d.k ? -c[1] : (d.k === 'name' ? 1 : -1)]; renderView(); }
   else if (act === 'prov') { S.provRow = d.row || null; openProv(d.k); }
-  else if (act === 'close') { S.move = null; S.prov = null; S.copilot = false; S.modal = null; S.asset = null; S.demo = false; S.sheet = null; renderOverlay(); }
+  else if (act === 'close') { HB.ev = null; S.move = null; S.prov = null; S.copilot = false; S.modal = null; S.asset = null; S.demo = false; S.sheet = null; renderOverlay(); }
   else if (act === 'sheet') { S.sheet = d.s; S.prov = null; S.copilot = false; renderOverlay(); }
   else if (act === 'detail') { S.detail = !S.detail; store.set('detail', S.detail); renderAll(); }
   else if (act === 'scrollto') { const el = $('#' + d.to); if (!el) return; const dt = el.tagName === 'DETAILS' ? el : el.querySelector('details.more'); if (dt && !dt.open) { dt.open = true; if (dt.dataset.k) S.open[dt.dataset.k] = true; mountCharts(); drawLinks(); } el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }

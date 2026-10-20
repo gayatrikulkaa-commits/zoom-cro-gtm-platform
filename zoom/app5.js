@@ -17,10 +17,7 @@ function curLanes() {
   if (t === 'lab') return { scenarios: ['outcome'], lag: ['outcome'], logic: ['outcome', 'exec', 'comp'], levers: ['outcome', 'exec', 'comp'], lens: ['exec', 'comp'] }[sub] || ['outcome'];
   return [];
 }
-function tierBar() {
-  const ls = curLanes();
-  return (ls.length ? '<div class="lanebar"><div class="lanes" title="Revenue outcomes are what we get, sales execution is what sellers do, competition is who we meet">' + ['outcome', 'exec', 'comp'].map((k) => laneChip(k, ls.includes(k))).join('') + '</div></div>' : '') + filterBar();
-}
+function tierBar() { return filterBar(); }
 function filterBar() {
   const f = S.accGroup, r = S.region !== 'All' ? S.region : null; if (!f && !r) return '';
   return '<div class="fbar"><span class="kicker">Filtered to</span>' + (r ? '<button class="chip-x" data-act="region" data-r="All">Region · ' + esc(r) + ' ×</button>' : '') + (f ? '<button class="chip-x" data-act="clearacc">' + ucf(f.lens) + ' · ' + esc(f.label) + ' ×</button>' : '') + (f && f.lens !== 'region' ? '<span class="sub" style="color:var(--ink-3);font-size:12px">Plan is set by region and product, so industry and size filters apply to accounts and deals only.</span>' : '') + '</div>';
@@ -123,8 +120,8 @@ function bridgeTable() {
 const aStatus = (id) => (desk.actionStatus || {})[id] || 'Pending';
 function impactChip(a) {
   if (a.modeled == null) return '<span class="imp un">Unquantified</span>';
-  const unit = { bookings: 'bookings', retention: 'revenue protected', pipeline: 'pipeline to create' }[a.kind];
-  return '<span class="imp mod">' + (a.kind === 'pipeline' ? '' : '+') + fm(a.modeled, 1) + ' ' + unit + ' · Modeled</span>';
+  const unit = { bookings: 'new sales', retention: 'renewals kept', pipeline: 'pipeline to create' }[a.kind];
+  return '<span class="imp mod">' + (a.kind === 'pipeline' ? '' : '+') + fm(a.modeled, 1) + ' ' + unit + ' · estimate</span>';
 }
 function actionRow(a) {
   const st = aStatus(a.id), cro = S.role === 'cro';
@@ -196,6 +193,7 @@ function stepStrip(pending) {
 
 // the next three moves: plain titles, one line of impact, and the detail one click away
 const HUB_MOVE = {
+  reframe: { title: (a) => 'Reframe the Contact Center pitch on ' + (a.title.match(/\d+/) || ['these'])[0] + ' deals', what: 'These Contact Center deals name a rival or have no senior leader behind them. Contact Center wins about a quarter of the deals it decides.', does: 'Each seller leads the pitch with the customer\'s own priority and a quantified business case instead of a feature comparison. Product marketing supplies proof points. Nothing is sent to a customer.', why: (a, L) => 'Based on this book\'s past deals. We assume ' + pc(L.sponsor_push_success_rate, 0) + ' of these deals respond. Medium because that rate is an assumption.' },
   sponsor: { title: (a) => 'Get a senior customer leader behind ' + (a.title.match(/\d+/) || ['these'])[0] + ' open deals', what: 'No senior person at the customer is backing these deals. Deals like this close less often and slip more often.', does: 'Each deal goes on its seller\'s task list with a guided coach. The seller asks for a meeting with a senior leader at the customer. Nothing is sent to a customer.', why: (a, L) => 'Based on this book\'s past deals: the win chance rises when a senior customer leader is involved. We assume ' + pc(L.sponsor_push_success_rate, 0) + ' of these deals respond. Medium because that rate is an assumption and the sample of comparable deals is modest.' },
   rescue: { title: (a) => 'Rescue ' + (a.title.match(/\d+/) || ['these'])[0] + ' renewals that are slipping', what: 'These customers renew soon and their health score is low (falling usage, quiet calls, stalled delivery).', does: 'Customer success managers book an executive check-in and an adoption sprint with each customer before a renewal quote goes out.', why: (a, L) => 'Health combines usage, calls and delivery status from four feeds. We assume ' + pc(L.renewal_rescue_save_rate, 0) + ' of at-risk revenue is saved. Medium because the save rate is an assumption.' },
   asks: { title: (a) => 'Open ' + (a.title.match(/\d+/) || ['these'])[0] + ' expansion deals customers asked for', what: 'Healthy customers asked about another Zoom product on calls, but nobody has opened a deal.', does: 'Sellers create the opportunities and run the expansion coach on each one.', why: (a, L) => 'These asks come from call transcripts, not from signed intent. We assume ' + pc(L.expansion_conversion_rate, 0) + ' convert and only ' + pc(L.expansion_in_year_share, 0) + ' of those close this year. Low because both rates are assumptions.' }
@@ -209,7 +207,7 @@ function moveRow(a, i) {
 function moveDetail(id) {
   const a = M.actions.find((x) => x.id === id); if (!a) return '';
   const hm = hMove(a), st = aStatus(a.id), cro = S.role === 'cro', L = M.lv;
-  const unit = { bookings: 'bookings', retention: 'revenue protected', pipeline: 'pipeline to create' }[a.kind];
+  const unit = { bookings: 'new sales', retention: 'renewals kept', pipeline: 'pipeline to create' }[a.kind];
   return '<div class="panel-hd"><div><span class="kicker">Next move · ' + M.horizons[a.h].range + '</span><h3>' + esc(hm.title(a)) + '</h3></div><button class="x" data-act="close" aria-label="Close">×</button></div><div class="panel-bd">' +
     '<div class="mv-blk"><h4>What is going on</h4><p>' + esc(hm.what) + '</p><p class="mv-fact">' + esc(a.problem) + '.' + (a.who ? ' Largest: ' + esc(a.who) + '.' : '') + '</p></div>' +
     '<div class="mv-blk"><h4>What approving does</h4><p>' + esc(hm.does) + '</p><p class="mv-fact">Owner: ' + esc(a.owner) + ' · due ' + dateFmt(a.due) + '</p></div>' +
@@ -225,21 +223,6 @@ function proveCard() {
   return '<div class="card" id="prove"><div class="hd"><div><span class="kicker">Step 5 · Prove</span><h3>Did execution improve, and is it lifting revenue?</h3></div><span class="hd-r">' + infoBtn('loop') + '</span></div>' +
     '<div class="pv">' + steps.map((x) => '<div class="pvs"><b class="num">' + x[1] + '</b><span>' + x[0] + '</span><small>' + x[2] + '</small></div>').join('') + '<div class="pvs pend"><b>Not yet</b><span>Revenue</span><small>lags about ' + lag + ' days</small></div></div>' +
     '<p class="pv-read"><b>Early read:</b> pilot sellers have a senior customer leader on ' + pc(co.pilot.exec, 0) + ' of their deals, against ' + pc(co.control.exec, 0) + ' for other sellers. Revenue is not claimed until it shows up in closed deals.</p>' +
-    '<p class="pv-key"><b>Seller</b> = the Zoom account executive who owns the deal. <b>Coach</b> = the guided assistant that walks a seller through one account.</p>' +
-    '<div class="pv-act"><button class="btn sm" data-act="opencoach" data-id="' + M.coachAccountId + '">Try the coach as a seller</button></div></div>';
+    '<div class="pv-act"><button class="btn sm" data-act="opencoach" data-id="' + anchorId() + '">Try the coach as a seller</button></div></div>';
 }
 const wk = (key, title, html) => '<div id="' + key + '"><details class="more" data-k="' + key + '"' + (S.open[key] ? ' open' : '') + '><summary>' + title + '</summary><div class="more-b">' + html + '</div></details></div>';
-function viewCommand() {
-  const R = M.matrix.region, A = M.matrix.all, row = S.region === 'All' ? A : (R.find((r) => r.label === S.region) || A), B = M.bridge[row === A ? 'All' : row.label] || M.bridge.All;
-  const picks = ['sponsor', 'rescue', 'asks'].map((id) => M.actions.find((a) => a.id === id)).filter(Boolean), pending = picks.filter((a) => aStatus(a.id) === 'Pending').length;
-  const gR = S.region === 'All' ? { fc: GM.forecast, up: GM.uplift } : gRegion(S.region), d0 = S.region === 'All' ? 0 : 1;
-  const nRisk = M.accounts.filter((a) => inReg(a.region) && a.arrAtRisk > 0.005).length;
-  const t = (label, big, sub, st, go) => '<button class="q2 ' + stDot(st) + '" ' + (go.indexOf('|') > 0 ? 'data-act="hgo" data-go="' + go + '"' : 'data-act="scrollto" data-to="' + go + '"') + '><span class="qk">' + (st ? dot(stDot(st)) : '') + label + '</span><b class="qv num">' + big + '</b><span class="qd">' + sub + '</span></button>';
-  const head = '<section class="answer" id="ans"><span class="kicker">' + M.curQ + ' · ' + M.cur.daysLeft + ' days left' + (S.region !== 'All' ? ' · ' + esc(S.region) : '') + '</span><h2>Forecast ' + gfm(gR.fc, d0) + '. <span class="h2s">' + gfm(gR.fc + gR.up, d0) + ' with Databook.</span></h2>' +
-    '<div class="qrow2">' + t('New bookings', fm(B.landing, 1), 'forecast · plan ' + fm(B.plan, 1), worstOf(row.perf.status, row.fcst.status), 'tab|forecast') + t('Upside', '+' + fm(B.incr, 1), 'if the moves below land', '', 'moves') + t('Revenue at risk', fm(row.ret.atRisk || 0, 1), 'across ' + nRisk + ' renewing accounts', row.ret.status, 'accfocus|priority') + t('Competitive deals', pc(row.comp.value || 0, 0), 'of open pipeline names a rival', row.comp.status, 'gosub-compete|map') + '</div></section>';
-  const ga = GA.filter((a) => S.region === 'All' || a.region === S.region), aiOwn = ga.filter((a) => a.owns.contactCenter || a.owns.ai).length, untapped = sum(M.accounts.filter((a) => inReg(a.region)), (a) => a.whitespace);
-  const play = '<section class="aiplay"><div class="ap-l"><span class="kicker">Zoom\'s AI play</span><h3>Every seller carries the AI-first vision into each account</h3></div><div class="ap-m"><div><b class="num">' + fm(untapped, 0) + '</b><span>Revenue growth</span><small>untapped in accounts Zoom already owns</small></div><div><b class="num">' + aiOwn + ' of ' + ga.length + '</b><span>Product perception</span><small>accounts own Contact Center or AI</small></div><div><b class="num">' + pc(M.comp.winRateNamed, 0) + '</b><span>Market share</span><small>win rate when a rival is named, against ' + pc(M.comp.winRateClear, 0) + ' without</small></div></div><button class="btn red" data-act="journey-start">Walk through an account</button></section>';
-  const regions = '<section id="regions"><div class="sec-h"><h3>Where it stands</h3><span class="muted"><span class="lgd">' + gdot('ok') + 'On track</span><span class="lgd">' + gdot('warn') + 'Watch</span><span class="lgd">' + gdot('bad') + 'Act now</span></span></div><div class="rgrid">' + R.map(regionCard).join('') + '</div></section>';
-  const moves = '<section id="moves"><div class="sec-h"><h3>Your next three moves</h3><span class="muted">' + (pending ? pending + ' waiting for you' : 'All decided') + '</span></div><div class="card flush">' + picks.map(moveRow).join('') + '</div></section>';
-  return filterBar() + head + play + stepStrip(pending) + regions + moves + proveCard() + '<p class="foot-note">Prototype. Synthetic data. Not connected to Zoom or to Databook systems. Zoom\'s reported revenue and guidance are the only real figures.</p>' + provStrip(['m_fcst', 'bridge', 'm_comp']);
-}

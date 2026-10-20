@@ -1,77 +1,61 @@
-# Presenter notes: Zoom Enterprise GTM Operating System
+# Presenter notes: Zoom CRO GTM Decision System
 
 These are for you to talk through. None of this is on the platform. Figures marked *(Databook states)* are Databook's own claims from the launch webinar. Everything else is either Zoom's reported numbers or mock data from the prototype.
 
 ---
 
-## 0. How the platform lines up with the 6-slide pitch
+> The current script is `Talk_Track_20min.md`, with a spoken version in `talk_track_script.txt` and a rehearsal recording, `Talk_Track_rehearsal.m4a`. The sections below are background.
 
-| Slide | What the slide says | Where it is in the platform |
-|---|---|---|
-| 1. Zoom's need | Zoom is repositioning as an AI-first work platform; every seller has to carry that into each account | **CRO Hub**, "Zoom's AI play" band. **Account journey**, step 1 (use case) |
-| 2. Market gap | Rivals hold the platform story; most of the market is untapped | **Account journey** step 1 and 3 (who beat Zoom here, untapped revenue). **Compete** tab (rival exposure by country) |
-| 3. How Databook helps | Three outcomes: revenue growth, product perception, market share | The three tiles on the Hub band and on journey step 1: untapped revenue, products owned and executive engagement, win rate against named rivals |
-| 4. Decision system | Data, intelligence, execution | The sidebar: **Data layer** (the map), **Intelligence layer** (the routing engine), **Execution layer** (guidance and analytics). Journey step 6 (Tune) shows the Studio and Workspace |
-| 5. CRO loop | See, Find, Decide, Guide, Prove | The five-step strip on the Hub, and journey steps 2 to 5 and 7. Decide uses Approve and Defer, as on the slide |
-| 6. Without and with Databook | Hire reps or equip sellers; behaviors and systems | Not on the platform by design. Section 3 below |
+## 0. The story in one breath
 
-One difference to be ready for: slide 5 shows `#acct-northwind` (EMEA, Contact Center). The platform's practice account is **Acme Corp** (Americas). Pick Northwind Traders in the account list and the journey runs on it too.
+"AI sales transformation is not only about the top line. It is about whether Zoom's brand and product value reach the buyer, because that is what moves the top line. So the CRO should not react to numbers after the fact. Databook reads first-party context (Salesforce, Gong, Grafana, monday.com and what sellers record) and third-party context (filings, earnings calls, news, licensed data), predicts where revenue will move, and equips sellers to act before it does."
 
----
+Four things the platform shows, in the order a CRO would ask for them:
+1. **What will happen, and why we think so.** Every Hub number says how Databook sees it, from which systems, and whether that is a record (Verified), a Databook read (Inferred) or a hypothesis (Needs validation).
+2. **What to do about it.** Three decisions, each with an owner, a date, a modeled impact and an approval that updates every screen.
+3. **Where to spend time.** Top 5 or Top 10 accounts, a mix of risks and a win to repeat. Win and loss patterns that predict a loss, and how many open deals show them today.
+4. **What the money returns.** Marketing spend, new hires and top sellers against revenue, with the gold-standard habit to copy.
 
-## 0b. Demo script: one account, start to finish (about 6 minutes)
+## 0a. Run of show: about 20 minutes (deck 8, platform 10, buffer 2)
 
-**Set the scene.** "Assume there is an account in the Americas we are going after. Zoom has tried to expand here before and lost to a rival. Now there is untapped revenue." Open **CRO Hub**, point to the Zoom's AI play band, click **Walk through an account**.
+| Time | Where | Say | Click |
+| --- | --- | --- | --- |
+| 0:00 to 8:00 | Deck, six slides | Zoom's need, the market gap, how Databook helps, the three layers, the loop, hire or equip | Slide 5 sets up the platform |
+| 8:00 | **CRO Hub** | "Bookings are forecast at $58.1M against $60.0M. Two decisions close the $1.9M gap and a third protects $14.6M of renewals." | Open the page |
+| 8:45 | Four tiles | "Each number says how Databook sees it: which systems, first-party or outside data." Mention the Databook mark-down and mark-up on open deals | Tap **Renewal revenue at risk**: nine renewals, the signals per account, the rule, and the outside leadership or vendor change on seven of them. Close |
+| 10:00 | **Three decisions** | "Each has an owner, a date, a modeled impact and a confidence. Bookings and renewals protected are never added together." | On decision 1 click **Start with Northwind Traders** |
+| 11:00 | **Northwind account** | The read in one sentence. Then the five angles: strategic priorities, financial drivers, management intent, competition, timing. Point at the labels: the Q3 downsizing mandate is *Needs validation*, no savings figure is quoted until the customer shares a baseline | Click **Approve play** |
+| 13:30 | **Guided selling** | "The play is four steps in Slack and Salesforce. The CRO approves first because sellers ignore nudges that do not come from a manager." | **Guide the seller**, then **Message the account team**, edit, **Send** (simulated) |
+| 15:00 | **Seller coach** (optional, 30 s) | "The same account in a six-step coach that ends in a brief and a customer deck" | **Open the seller coach** |
+| 15:30 | **CRO Hub** again | Top accounts row now reads *Approved · 0 of 4 done*. Scroll to *Why we win and lose* and *Where the money comes from* | Click Hub in the sidebar |
+| 17:30 | **Prove** | "Authorized, started, completed, accepted, buyer step. Revenue is not claimed until it shows up, about 110 days later. Baseline is the CFO's plan" | Sidebar, Prove |
+| 18:30 | Close on slide 6 | Behaviors and systems move together | Back to the deck |
 
-1. **Use case.** Acme Corp, Americas, seller Elena Castillo, high priority, $16.5M in flight. Zoom has Workplace and Phone. It lost Contact Center and AI to RingCentral and Phone to Google Meet. Contact Center, about $4.1M, is untapped. Say the three outcomes out loud: revenue growth, product perception, market share.
-2. **See.** Americas is on watch. Acme is one of its biggest accounts, with a risk thread. You can pick any other account here.
-3. **Find.** Left: what Zoom's own systems say (Salesforce, Gong, monday.com, Grafana, buying committee). Right: the customer's own objectives from outside data (vendor consolidation, investment in customer experience, a workplace technology refresh). Below: what was tried before and who won, then the risk thread: a champion who likes Zoom, a new CXO who has frozen seat spend, and no meeting with that person.
-4. **Decide.** The play, with why change, why now, why us, owner, date, impact and confidence. Click **Approve** (or Defer). The impact is modeled and the confidence is Low because there is no buyer intent on record yet.
-5. **Guide.** Click **Write and send**: the message to `#acct-acme-corp` is drafted from the context (where we are, the evidence, the asks, the meetings). Edit it, send it. Then the meeting plan: executive briefing, Contact Center discovery with the VP of Customer Experience, side-by-side against RingCentral. Then **Open the coach** to show the six-step seller coach.
-6. **Tune.** How the score works: each account starts with a size score of 30 to 70 from the value in flight, and each rule that applies adds a boost. Score = size score × (1 + boosts). 85 or more is P1, 65 or more is P2. A boost only ever raises priority. Today the rules are "usage down 5% or more with a renewal inside 6 months" (+25%) and "legacy contract expires inside 8 months" (+35%). Acme has a size score of 57 and no rule applies, so it is 57 (P3, rank 26). Click **Add the rule and recompile**: "also raise priority for accounts that lost a deal to a rival and still have an untapped Zoom product". Acme qualifies, so 57 × 1.5 = 86 (P1, rank 13). Move a slider to show the ranking move. On the right, the Workspace: the sales team's call against the risk-adjusted call on the open deals.
-7. **Prove.** Play approved, message sent, then coach started, completed, advice accepted, buyer next step. Revenue stays "not yet" because it lags about 110 days. **See it on the CRO Hub** shows the same loop for all sellers.
+If you are interrupted, every route is one click: **Under the hood** has data and trust, feeds and matching (39% to 99%), how it reasons, and the Studio. **Performance** has regions, forecast, sellers, spend and pricing, rivals.
 
-### The same journey, clicking through the platform's own tabs
+## 0b. What each Hub block is for
 
-Use this if you would rather not use the Account journey tab. Each step uses a normal screen.
+| Block | The point you are making |
+| --- | --- |
+| Four tiles | The value of Databook is a different, earlier read on the same dollars, with the evidence one tap away |
+| Three decisions | The CRO has no time for a 50-step approval flow; these three move the top line |
+| Where to spend your time | A CRO's attention is the scarce resource; this ranks it by dollars and urgency and keeps the accounts where decisions start on the list |
+| Why we win and lose | Win and loss as patterns Databook can see before the deal is lost. Contact Center is where Zoom loses most (28% win rate) |
+| Positioning | The AI-first story only lands if senior buyers hear it: 40% of calls have an executive, 11 of 40 accounts own Contact Center or AI, $11.9M was asked for with no deal open |
+| Where the money comes from | Spend returns 4.3x overall, 2.4x on Marketing and 12x on Expansion; FY26 hires take about six months to a first win; the top three sellers engage three or more contacts on 70% of deals, against 57% |
+| Where it stands, by region | The traffic lights from slide 5 |
+| Prove strip | The loop from slide 5, with revenue honestly pending |
 
-1. **CRO Hub** (Execution layer). Point at the forecast, the four tiles and the Zoom's AI play band. Say: "Americas is on watch. Which account do we go after?"
-2. **Region and product** (Intelligence layer). Click the **Americas** card. It opens the **Account engine** filtered to Americas.
-3. **Account engine.** The customer context graph card is at the top; Acme Corp's risk thread is open: Gong, Salesforce, an outside signal and the calendar joined into one picture. Below it, click the **Acme Corp** row. You see the cross-system record, what was tried before (lost to RingCentral and Google Meet), the untapped product, and the case for change (why change, why now, why us) including the outside objective.
-4. **Guided selling** (Execution layer). The first play is Acme's. Click **Approve play**. Then **Message the account team**: edit and **Send** the Slack message with the history, evidence, asks and meetings. Then **Open the six-step coach**.
-5. **Seller coach.** Walk the six steps for Acme, then the brief and customer deck.
-6. **Sales Ops Studio** (Intelligence layer). The directive box is pre-filled. Click at the end of the text and add: *Also raise priority for accounts that lost a deal to a rival in the last year and still have an untapped Zoom product.* Click **Compile workbench**. Acme Corp is pinned at the top of the ranking and moves from P3 to P1. Move a slider.
-7. **Workspace** (Intelligence layer) → **Levers and what-ifs**. Shows how a lever or a what-if changes the forecast. Acme Corp is not in the pre-filled what-if list, so pick another Americas account or deal such as Pfizer or Chevron to show the idea.
-8. **CRO Hub.** Scroll to the five boxes at the bottom: approved, started, completed, accepted, buyer step, then revenue.
+## 0c. Likely questions, and the honest answer
 
-Everything here is mock data on a fictional account. The only real figures are Zoom's reported revenue and guidance.
-
----
-
-## 1. How to walk the platform (about 5 minutes)
-
-The platform has three layers. Walk them top to bottom, which is also how a CRO would use it.
-
-**Execution layer: what the CRO and sellers act on**
-- **CRO Hub.** One screen, 50,000 feet. Forecast, upside, revenue at risk, competitive deals. Three regions, each judged on four things: forecast vs actuals, retention, pipeline, competitive positioning. Three moves to approve.
-- Click a move. It tells you what is going on, what approving does, the expected impact, and why the confidence is what it is. Nothing happens until the CRO approves.
-- **Guided selling.** After approval, the seller is guided step by step in Slack and Salesforce. Try the six-step Seller coach.
-- **Proof, at the bottom of the Hub.** Five boxes: moves approved, sellers coached, sellers acted, buyers moved forward, revenue gained. Revenue is "not yet" on purpose, because it lags about 110 days. We show behavior now and claim revenue only when it appears in closed deals.
-
-**Intelligence layer: the numbers and context behind each move**
-- Revenue and uplift, Region and product, Forecast, Accounts, Sellers, Pricing, Compete.
-- **Account engine** holds the **customer context graph**: for each risky account, the evidence from Gong, Salesforce, monday.com, Grafana and outside signals, joined into one picture with a provenance chain.
-
-**Data layer: where it all comes from**
-- **Ingress and resolution.** Four feeds stream in. Text matching links 39% of records to the right company; Databook links 99% *(Databook states)*. In this prototype that is 47 and 119 of 120 links.
-- **Data and trust.** Owner, refresh and a place to fix it on every field. The platform-at-a-glance map is here.
-
-**One line to land it:** the CRO sees where revenue is heading, approves a move, the seller is guided, and the platform shows whether it lifted the top line.
-
-**Words to use on the Hub**
-- *Senior customer leader* = a senior person at the customer who backs the deal. No one in that role means the deal slips more often.
-- *Seller* = the Zoom account executive who owns the deal. *Coach* = the guided assistant that walks that seller through one account.
-- *Confidence* = how much evidence sits behind an estimate. It is Medium or Low whenever we had to assume a success rate. Say so.
+1. **Zoom could build this dashboard in a weekend.** Yes for the front end. What it cannot cheaply build is the licensed outside data, entity resolution across four systems (39% by text matching against 99% with Databook, as Databook states), the same answer for every seller, and proof against a baseline. See Under the hood, How it reasons.
+2. **How do you know the $2.0M is right?** It is not a result. It is deals the signals call fixable, times an assumed 50% success rate. Both are on the ledger, with a confidence of Medium. Revenue is claimed only after closed deals show it.
+3. **Is Databook doing this today?** The platform is a proposed engagement. The customer context graph, guided workflows, AI Studio and Control Center are Databook's documented positioning; the exact screens and numbers here are a prototype on synthetic data.
+4. **Why is Northwind first?** It is where decision 1 starts: Contact Center, a rival named on the deal, a business case missing, a $1.0M deal closing November 5, and $5.6M already lost to rivals there in four quarters.
+5. **Account names look real.** Several account names are real companies with invented data, labelled Mock data. If that is a concern, rename them before sharing (see the open items below).
+6. **Is the pilot proof?** No. Sellers chose to join, the sample is 25 and 31 deals, and the ranges overlap. It is a leading signal. Attribution needs a comparison group and the CFO's plan as the baseline.
+7. **How is Databook paid?** Outcome-based as Databook states: a platform fee plus about 3% of revenue above plan; the platform fee is not disclosed.
+8. **What do you do in the first 30 days?** Section 2 below.
 
 ---
 

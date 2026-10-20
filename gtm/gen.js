@@ -1,6 +1,7 @@
 // Builds gtm/accounts.json: 40 mock enterprise accounts for the GTM Operating System prototype.
 // Names, reps, calls, projects and usage come from the existing synthetic tables in ../zoom/data.json.
-// Dollar figures are generated here so the portfolio totals reconcile exactly: in-flight 480.0, commit 185.0, baseline forecast 210.0, uplift 24.0 ($M).
+// Dollar figures come from the dashboard model (../zoom/model.js and model2.js), so the Hub, the account screens and the Salesforce-style tables agree:
+// in-flight = open pipeline, commit = the sales team's commit-category deals, forecast = the risk-adjusted forecast, uplift = the modeled gain from fixable deals and expansion asks.
 const fs = require('fs'), path = require('path');
 const T = require('../zoom/data.json').tables;
 const AS_OF = Date.parse('2026-10-17T00:00:00Z'), DAY = 864e5;
@@ -27,6 +28,19 @@ inFlight = inFlight.map(r1); commit = commit.map(r1); fc = fc.map(r1);
 const upl = base.map(() => 0), order = fc.map((x, i) => [x, i]).sort((a, b) => b[0] - a[0]).slice(0, 15).map((x) => x[1]), uw = order.map(() => 0.4 + R()), us = uw.reduce((s, x) => s + x, 0);
 order.forEach((i, j) => (upl[i] = r1((uw[j] / us) * 24))); upl[order[0]] = r1(upl[order[0]] + 24 - upl.reduce((s, x) => s + x, 0));
 upl.forEach((x, i) => (upl[i] = r1(x)));
+
+// Replace the placeholder dollars above with figures derived from the model. The random draws above are kept so every other generated field is unchanged.
+const ZMm = require('../zoom/model'), ZM2m = require('../zoom/model2');
+const pre = ZM2m.prepare(JSON.parse(JSON.stringify(T))), MM = ZMm.buildModel(pre.T, pre.cfg); ZM2m.enrich(MM, pre.T);
+const LVm = MM.lv, sumBy = (arr, f) => arr.reduce((s, x) => s + f(x), 0);
+const openWinM = MM.open.filter((o) => o.fq === MM.curQ || o.fq === MM.nextQ);
+base.forEach((a, i) => {
+  const mine = MM.open.filter((o) => o.account_id === a.account_id), win = openWinM.filter((o) => o.account_id === a.account_id), ask = MM.asks.find((x) => x.a.account_id === a.account_id);
+  inFlight[i] = r1(sumBy(mine, (o) => o.amount));
+  commit[i] = r1(sumBy(mine.filter((o) => o.forecast_category === 'Commit'), (o) => o.amount));
+  fc[i] = r1(Math.min(inFlight[i], sumBy(mine, (o) => o.aiCall)));
+  upl[i] = r1(sumBy(win, (o) => o.recov) * LVm.sponsor_push_success_rate + (ask ? ask.est * LVm.expansion_conversion_rate * LVm.expansion_in_year_share : 0));
+});
 
 // ---- cross-system signals from the existing tables ----
 const STAGE_RANK = ['Discovery', 'Validate', 'Proposal', 'Negotiation', 'Contracting'];
@@ -78,9 +92,9 @@ links.forEach(([i, s], n) => {
 const legacyRate = links.filter((_, n) => legacySet.has(n)).length / links.length, databookRate = (links.length - 1) / links.length;
 
 const sum = (k) => r1(accounts.reduce((s, a) => s + a[k], 0));
-const meta = { asOf: '2026-10-17', accounts: accounts.length, inFlight: sum('inFlight'), commit: sum('commit'), forecast: sum('forecast'), uplift: sum('uplift'), links: links.length, legacyResolved: legacySet.size, databookResolved: links.length - 1, legacyRate, databookRate, upliftByQuarter: [['Q4 FY26', 3.2], ['Q1 FY27', 8.9], ['Q2 FY27', 16.1], ['Q3 FY27', 24.0]] };
-const bad = [['inFlight', 480], ['commit', 185], ['forecast', 210], ['uplift', 24]].filter(([k, v]) => Math.abs(meta[k] - v) > 0.05);
-if (bad.length) { console.error('totals do not reconcile', bad, meta); process.exit(1); }
-if (accounts.some((a) => a.commit > a.forecast + 1e-9 || a.forecast > a.inFlight + 1e-9)) { console.error('per-account ordering broken'); process.exit(1); }
+const meta = { asOf: '2026-10-17', accounts: accounts.length, inFlight: sum('inFlight'), commit: sum('commit'), forecast: sum('forecast'), uplift: sum('uplift'), links: links.length, legacyResolved: legacySet.size, databookResolved: links.length - 1, legacyRate, databookRate };
+const bad = [['inFlight', sumBy(MM.open, (o) => o.amount)], ['uplift', MM.bridge.All.incr]].filter(([k, v]) => Math.abs(meta[k] - v) > 0.35);
+if (bad.length) { console.error('totals do not reconcile with the model', bad, meta); process.exit(1); }
+if (accounts.some((a) => a.commit > a.inFlight + 1e-9 || a.forecast > a.inFlight + 1e-9)) { console.error('per-account ordering broken'); process.exit(1); }
 fs.writeFileSync(path.join(__dirname, 'accounts.json'), JSON.stringify({ meta, accounts }, null, 1));
 console.log('accounts.json', accounts.length, JSON.stringify({ inFlight: meta.inFlight, commit: meta.commit, forecast: meta.forecast, uplift: meta.uplift, legacy: meta.legacyResolved + '/' + meta.links, databook: meta.databookResolved + '/' + meta.links }), 'threads', accounts.filter((a) => a.thread).length);

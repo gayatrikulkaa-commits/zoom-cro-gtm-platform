@@ -1,0 +1,43 @@
+Thank you both. I am here as the person who would make Databook work inside Zoom: turning Zoom's AI-first strategy into account-level behavior, getting it live in weeks, and proving it against the CFO's target. I want to start with Zoom's need, not with Databook.
+
+Slide one. Zoom has moved from video meetings to an AI-first work platform. It dropped "Video" from its name, and it now describes itself as a system of action, where meetings and calls become finished work. The traction is real. AI Companion's active users are up more than three times, and paid AI showed up in each of the top ten Zoom CX deals last quarter. But a platform only sells if every seller carries that story into every account. If a customer still sees Zoom as a meeting tool, the AI products do not get bought. That is the gap I am here to close.
+
+Slide two. The market already knows how to sell the platform story. Microsoft has Teams with Copilot. Google bundles Gemini into Workspace. Cisco and RingCentral are Gartner leaders. Salesforce is putting agents inside Slack. Zoom's revenue last year was about four percent of the market figure Zoom itself has cited. I want to be careful here: that is a scale comparison, not market share. The point is simply that the room to grow is large, and it is won account by account, by sellers.
+
+Slide three. This is where Databook helps. The goal is not only to hit the target. It is to go beyond it. Databook works customer back. It builds the picture of the account, then guides the seller. That moves three things Zoom cares about: revenue growth, product perception, and the win rate against named rivals. At the bottom is the chain I will show you live. A customer says it is cutting cost from the third quarter. That points to Zoom Contact Center. The seller reframes the pitch around the customer's own priority, and the result is a dated next step with the buyer.
+
+Slide four, quickly. Databook is three layers. The map resolves four feeds, Salesforce, Gong, Grafana and monday dot com, to one company, and adds licensed outside data. Databook says text matching resolves thirty-nine percent of records, and its pipeline resolves ninety-nine. Those are Databook's figures. The routing engine decides what matters and what to do. Guidance and analytics put it in Slack and Salesforce, and give the CRO control and measurement. Other tools tell you what happened, or find more data. Databook decides what to do on this account, and proves it. Pricing is outcome based: a platform fee, plus about three percent of revenue above target, against a baseline the CFO agrees first. Again, that is as Databook states it.
+
+Slide five. See, find, decide, guide, prove. Let me show you that on one account, Northwind Traders.
+
+This is the CRO Hub. Forecast, fifty-eight point one million dollars. Target, sixty million. Two decisions take it to sixty point nine.
+
+That is the point of Databook. Not to hit the target. To go past it.
+
+Under every number you can see how Databook sees it, and from which systems. Zoom's own systems are in grey. Outside data, licensed or public, is in red. Let me open renewals at risk. Nine renewals, thirty-eight point nine million dollars. Six of them show falling use and no executive on the calls. Seven also have a leadership or vendor change in outside data. That outside signal can pull a renewal forward before usage shows it. This is predictive, not reactive.
+
+A CRO does not have time for fifty approvals. So there are three decisions. Each says exactly what you are approving, with an owner, a date, an estimate and a confidence. For the renewals, you are approving an executive check-in and a 30-day adoption plan on each of eight, started before any quote goes out. Reframing the Contact Center pitch is worth about two million dollars of new sales. Saving the slipping renewals keeps about fourteen point six million, if a rescue plan saves forty percent, which is an assumption. And putting a senior customer leader on the other open deals adds about eight hundred thousand. New sales and renewals kept are never added together.
+
+Decision one starts with Northwind. Let me open it.
+
+The decision is at the top. Northwind is a twenty-eight million dollar account. Rivals took five point six million dollars here in four quarters. Two open deals still name a rival, and the first closes November fifth, in nineteen days.
+
+Below is the context graph. Facts from three sources, joined on one company, and every fact has a label. Verified means it is a record in a Zoom system. Inferred means Databook combined signals. Needs validation means it is a hypothesis. The customer's stated plan to cut its office footprint is needs validation. So I do not quote a savings figure until the customer shares a cost baseline. No executive on the last three calls is verified. A rival platform in outside data is inferred. I will not claim what I cannot source.
+
+I approve the play.
+
+Now the seller. In Guided selling the play is four steps, in Slack and Salesforce. I can message the account team, edit it, and send. And in the Coach studio I change the sales motion once. Databook found that the pitch is a feature swap and the customer cares about cost. So I ask the coach to confirm the buyer's cost baseline before any business case. I see exactly what changed and how the advice differs. I approve it, and Lukas, the seller, runs it.
+
+Back on the Hub, the same decision shows as approved everywhere. And on Prove, the order is honest. Authorized, started, completed, accepted, buyer step. Revenue is not claimed until it shows up, about a hundred and ten days later, against the CFO's target.
+
+The Hub has five colored sections. The one we opened is the top line and the decisions behind it. Then key accounts. Return on spend: about four dollars thirty made for every dollar spent, and twelve on Expansion against two forty on Marketing. Product and brand: whether the Zoom story is landing, and a funnel that shows where open deals are weak. And sellers and adoption.
+
+Now the part I care about most. Uplift and adoption. Open deals, fifty-eight million. Agreed by the sales team, ten. What Databook expects to close, nineteen. With the decisions, about twenty-four. That is a mock scenario. And it only counts if sellers change how they sell. At half of sellers using the plays, the uplift is about two point three million. At all of them, four point six. Today a senior leader is on thirty-five percent of deals, and sixty-eight for the pilot sellers. So the rollout is the work: align the champions, have the CRO lead by example, enable sellers one to one, and put play completion into the targets. Systems and behavior move together. That is the part I would own.
+
+In Performance, the first tab is the seven KPIs a CRO is judged on, and what the data covers. Everything I have shown you is modeled from stated assumptions, and labelled that way.
+
+One last thing. Databook is headless. It sends plays, decks and insights into the tools Zoom already uses, Slack, Salesforce, Google Drive, Granola and Zoom's own surfaces. Everything on that page says what is simulated. And there is an idea I would test: using Zoom's own meeting recordings as a signal source, instead of Gong. It is attractive, and it needs consent, customer contracts and privacy to be settled with counsel first.
+
+Slide six. Without Databook, the lever is hiring: ten to twenty reps, about three to five million dollars, and six months of ramp, as Databook states. With Databook, you equip the sellers already in seat. And behaviors and systems have to move together. Align Zoom's champions on the case for change. Have the CRO lead by example. Enable sellers one to one. Align the KPIs. Without behavior change, there is no uplift. That is the part I would own.
+
+Zoom is next. I would be glad to take your questions.

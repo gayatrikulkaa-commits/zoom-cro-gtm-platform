@@ -1,13 +1,12 @@
 // ---------- pricing, promotions and marketing conversion; grouped navigation ----------
 // ---------- navigation: sidebar on desktop, bottom bar and a sheet on phones ----------
 const GROUPS = [
-  { label: 'Execution layer', note: 'Guidance and analytics', tabs: ['command', 'journey', 'guided', 'coach'] },
-  { label: 'Intelligence layer', note: 'The routing engine', tabs: ['revenue', 'regprod', 'forecast', 'accounts', 'sellers', 'pricing', 'compete', 'engine', 'decide', 'studio', 'lab', 'why'] },
-  { label: 'Data layer', note: 'The map', tabs: ['ingress', 'sources'] }
+  { label: 'The CRO loop', note: 'See, find, decide, guide, prove', tabs: ['command', 'accounts', 'perf', 'guided', 'prove'] },
+  { label: 'Set up', note: 'Connections and the layers underneath', tabs: ['connect', 'hood'] }
 ];
-const LAYER_OF = {}; GROUPS.forEach((g) => g.tabs.forEach((t) => (LAYER_OF[t] = g.label)));
-const NAV_LABEL = { command: 'CRO Hub', journey: 'Account journey', ingress: 'Ingress and resolution', revenue: 'Revenue and uplift', regprod: 'Region and product', guided: 'Guided selling', engine: 'Account engine', studio: 'Sales Ops Studio', forecast: 'Forecast', sellers: 'Sellers', accounts: 'Accounts', pricing: 'Pricing and promotions', compete: 'Compete', coach: 'Seller coach', decide: 'Decide', lab: 'Workspace', why: 'How it reasons', sources: 'Data and trust' };
-const NAV_TAG = {};
+const LAYER_OF = {};
+const NAV_LABEL = { command: 'CRO Hub', journey: 'Walkthrough', ingress: 'Feeds and matching', revenue: 'Uplift and adoption', regprod: 'Regions and products', guided: 'Guided selling', engine: 'Accounts', studio: 'Sales Ops Studio', forecast: 'Forecast', sellers: 'Sellers', accounts: 'Accounts', pricing: 'Spend and pricing', compete: 'Rivals', coach: 'Seller coach', decide: 'Approvals and rules', lab: 'Workspace', why: 'How it reasons', sources: 'Data and trust', perf: 'Performance', prove: 'Prove', hood: 'Under the hood', connect: 'Connections', costudio: 'Coach studio', uplift: 'Uplift and adoption', kpis: 'CRO KPIs' };
+const NAV_TAG = { command: 'See · Decide', accounts: 'Find', perf: 'Find', guided: 'Guide', prove: 'Prove', connect: 'Settings' };
 const ICONS = {
   journey: '<circle cx="6" cy="6" r="2"/><circle cx="18" cy="12" r="2"/><circle cx="8" cy="19" r="2"/><path d="M7.5 7.5l9 3.2M16.5 13.3l-7 4.4"/>', command: '<path d="M4 11l8-7 8 7v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"/>', forecast: '<path d="M4 19V5M4 19h16M8 15l4-5 3 3 5-7"/>',
   accounts: '<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 5.5a3 3 0 0 1 0 5.5M18 14.5c1.8.8 3 2.6 3 5.5"/>', sellers: '<circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7"/>',
@@ -16,10 +15,13 @@ const ICONS = {
   why: '<path d="M12 3l2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5z"/>', sources: '<path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6z"/>',
   deploy: '<path d="M5 21V4M5 4h11l-2 4 2 4H5"/>', levers: '<path d="M12 4v16M5 8h14M7 8l-3 6a3 3 0 0 0 6 0zM17 8l-3 6a3 3 0 0 0 6 0z"/>', ingress: '<path d="M4 5h16l-6 8v6l-4-2v-4z"/>', revenue: '<path d="M5 20V10M12 20V4M19 20v-7"/>', regprod: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>',
   guided: '<circle cx="6" cy="18" r="2"/><circle cx="18" cy="6" r="2"/><path d="M8 18h6a3 3 0 0 0 0-6h-4a3 3 0 0 1 0-6h6"/>', engine: '<ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/>', studio: '<path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 6l-3 12"/>',
+  perf: '<path d="M4 19V5M4 19h16M8 15l4-5 3 3 5-7"/>', prove: '<circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/>', hood: '<ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/>',
+  connect: '<path d="M9 3v5M15 3v5M7 8h10v4a5 5 0 0 1-10 0zM12 17v4"/>', costudio: '<path d="M12 3l7 17-7-4-7 4z"/>',
   more: '<circle cx="5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="19" cy="12" r="1.3"/>'
 };
 const ico = (k) => '<svg class="ic" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICONS[k] || '') + '</svg>';
-const navItem = (id) => '<button class="ni" data-act="tab" data-t="' + id + '" aria-current="' + (S.tab === id ? 'page' : 'false') + '">' + ico(id) + '<span>' + NAV_LABEL[id] + '</span>' + (NAV_TAG[id] ? '<em class="ntag">' + NAV_TAG[id] + '</em>' : '') + '</button>';
+const navTip = (id) => { const g = typeof NAVG !== 'undefined' && NAVG.find((x) => x.id === id); return g ? ' data-tip="' + esc('<b>' + g.label + '</b><br>' + g.desc) + '"' : ''; };
+const navItem = (id) => '<button class="ni"' + navTip(id) + ' data-act="tab" data-t="' + id + '" aria-current="' + ((groupOf(S.tab) || {}).id === id ? 'page' : 'false') + '">' + ico(id) + '<span>' + NAV_LABEL[id] + '</span>' + (NAV_TAG[id] ? '<em class="ntag">' + NAV_TAG[id] + '</em>' : '') + '</button>';
 function settingsHTML() {
   return '<label class="fld"><span>Viewing as</span><select class="sel" data-act="role" title="A demo switch that changes what this prototype shows. It is not access control.">' + Object.keys(ROLES).map((k) => '<option value="' + k + '"' + (S.role === k ? ' selected' : '') + '>' + ROLES[k] + '</option>').join('') + '</select></label><label class="sw"><input type="checkbox" data-act="detail"' + (S.detail ? ' checked' : '') + '><span>Show explanations</span></label><button class="linkbtn" data-act="demo">Guided tour</button>';
 }
@@ -27,8 +29,8 @@ function sideHTML() {
   return '<aside class="side"><nav aria-label="Sections">' + GROUPS.map((g) => '<div class="ng"><span class="nl">' + g.label + '<em>' + g.note + '</em></span>' + g.tabs.map(navItem).join('') + '</div>').join('') + '</nav><div class="side-ft">' + settingsHTML() + '</div></aside>';
 }
 function bottomNav() {
-  const b = (id, label) => '<button data-act="tab" data-t="' + id + '" aria-current="' + (S.tab === id ? 'page' : 'false') + '">' + ico(id) + '<span>' + label + '</span></button>', main = ['command', 'journey', 'guided', 'ingress'];
-  return '<nav class="bnav" aria-label="Main">' + b('command', 'CRO Hub') + b('journey', 'Journey') + b('guided', 'Guided') + b('ingress', 'Data') + '<button data-act="sheet" data-s="more" aria-current="' + (main.includes(S.tab) ? 'false' : 'page') + '">' + ico('more') + '<span>More</span></button></nav>';
+  const b = (id, label) => '<button data-act="tab" data-t="' + id + '" aria-current="' + ((groupOf(S.tab) || {}).id === id ? 'page' : 'false') + '">' + ico(id) + '<span>' + label + '</span></button>', main = ['command', 'accounts', 'guided', 'prove'];
+  return '<nav class="bnav" aria-label="Main">' + b('command', 'CRO Hub') + b('accounts', 'Accounts') + b('guided', 'Guided') + b('prove', 'Prove') + '<button data-act="sheet" data-s="more" aria-current="' + (main.includes((groupOf(S.tab) || {}).id) ? 'false' : 'page') + '">' + ico('more') + '<span>More</span></button></nav>';
 }
 function sheetHTML() {
   return '<div class="sheet" role="dialog" aria-modal="true" aria-label="More"><div class="grab"></div><div class="sh-hd"><b>All screens</b><button class="x" data-act="close" aria-label="Close">×</button></div>' + GROUPS.map((g) => '<div class="ng"><span class="nl">' + g.label + '<em>' + g.note + '</em></span>' + g.tabs.map(navItem).join('') + '</div>').join('') + '<div class="sh-set">' + settingsHTML() + '</div></div>';
