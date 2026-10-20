@@ -1069,3 +1069,4 @@ table th.r, table td.r { text-align: center; } .bar-cell { justify-content: cent
   .hb-deals tr { border-bottom: 1px solid var(--line); padding: 10px 4px; } .hb-deals td { padding: 2px 0; text-align: left; } .hb-deals .nba b { font-size: 13.5px; } .hb-deals td .chips { justify-content: flex-start; }
 }
 .hb-deals th:nth-child(1) { width: 20%; } .hb-deals th:nth-child(2) { width: 24%; } .hb-deals th:nth-child(3) { width: 12%; } .hb-deals th:nth-child(4) { width: 9%; } .hb-deals th:nth-child(5) { width: 11%; } .hb-deals th:nth-child(6) { width: 24%; }
+.hb-dl { display: flex; flex-wrap: wrap; gap: 8px; } .hb-dl .btn { text-decoration: none; }

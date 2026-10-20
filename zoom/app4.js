@@ -101,7 +101,7 @@ document.addEventListener('click', (e) => {
   else if (act === 'complens') { S.compLens = d.l; renderView(); }
   else if (act === 'opencoach') openCoach(d.id || M.coachAccountId);
   else if (act === 'demo') { S.demo = true; S.prov = null; S.copilot = false; renderOverlay(); }
-  else if (act === 'resetdemo') { try { localStorage.removeItem('zcro:desk'); } catch (er) {} location.reload(); }
+  else if (act === 'resetdemo') { try { Object.keys(localStorage).filter((k) => k.indexOf('zcro:') === 0).forEach((k) => localStorage.removeItem(k)); } catch (er) {} location.hash = '#command'; location.reload(); }
   else if (act === 'demogo') { const st = DEMO[+d.i][2]; S.demo = false; S.region = 'All'; S.accGroup = null; S.focus = null; if (st[0] === 'tab') setTab(st[1]); else if (st[0] === 'hub') { setTab('command'); const el = document.getElementById(st[1]); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); } else if (st[0] === 'ev') { setTab('command'); HB.ev = st[1]; renderOverlay(); } else if (st[0] === 'acct') openAccount(anchorId()); else if (st[0] === 'play') { const p = playOf(anchorAcc()); if (p) gGotoPlay(p.id); else setTab('guided'); } else if (st[0] === 'coach') openCoach(anchorId()); }
   else if (act === 'cstep') { if (!S.run) return; S.run.step = +d.s; if (+d.s >= 4) syncSession(S.run); renderView(); window.scrollTo(0, 0); }
   else if (act === 'cans') { const r = S.run; r.answers[d.q] = d.v; r.approved = false; r.reviewed = { brief: false, deck: false }; r.submitted = false; syncSession(r); renderView(); }

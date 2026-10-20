@@ -86,7 +86,7 @@ The Hub is five colour-coded boxes. The chips under the headline jump between th
 
 **Connections (16:45).** "Databook is headless. It sends plays, decks and insights into Slack, Salesforce, Drive, Granola and Zoom's own tools, and every status says what is simulated. One idea to test: Zoom's own meeting recordings as a signal source instead of Gong. It needs consent, customer contracts and privacy settled with counsel first."
 
-**Slide 6, close (17:15).** "Without Databook the lever is hiring: ten to twenty reps and about six months of ramp, as Databook states it. With Databook you equip the sellers already in seat. Behaviors and systems move together: align champions, the CRO leads by example, enable sellers one to one, align targets and incentives. Without behavior change there is no uplift. Zoom is next." Stop. "I would be glad to take questions."
+**Slide 6, close (17:15).** "Without Databook the lever is hiring: ten to twenty reps and about six months of ramp, as Databook states it. With Databook you equip the sellers already in seat. Behaviors and systems move together: align champions, the CRO leads by example, enable sellers one to one, align KPIs and incentives. Without behavior change there is no uplift. Zoom is next." Stop. "I would be glad to take questions."
 
 ## 5. If you are interrupted
 

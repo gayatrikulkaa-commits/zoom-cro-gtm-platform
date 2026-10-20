@@ -1,0 +1,41 @@
+account_id,account_name,region,country,industry,segment,seller,yearly_revenue_usd_m,health_score,renewal_date,revenue_at_risk_usd_m,open_deals_usd_m,agreed_by_sales_team_usd_m,expected_to_close_usd_m,modeled_uplift_usd_m,owns_workplace,owns_phone,owns_contact_center,owns_ai,rival_named,risk_thread,data_flag
+A001,Nike,Americas,US,Retail and consumer,Strategic,Marcus Reyes,3.95,81,2027-10-17,0,2.6,0,1.3,0.1,1,1,0,0,Microsoft Teams,,synthetic; company name used as a label only
+A002,Humana,Americas,US,Healthcare and life sciences,Strategic,Priya Anand,4.96,93,2028-02-03,0,3.6,0,1.7,0.2,1,1,0,0,,,synthetic; company name used as a label only
+A003,Contoso Ltd,Americas,US,Travel and services,Strategic,Jordan Whitfield,6.11,84,2027-03-24,0,2.1,0.7,0.9,0.1,1,1,0,0,,stalled,synthetic; company name used as a label only
+A004,Acme Corp,Americas,US,Travel and services,Global,Elena Castillo,15.68,78,2027-03-14,0,1.2,0.8,0.6,0.1,1,1,0,0,Google Meet,single,synthetic; company name used as a label only
+A005,Target,Americas,US,Retail and consumer,Strategic,Daniel Okafor,5.17,89,2027-03-31,0,1.3,0,0.3,0.2,1,1,0,0,,,synthetic; company name used as a label only
+A006,Delta Air Lines,Americas,US,Travel and services,Strategic,Sarah Lindqvist,6.77,74,2027-11-09,0,0.6,0,0.2,0,1,1,0,0,Genesys,,synthetic; company name used as a label only
+A007,Kroger,Americas,US,Retail and consumer,Strategic,Tyler Brooks,6.01,39,2026-12-11,3.31,3.9,0.2,0.3,0.2,1,0,0,0,RingCentral,business,synthetic; company name used as a label only
+A008,Marriott International,Americas,US,Travel and services,Strategic,Monica Alvarez,10.9,96,2027-12-29,0,1.3,0.2,0.5,0,1,1,1,0,Genesys,,synthetic; company name used as a label only
+A009,Procter & Gamble,Americas,US,Retail and consumer,Strategic,Marcus Reyes,4.92,90,2028-01-02,0,1.5,0.5,0.9,0.1,1,0,0,0,,,synthetic; company name used as a label only
+A010,Ford Motor Company,Americas,US,Industrial and energy,Strategic,Priya Anand,8.75,59,2027-02-26,2.51,2,1.5,1,0.3,1,1,0,0,,,synthetic; company name used as a label only
+A011,Chevron,Americas,US,Industrial and energy,Strategic,Jordan Whitfield,10.45,39,2027-02-04,5.75,0.6,0,0,0.1,1,0,1,0,,stalled,synthetic; company name used as a label only
+A012,Pfizer,Americas,US,Healthcare and life sciences,Global,Elena Castillo,25.05,72,2027-07-12,0,2,0,0.2,0.3,1,0,0,0,Genesys,,synthetic; company name used as a label only
+A013,Citigroup,Americas,US,Financial services,Global,Daniel Okafor,14,80,2027-08-23,0,1,0.4,0.7,0,1,1,0,0,Google Meet,,synthetic; company name used as a label only
+A014,State Farm,Americas,US,Financial services,Global,Sarah Lindqvist,21.35,75,2027-06-21,0,1.2,0,0.2,0.1,1,1,0,0,Genesys,,synthetic; company name used as a label only
+A015,Comcast,Americas,US,Technology and telecom,Strategic,Tyler Brooks,6.92,76,2027-07-11,0,1.5,0,0.4,0.2,1,1,0,0,,,synthetic; company name used as a label only
+A016,Starbucks,Americas,US,Retail and consumer,Strategic,Monica Alvarez,5.76,65,2027-12-29,0,1.4,0,0.1,0.1,1,1,0,0,,,synthetic; company name used as a label only
+A017,Lockheed Martin,Americas,US,Industrial and energy,Strategic,Marcus Reyes,5.35,35,2027-02-24,3.19,1.7,0,0.1,0,1,0,0,0,Genesys,single,synthetic; company name used as a label only
+A018,Royal Bank of Canada,Americas,CA,Financial services,Global,Priya Anand,14.49,76,2027-08-19,0,2,0.2,0.3,0.1,1,1,1,0,,,synthetic; company name used as a label only
+A019,Shopify,Americas,CA,Technology and telecom,Global,Jordan Whitfield,17.3,77,2027-12-17,0,1,0,0,0.1,1,0,0,1,,,synthetic; company name used as a label only
+A020,Mercado Libre,Americas,AR,Retail and consumer,Strategic,Elena Castillo,13.43,52,2027-02-21,5.48,1.1,0.1,0.3,0.1,1,0,0,0,,single,synthetic; company name used as a label only
+A021,Northwind Traders,EMEA,UK,Retail and consumer,Global,Lukas Hartmann,28.02,67,2027-09-07,0,2,1,0.8,0.3,1,0,0,0,RingCentral,business,synthetic; company name used as a label only
+A022,Diageo,EMEA,UK,Retail and consumer,Global,Charlotte Dubois,18.37,90,2028-03-13,0,1.8,0,0.9,0,1,1,0,1,,,synthetic; company name used as a label only
+A023,Unilever,EMEA,UK,Retail and consumer,Strategic,Oliver Grant,13.08,88,2027-08-01,0,4.7,0,1.8,0.2,1,1,0,0,,,synthetic; company name used as a label only
+A024,Siemens,EMEA,DE,Industrial and energy,Strategic,Sofia Marini,5.74,90,2027-04-03,0,1.7,0.9,1.1,0,1,0,0,1,,,synthetic; company name used as a label only
+A025,Allianz,EMEA,DE,Financial services,Strategic,Henrik Nilsson,7.17,73,2027-05-22,0,1.5,0,0.3,0.2,1,0,1,0,,,synthetic; company name used as a label only
+A026,BMW Group,EMEA,DE,Industrial and energy,Global,Lukas Hartmann,14.74,58,2027-08-25,0,1.6,0.4,0.3,0.2,1,1,0,0,,,synthetic; company name used as a label only
+A027,Nestlé,EMEA,CH,Retail and consumer,Strategic,Charlotte Dubois,3.94,62,2027-03-22,0,0.9,0.4,0.2,0.1,1,1,0,0,,,synthetic; company name used as a label only
+A028,Novartis,EMEA,CH,Healthcare and life sciences,Global,Oliver Grant,28.43,73,2028-01-17,0,0.7,0,0.4,0.3,1,0,0,0,,,synthetic; company name used as a label only
+A029,Shell,EMEA,UK,Industrial and energy,Strategic,Sofia Marini,9.72,57,2027-09-21,0,1,0.4,0.5,0.2,1,0,0,0,,single,synthetic; company name used as a label only
+A030,Carrefour,EMEA,FR,Retail and consumer,Global,Henrik Nilsson,21.56,44,2027-03-03,10.65,0.3,0.3,0.1,0,1,1,1,0,,business,synthetic; company name used as a label only
+A031,Banco Santander,EMEA,ES,Financial services,Global,Lukas Hartmann,16.24,77,2027-12-20,0,0.7,0.7,0.7,0.1,1,0,0,0,,,synthetic; company name used as a label only
+A032,Philips,EMEA,NL,Healthcare and life sciences,Strategic,Charlotte Dubois,2.05,38,2027-03-12,1.15,0.1,0.1,0.1,0,1,0,0,0,Webex by Cisco,single,synthetic; company name used as a label only
+A033,Toyota Motor,APAC,JP,Industrial and energy,Strategic,Kenji Watanabe,3.31,80,2028-02-05,0,0.7,0,0.1,0.1,1,1,0,0,Webex by Cisco,,synthetic; company name used as a label only
+A034,Samsung Electronics,APAC,KR,Technology and telecom,Global,Aarav Mehta,19.48,71,2027-07-14,0,2.6,0,0.1,0.3,1,0,0,0,RingCentral,,synthetic; company name used as a label only
+A035,Infosys,APAC,IN,Technology and telecom,Global,Mei Tan,17.49,94,2027-05-16,0,1.2,0.6,0.7,0,1,1,0,0,,,synthetic; company name used as a label only
+A036,Tata Consultancy Services,APAC,IN,Technology and telecom,Strategic,Kenji Watanabe,10.29,60,2027-05-06,0,0.6,0.6,0.5,0,1,1,0,0,,business,synthetic; company name used as a label only
+A037,Commonwealth Bank of Australia,APAC,AU,Financial services,Strategic,Aarav Mehta,6.42,91,2027-06-19,0,0.4,0,0.2,0,1,0,1,0,Google Meet,,synthetic; company name used as a label only
+A038,Telstra,APAC,AU,Technology and telecom,Strategic,Mei Tan,5.67,37,2027-01-30,3.25,0.6,0.3,0.2,0,1,1,1,0,Webex by Cisco,single,synthetic; company name used as a label only
+A039,DBS Bank,APAC,SG,Financial services,Global,Kenji Watanabe,23.52,81,2028-03-01,0,0.4,0.1,0.2,0,1,1,1,0,,,synthetic; company name used as a label only
+A040,Rakuten Group,APAC,JP,Retail and consumer,Strategic,Aarav Mehta,7.44,45,2027-02-11,3.59,1.1,0,0,0.1,1,1,0,0,,single,synthetic; company name used as a label only
