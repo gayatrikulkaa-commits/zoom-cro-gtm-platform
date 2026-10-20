@@ -143,7 +143,7 @@ function loopCounts() {
 }
 function loopCard() {
   const c = loopCounts(), mx_ = Math.max.apply(null, c.map((x) => x[1])), D_ = ['You approved a move', 'A seller opened the guided coach', 'The seller finished the coach', 'A gap was closed (a sponsor named, a baseline obtained)', 'The seller reviewed the brief and deck', 'The seller accepted the recommended action', 'The buyer agreed a dated next step'];
-  return '<div class="card" id="loop"><div class="hd"><div><span class="kicker">Is the plan turning into seller action?</span><h3>Execution loop</h3></div><span class="hd-r">' + infoBtn('loop') + '</span></div><p class="sub" style="color:var(--ink-2);margin:-4px 0 10px;font-size:13px">Each bar counts how many reached that step. Pilot sample plus what you do in this demo: <button class="linkbtn" data-act="opencoach" data-id="' + M.coachAccountId + '">run the coach</button> and watch the counts move.</p><div class="lgroup"><b>What we did</b><span>leading: visible within weeks</span></div>' +
+  return '<div class="card" id="loop"><div class="hd"><div><span class="kicker">Is the plan turning into seller action?</span><h3>Execution loop</h3></div><span class="hd-r">' + infoBtn('loop') + '</span></div><p class="sub" style="color:var(--ink-2);margin:-4px 0 10px;font-size:13px">Each bar counts how many reached that step. Earlier counts are sample data; approvals and coach runs you make here add to them.</p><div class="lgroup"><b>What we did</b><span>leading: visible within weeks</span></div>' +
     c.map((x, i) => '<div class="lrow"><span class="ln">' + (i + 1) + '</span><span class="lt2"><b>' + x[0] + '</b><small>' + D_[i] + '</small></span><div class="lb"><i style="width:' + Math.max(4, (x[1] / mx_) * 100) + '%"></i></div><span class="lv num">' + x[1] + '</span></div>').join('') +
     '<div class="lgroup lag"><b>What happened</b><span>lagging: takes about ' + nf(mean(M.lag.cycleByProduct.map((x) => x.v)), 0) + ' days</span></div><div class="lrow pend"><span class="ln">8</span><span class="lt2"><b>Revenue outcome</b><small>Expansion won, renewal saved. Not yet observed, so none is claimed</small></span><div class="lb"><i></i></div><span class="lv">-</span></div></div>';
 }
@@ -201,7 +201,8 @@ const HUB_MOVE = {
 const hMove = (a) => HUB_MOVE[a.id] || { title: (x) => x.title, what: a.problem, does: a.decision, why: () => 'Confidence ' + a.conf + '.' };
 function moveRow(a, i) {
   const st = aStatus(a.id), hm = hMove(a), cro = S.role === 'cro';
-  const act = st === 'Approved' ? '<span class="appr ok">Approved</span>' + (a.accountId ? '<button class="btn sm red" data-act="opencoach" data-id="' + a.accountId + '">Guide the seller</button>' : '') : st === 'Rejected' ? '<span class="appr bad">Deferred</span>' : '';
+  const undoB = st !== 'Pending' ? '<button class="btn sm ghost" data-act="hb-undo" data-id="' + a.id + '">' + (st === 'Approved' ? 'Undo' : 'Reopen') + '</button>' : '';
+  const act = (st === 'Approved' ? '<span class="appr ok">Approved</span>' + (a.accountId ? '<button class="btn sm red" data-act="opencoach" data-id="' + a.accountId + '">Guide the seller</button>' : '') : st === 'Rejected' ? '<span class="appr bad">Deferred</span>' : '') + undoB;
   return '<div class="move"><span class="mn">' + (i + 1) + '</span><div class="mb"><b>' + esc(hm.title(a)) + '</b><div class="mm">' + impactChip(a) + '<span class="cf ' + a.conf + '">Confidence: ' + a.conf + '</span></div></div><div class="ma">' + act + '<button class="btn sm' + (st === 'Pending' && cro ? ' red' : ' ghost') + '" data-act="mv-open" data-id="' + a.id + '">' + (st === 'Pending' ? (cro ? 'Review' : 'Details') : 'Details') + '</button></div></div>';
 }
 function moveDetail(id) {

@@ -78,11 +78,13 @@ The Hub is five colour-coded boxes. The chips under the headline jump between th
 - Box 4, product and brand (amber): "40% of customer calls have an executive on them. Eight customers asked for a Zoom product nobody is selling them yet, about $11.9M." The funnel: "Where open deals sit and where they are weak. A deal with no senior leader wins 19%, with one 41%. Contact Center wins 28%."
 - Box 5, sellers and adoption (teal): "The top three have three or more customer contacts on 70% of deals, against 57%. Eight of sixteen sellers use Databook."
 
+**Between runs.** Every Approve has an Undo (on the Hub card, the account page and the play). Prove has a Start over button that clears everything. The Hub has a Customize this view button: switch sections off and on and the Hub changes at once (Connections has the same controls). Client materials, under Guided selling, generates an executive briefing for any account.
+
 **Performance, only if asked.** The first tab is the seven KPIs a CRO is judged on and what the data covers. In Forecast, the deals table gives the next best action for each deal, when it closes and the money at risk: what the sales team counts on that Databook does not.
 
 **Prove, then uplift and adoption (15:15 to 16:45)**
-- Prove: authorized, started, completed, accepted, buyer step. Revenue is not claimed until it shows, about 110 days later, against the CFO's target.
-- Uplift and adoption: "Open deals $58.2M, agreed $10.4M, Databook expects $19.2M, with the decisions about $23.8M. A mock scenario. And it only counts if sellers change how they sell." Move the slider: "At 50% of sellers using the plays, +$2.3M. At 100%, +$4.6M." Point at the behaviors (a senior leader on 35% of deals today, 68% for pilot sellers) and the four rollout steps. "Systems and behavior move together. That is the part I would own."
+- Prove: the execution loop step by step (authorized, started, completed, accepted, buyer step), then a list of what was approved and which sellers have worked on it and finished the coach. Revenue is not claimed until it shows, about 110 days later, against the CFO's target.
+- Uplift and adoption: "Open deals $58.2M, agreed $10.4M, Databook expects $19.2M, with the decisions about $23.8M. A mock scenario. And it only counts if sellers change how they sell." Move the slider: "At 50% of sellers using the plays, +$2.3M. At 100%, +$4.6M." Point at the behaviors (a senior leader on 35% of deals today, 68% for sellers using Databook) and the four rollout steps. "Systems and behavior move together. That is the part I would own."
 
 **Connections (16:45).** "Databook is headless. It sends plays, decks and insights into Slack, Salesforce, Drive, Granola and Zoom's own tools, and every status says what is simulated. One idea to test: Zoom's own conversation intelligence, Zoom Revenue Accelerator, and meeting recordings as a signal source instead of Gong. It needs consent, customer contracts and privacy settled with counsel first."
 

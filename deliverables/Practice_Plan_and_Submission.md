@@ -32,7 +32,7 @@ A short cover note you can paste:
 | 7:35 | **Interruption drill**: read each question in section 5 aloud, answer in 20 seconds, say the return line. Do all ten |
 | 7:55 | **Run 3**, full, with a friend or your phone playing a voice that interrupts twice at random |
 | 8:20 | **Run 4**, the short 12-minute version: slides 1, 3, 5, the Hub (box 1), Northwind, Prove and uplift, slide 6 |
-| 8:40 | Tech check: open the live link on your laptop and your phone; reset the demo (Guided tour, Reset the demo); close other tabs; test screen share; set browser zoom so text is readable |
+| 8:40 | Tech check: open the live link on your laptop and your phone; reset the demo (Prove, Start over); close other tabs; test screen share; set browser zoom so text is readable |
 | 8:50 | Send the submission |
 | 9:00 | Done. Rest. Do not read new material |
 

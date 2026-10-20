@@ -112,7 +112,7 @@ function tileHTML(k, label, big, sub, st, signal, chips) {
 function decisionCard(a, n, lead, why, ask) {
   const st = aStatus(a.id), cro = S.role === 'cro', unit = { bookings: 'new sales', retention: 'renewals kept' }[a.kind] || '';
   const state = st === 'Approved' ? '<span class="appr ok">Approved</span>' : st === 'Rejected' ? '<span class="appr bad">Deferred</span>' : st === 'Evidence' ? '<span class="appr">Evidence requested</span>' : '';
-  const btns = !cro ? '<span class="appr">Waiting for the CRO</span>' : (st === 'Approved' ? '<button class="btn sm red" data-act="hb-lead" data-id="' + a.id + '">Guide the seller</button>' : '<button class="btn red sm" data-act="mv-set" data-id="' + a.id + '" data-v="Approved">Approve</button><button class="btn sm" data-act="mv-set" data-id="' + a.id + '" data-v="Rejected">Defer</button><button class="btn sm ghost" data-act="hb-evid" data-id="' + a.id + '">Evidence</button>');
+  const btns = !cro ? '<span class="appr">Waiting for the CRO</span>' : (st === 'Approved' ? '<button class="btn sm red" data-act="hb-lead" data-id="' + a.id + '">Guide the seller</button><button class="btn sm ghost" data-act="hb-undo" data-id="' + a.id + '">Undo</button>' : st === 'Rejected' || st === 'Evidence' ? '<button class="btn sm ghost" data-act="hb-undo" data-id="' + a.id + '">Reopen</button>' : '<button class="btn red sm" data-act="mv-set" data-id="' + a.id + '" data-v="Approved">Approve</button><button class="btn sm" data-act="mv-set" data-id="' + a.id + '" data-v="Rejected">Defer</button><button class="btn sm ghost" data-act="hb-evid" data-id="' + a.id + '">Evidence</button>');
   return '<article class="hb-d' + (st !== 'Pending' ? ' set' : '') + '"><div class="hb-dh"><span class="hb-dn">' + n + '</span><b>' + esc(hb(a)) + '</b></div><div class="hb-di"><b class="num">' + (a.modeled == null ? '' : '+' + fm(a.modeled, 1)) + '</b><span>' + unit + ' · estimate</span></div><p class="hb-ask"><b>You approve</b>' + ask + '</p><p class="hb-dw">' + why + '</p><div class="hb-dm"><span>' + (lead ? '<button class="linkbtn" data-act="hb-acct" data-id="' + lead.id + '">Start with ' + esc(lead.name) + '</button>' : '') + '</span><span>' + esc(shortOwner(a.owner)) + ' · due ' + dateFmt(a.due) + '</span><span class="cf ' + a.conf + '">' + a.conf + ' confidence</span></div><div class="hb-da">' + state + btns + '</div></article>';
 }
 const HBT = { reframe: 'Reframe the Contact Center pitch', rescue: 'Save the slipping renewals', sponsor: 'Get a senior leader on the other deals' };
@@ -162,7 +162,7 @@ function regionsHTML(F) {
 }
 function stepStrip10() {
   const st = (n, name, to) => '<button class="stp c' + n + '" data-act="scrollto" data-to="box' + n + '"><span class="stn">' + n + '</span><span class="stt"><b>' + name + '</b></span></button>';
-  return '<nav class="steps" aria-label="Sections of the CRO Hub">' + st(1, 'Top line and decisions', 'decisions') + st(2, 'Key accounts', 'focus') + st(3, 'Return on spend', 'roi') + st(4, 'Product and brand', 'brand') + st(5, 'Sellers and adoption', 'sellers') + '</nav>';
+  return '<div class="hb-navrow"><nav class="steps" aria-label="Sections of the CRO Hub">' + st(1, 'Top line and decisions') + (PREFS.b2 ? st(2, 'Key accounts') : '') + (PREFS.b3 ? st(3, 'Return on spend') : '') + (PREFS.b4 ? st(4, 'Product and brand') : '') + (PREFS.b5 ? st(5, 'Sellers and adoption') : '') + '</nav><button class="btn sm hb-cust" data-act="hb-custom">Customize this view</button></div>';
 }
 function viewCommand() {
   const F = hubFacts(), B = F.B, row = F.row, gap = B.plan - B.landing, re = F.act('reframe'), sp = F.act('sponsor'), rs = F.act('rescue');
@@ -176,16 +176,17 @@ function viewCommand() {
   const box = (n, title, html) => '<div class="hb-box c' + n + '" id="box' + n + '"><div class="hb-bh"><span class="hb-bn">' + n + '</span>' + title + '</div>' + html + '</div>';
   return filterBar() + stepStrip10() +
     box(1, 'Top line and the decisions behind it', '<section class="answer" id="ans"><span class="kicker">AI sales transformation · ' + M.curQ + ' · ' + M.cur.daysLeft + ' days left' + (all ? '' : ' · ' + esc(S.region)) + '</span><h2>' + sentence + '</h2><div class="hb-tiles">' + t1 + t2 + t3 + t4 + '</div><p class="hb-hint">Tap a number to see why.</p></section>' + decisionsHTML(F) + bridgeHTML(F) + (PREFS.regions ? regionsHTML(F) : '')) +
-    box(2, 'Key accounts to pay attention to', focusHTML(F)) +
-    (PREFS.money ? box(3, 'Return on spend', roiHTML()) : '') +
-    box(4, 'Zoom product and brand positioning', brandHTML(F)) +
-    (PREFS.money || PREFS.proof ? box(5, 'Sellers and adoption', sellersHTML()) : '') +
+    (PREFS.b2 ? box(2, 'Key accounts to pay attention to', focusHTML(F)) : '') +
+    (PREFS.b3 ? box(3, 'Return on spend', roiHTML()) : '') +
+    (PREFS.b4 && (PREFS.positioning || PREFS.winloss) ? box(4, 'Zoom product and brand positioning', brandHTML(F)) : '') +
+    (PREFS.b5 ? box(5, 'Sellers and adoption', sellersHTML()) : '') +
     '<p class="foot-note">Prototype. Synthetic data. Not connected to Zoom or to Databook systems. Zoom\'s reported revenue and guidance are the only real figures.</p>' + provStrip(['m_fcst', 'bridge', 'm_comp']);
 }
 
 // ----- evidence panel: how Databook sees each Hub number -----
 function evBlock(h, body, labels) { return '<div class="mv-blk"><h4>' + h + (labels ? ' ' + labels : '') + '</h4>' + body + '</div>'; }
 function hbEvidence(k) {
+  if (k === 'custom') return '<div class="panel-hd"><div><span class="kicker">Changes show on the Hub straight away</span><h3>Customize your CRO Hub</h3></div><button class="x" data-act="close" aria-label="Close">×</button></div><div class="panel-bd">' + prefControls() + '</div>';
   const F = hubFacts(), B = F.B, W = winLoss(F);
   let title = '', kick = '', body = '', go = '';
   if (k === 'plan') {
@@ -220,12 +221,19 @@ function hbEvidence(k) {
 
 // ----- events -----
 function syncPlays() { GPLAYS.forEach((p) => { if (!p.decision) return; const st = aStatus(p.decision), s = gps(p.id); if (st === 'Approved' && !s.auth) s.auth = true; else if (st !== 'Approved' && s.auth && !s.steps.some(Boolean)) s.auth = false; }); gSavePlays(); }
+function resetPlay(p) { const s = gps(p.id), a = gByName(p.account); s.auth = false; s.steps = [false, false, false, false]; s.buyer = false; if (a) { delete desk.coach.auth[a.id]; desk.coach.sessions = desk.coach.sessions.filter((x) => x.account !== a.id); } }
+function undoDecision(id) {
+  delete desk.actionStatus[id]; GPLAYS.filter((p) => p.decision === id).forEach(resetPlay); saveDesk(); gSavePlays();
+  audit('Reopened decision: ' + ((M.actions.find((x) => x.id === id) || {}).title || id)); toast('Undone. The decision is open again.');
+}
 function openAccount(id) { S.account = id; S.sub.accounts = 'view'; S.move = null; HB.ev = null; setTab('accounts'); }
 document.addEventListener('click', (e) => {
   const t = e.target.closest('[data-act^="hb-"]'); if (!t) return; const a = t.dataset.act, d = t.dataset;
   if (a === 'hb-ev') { HB.ev = d.k; S.move = null; renderOverlay(); }
   else if (a === 'hb-acct') openAccount(d.id);
   else if (a === 'hb-top') { HB.top = +d.n; renderView(); }
+  else if (a === 'hb-undo') { undoDecision(d.id); renderView(); renderOverlay(); }
+  else if (a === 'hb-custom') { HB.ev = 'custom'; S.move = null; renderOverlay(); }
   else if (a === 'hb-evid') { desk.actionStatus[d.id] = 'Evidence'; saveDesk(); audit('Asked for more evidence on: ' + ((M.actions.find((x) => x.id === d.id) || {}).title || d.id)); toast('Evidence requested from the account team (simulated). The decision stays open.'); syncPlays(); renderView(); }
   else if (a === 'hb-lead') { const act = M.actions.find((x) => x.id === d.id), lead = act && act.leadId ? GAID[act.leadId] : null, p = lead ? playOf(lead) : null; if (p) gGotoPlay(p.id); else setTab('guided'); }
   else if (a === 'hb-go') { HB.ev = null; if (d.s) S.sub[d.t] = d.s; setTab(d.t); }
